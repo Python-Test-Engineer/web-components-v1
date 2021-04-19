@@ -82,7 +82,7 @@ div.explanation h1 {
 	padding: 5px;
 	text-align: center;
 }
-.component {
+.component , #component {
 	border: 3px solid var(--component-border, black);
 	background: white;
 	border-radius: 5px;

@@ -1,36 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../_css/w3.css">
-    <link rel="stylesheet" href="../_css/web-course.css">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>04 Named Slot</title>
-</head>
-<body>
-    <style>
-        my-card {
-            font-size:30px;
-        }
-    </style>
-  
-    <script>  
-       
-        class BusinessCard extends HTMLElement {
-        constructor() {
-            super();
-            this.attachShadow({ mode: 'open' });
-            this.shadowRoot.innerHTML = `
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../_css/web-course.css">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>04 Named Slot</title>
+    </head>
+
+    <body>
+        <script>
+
+            class BusinessCard extends HTMLElement {
+                constructor() {
+                    super();
+                    this.attachShadow({ mode: 'open' });
+                    this.shadowRoot.innerHTML = `
                 <style>
                     .card {
                         margin:20px;
                         padding: 12px;
                         border: 4px solid orange;
                         background: #ccc;
-                        width: 300px;
+                        width: 600px;
                         border-radius:10px;
                     }
                     /* slot not part of shadow dom so light dom css works */
@@ -53,53 +47,50 @@
                 </div>
                 <slot>Default slot text</slot>
             `;
-            
-          }
-        }
 
-        customElements.define('my-card', BusinessCard);
-    </script>
-      <main>
-        <div class="wrapper">
+                }
+            }
+
+            customElements.define('my-card', BusinessCard);
+        </script>
+        <main>
+
             <div class="explanation">
                 <h1>04-named-slot</h1>
-                <p>We can have many slots in our component and using the name attribute in the component it is bound to the span with slot attribute on the page.</p>
-                <p>We can use the slot tag as a selector in the style section, using either slot or slot[name="first"].</p>
-     
-        
-            </div> 
-            <div class="spacer"></div>
-            <div id="output">
-                <!-- OUTPUT OF CUSTOM ELEMENT -->
-                <my-card>Some default slot text here - if none default text in component won't be displayed as there elements in the slot
-                     <!-- 
+            </div>
+
+            <div id="component">
+
+                <!-- $COMPONENT -->
+                <my-card>Some default slot text here - if none default text in component won't be displayed as there
+                    elements in the slot
+                    <!-- 
                         named slots. order of span elements not important as
                         the span is linked to component slot by the id
                      -->
-                
+
                     <span slot="email">john@example.com</span>
                     <span slot="first">John</span>
                     <span slot="title">Engineer</span>
-                   
+
                 </my-card>
-
+                <!-- $COMPONENT -->
 
             </div>
-            <div class="spacer"></div>
-            <div class="exercise"">
-               <h3>EXERCISE:</h3>
+            <div class="notes">
+                <p>We can see how CSS works here for slots and we will cover CSS fully in module 04.</p>
+                <p>We can have many slots in our component and using the name attribute in the component it is bound
+                    to the span with slot attribute on the page.</p>
+                <p>We can use the slot tag as a selector in the style section, using either slot or
+                    slot[name="first"].</p>
             </div>
-        </div>
-    </main> 
+        </main>
 
-
-
-    <footer>
-        <div class=" w3-container w3-blue w3-center footer">
+        <footer>
+            <div>
                 <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
             </div>
-            </footer>
-
-</body>
+        </footer>
+    </body>
 
 </html>
