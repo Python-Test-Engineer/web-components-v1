@@ -16,14 +16,19 @@
                 // not yet part of the DOM
                 constructor() {
                     super(); // this is needed to inherit HTMLElement properties and is standard JavaScript
-                    console.log('Component created…');
+                    console.log('Component created in constructor...');
+                    this._system = ' VALUE (constructor)';
+                    console.log(`%cAtttribute system value in constructor:${this._system} `, 'color:green;font-size:18px')
                 }
                 connectedCallback() { // this as an event when the component is attached to the DOM
+                    console.log('connectCallback fired...')
                     var myItem = document.getElementById("comp")
+                    console.log('Attribute system once DOM rendered')
                     this.innerHTML = '<h1>This is my web component</h1>'; // this refers to the class component.
                     this.innerHTML += '<h1>System Attribute is now <span style="color:purple;">'
                         + myItem.getAttribute("system") + '</span></h1>';
                     console.log('Component now part of DOM…');
+                    console.log(`%cAtttribute system value in DOM:${myItem.getAttribute("system")} `, 'color:blue;font-size:18px')
                 }
             }
             // We connect the custom HTML element ‘my-component’ with the class MyComponent
@@ -50,12 +55,13 @@
                     const component = document.querySelector('my-component')
                     component.setAttribute('system', 'NODE')
                     component.innerHTML += '<h1>...attribute:system changed to <span style="color:purple";>NODE</span></h1>'
+                    console.log(`%cAtttribute system value in DOM:${component.getAttribute("system")} `, 'color:purple;font-size:18px')
                 }, 5000)
 
             </script>
             <div class="notes">
                 <p>We can define any attribute name we want.</p>
-                <p>We can get/set Attribute from within the component.</p>
+                <p>We can get/set Attribute from within the component. See console.log</p>
                 <p>Later we will see how we can configure our component to react to a change in its attributes or
                     'props'.</p>
                 <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute"

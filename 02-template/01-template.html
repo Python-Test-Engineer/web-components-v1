@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=<te>, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<link rel="stylesheet" href="../_css/w3.css" />
 		<link rel="stylesheet" href="../_css/web-course.css" />
 		<title>01 Template NOT rendered</title>
 	</head>
+
 	<body>
-		<div class="wrapper">
-			<h1>The template Tag</h1>
-			<em>The text below will not render until programatically inserted:</em>
-			<template id="template01">
-				<h1>This is content in template tag.</h1>
-			</template>
-		</div>
+
+		<main>
+
+			<div class="explanation">
+				<h1>01-template...</h1>
+				<p>Demonstrating the inert template tag</p>
+			</div>
+
+			<div class="component">
+
+				<!-- $COMPONENT -->
+				<h1>The template Tag</h1>
+				<em>The text below will not render until programatically inserted:</em>
+				<template id="template01">
+					<h1>This is content in template tag.</h1>
+				</template>
+				<!-- $COMPONENT -->
+
+			</div>
+			<div class="notes">MDN: The HTML Content Template (&lt;template&gt;) element is a mechanism for holding HTML that
+				is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime
+				using JavaScript.
+
+				Think of a template as a content fragment that is being stored for subsequent use in the document. While the
+				parser does process the contents of the &lt;template&gt; element while loading the page, it does so only to
+				ensure that those contents are valid; the element's contents are not rendered, however.</div>
+
+		</main>
+		<footer>
+			<div>
+				<p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+			</div>
+		</footer>
 	</body>
+
 </html>
