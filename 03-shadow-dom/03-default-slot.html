@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../_css/w3.css">
+    <link rel="stylesheet" href="../_css/web-course.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03 Default Slot</title>
+</head>
+<body>
+    <script>  
+        const template = document.createElement('template');
+        template.innerHTML = `
+        <style>
+            .card {
+                margin:30px;
+                padding: 12px;
+                border: 4px solid goldenrod;
+                background: #ccc;
+                width:300px;
+                border-radius:10px;
+            }
+        </style>
+        
+        <div class="card">
+            <h2>Heading</h2>
+            <slot style="color:red;font-size:32px;">
+                <p >Default text in template will be rendered in the SLOT of the component.</p>
+            </slot>
+            <p>Some paragraph text here</p>
+        </div>
+        `;
+
+        class BusinessCard extends HTMLElement {
+        constructor() {
+            super();
+            this.attachShadow({ mode: 'open' });
+            this.shadowRoot.appendChild(template.content.cloneNode(true));
+          }
+        }
+
+        customElements.define('my-card', BusinessCard);
+    </script>
+   
+    <!-- if there is a space, comment or new line in between my-card tags then this is treated as content as this is a text node. -->
+    <br>
+    <main>
+        <div class="wrapper">
+            <div class="explanation">
+                <h1>03-default-slot</h1>
+                <p>We can set the default text for slot in component so that if there is nothing in the slot on the page, the default slot text will be rendered.</p>
+     
+               
+            </div> 
+            <div class="spacer"></div>
+            <div id="output">
+                <!-- OUTPUT OF CUSTOM ELEMENT -->
+                <my-card>this is slot text</my-card> 
+                <!-- Default slot text will be rendered below as there is no text.-->
+                <my-card></my-card> 
+            </div>
+            <div class="spacer"></div>
+            <div class="exercise"">
+               <h3>EXERCISE:</h3>
+            </div>
+        </div>
+    </main> 
+   
+
+
+    <footer>
+        <div class=" w3-container w3-blue w3-center footer">
+                <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+            </div>
+            </footer>
+
+</body>
+
+</html>

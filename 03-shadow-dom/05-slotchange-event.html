@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../_css/w3.css">
+  <link rel="stylesheet" href="../_css/web-course.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>05 Slot Change</title>
+</head>
+<body>
+  <style>
+    :root {
+      --primary-color: red;
+      --primary-size: 32px;
+    }
+   
+   
+  </style>
+  <script>
+   
+      
+    class BusinessCard extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({
+          mode: 'open'
+        });
+
+        this.shadowRoot.innerHTML = `
+          <style>
+            <style>
+              .card {
+                  margin:20px;
+                  padding: 12px;
+                  border: 4px solid orange;
+                  background: #ccc;
+                  width: 300px;
+                  border-radius:10px;
+              }
+              ::slotted(div){ /* empty() does not work - needs a selector */
+                color:green;
+                font-weight: bold;
+                font-size: 30px;
+                letter-spacing:2px;
+              }
+              ::slotted([slot="first"]){
+                  color:red;
+                  font-weight: bold;
+                  font-size: 40px;
+                  letter-spacing:2px;
+              }
+            </style>
+            <div class="card">
+                <slot></slot>
+                <slot name="first"></slot>
+            </div>
+        `;
+        const slots = this.shadowRoot.querySelectorAll('slot');
+        console.dir("SLOTS: ",slots);
+        slots[0].addEventListener('slotchange', event => {
+          console.log("[0] ", slots[0].assignedNodes());
+        });
+        slots[1].addEventListener('slotchange', event => {
+          console.log("[1]  ",slots[1].assignedNodes());
+        });
+      }
+    }
+    customElements.define('my-card', BusinessCard);
+  </script>
+  <main>
+    <div class="wrapper">
+      <div class="explanation">
+        <h1>css-05-slotchange-event</h1>
+        <h2>Getting the slot data from the slotchange event.</h2>
+        <p><em>Note that CR are considered a node.</em></p>
+        <p>Named slot found in Array1>span>innertext etc</p>
+      </div>
+      <div class="spacer"></div>
+      <div id="output">
+        <!-- OUTPUT OF CUSTOM ELEMENT -->
+        <my-card>
+          <div>'DIV' This is unnamed slot text</div>
+          <span slot="first">this is slot='first' => John</span>
+        </my-card>
+      </div>
+      <div class="spacer"></div>
+      <div class="exercise">
+        <h3>EXERCISE:</h3>
+      </div>
+    </div>
+  </main>
+</body>
+<footer>
+  <div class=" w3-container w3-blue w3-center footer">
+    <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+  </div>
+</footer>
+</body>
+</html>

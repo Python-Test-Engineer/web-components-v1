@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../_css/w3.css">
+    <link rel="stylesheet" href="../_css/web-course.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01 Simple CSS Light</title>
+</head>
+<body>
+    <style>
+        /* Custom CSS Variables */
+        :root {
+            --primary-color: green;
+            --primary-size: 32px;
+            --font-style: 'capitalize'
+        }
+           
+        my-component {
+            color: var(--primary-color, goldenrod);
+            text-transform:  var(--font-style, uppercase);
+            font-size: var(--primary-size, 18px);
+           
+        }
+        h1 {
+            color: red;
+        }
+    </style>
+    <script>  
+        
+        class MyComponent extends HTMLElement {
+            // constructor() creates class
+            // not yet part of the DOM
+            constructor() {
+                super(); // this is needed to inherit HTMLElement properties and is standard JavaScript
+                console.log('Component created…');
+            }
+            connectedCallback() { // this as an event when the component is attached to the DOM
+                this.innerHTML = `
+                    <style>h1 {color:a</style>
+                    <h1>This is my web component with no Shadow DOM</h1>`; // this refers to the class component.
+                console.log('Component now part of DOM…');
+            }
+        }
+        // We connect the custom HTML element ‘my-component’ with the class MyComponent
+        customElements.define('my-component',MyComponent);
+    </script>
+         <main>
+            <div class="wrapper">
+                <div class="explanation">
+                    <h1>css-01-light</h1>
+                    <p>With no SHADOW DOM, CSS follows normal rules</p>
+                    <p>SLOT text is part of the LIGHT DOM and styled by page CSS unless we use a special selector in the component which we will look at in css-03-slotted</p>
+        
+                </div> 
+                <div class="spacer"></div>
+                <div id="output">
+                    <!-- OUTPUT OF CUSTOM ELEMENT -->
+                    <my-component>Some slot text</my-component>
+                </div>
+                <div class="spacer"></div>
+                <div class="exercise"">
+                   <h3>EXERCISE:</h3>
+                </div>
+            </div>
+        </main> 
+        <footer>
+          <div class=" w3-container w3-blue w3-center footer">
+            <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+          </div>
+        </footer>
+  
+  </body>
+  
+  </html>

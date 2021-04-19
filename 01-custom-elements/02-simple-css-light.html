@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../_css/web-course.css" />
+    <title>02 Simple CSS Light</title>
+  </head>
+
+  <body>
+    <style>
+      my-component {
+        color: green;
+        text-transform: uppercase;
+        font-size: 38px;
+      }
+
+      h1 {
+        color: red;
+      }
+    </style>
+    <script>
+      class MyComponent extends HTMLElement {
+        // constructor() creates class
+        // not yet part of the DOM
+        constructor() {
+          super(); // this is needed to inherit HTMLElement properties and is standard JavaScript
+          console.log('Component created…');
+        }
+        connectedCallback() {
+          // this as an event when the component is attached to the DOM
+          this.innerHTML =
+            '<h1 style="color:orange;">This is my web component</h1>'; // this refers to the class component.
+          console.log('Component now part of DOM…');
+        }
+      }
+      // We connect the custom HTML element ‘my-component’ with the class MyComponent
+      customElements.define('a-my-component', MyComponent);
+    </script>
+    <main>
+
+      <div class="explanation">
+        <h1>02-simple-css-styling</h1>
+        <p>Page level CSS permeates into the component.</p>
+      </div>
+
+      <div class="component">
+
+        <!-- $COMPONENT -->
+        <a-my-component>Some <strong><em>slot</em></strong> text</a-my-component>
+        <!-- $COMPONENT -->
+
+      </div>
+      <div class="notes">Notes about this page...</div>
+
+    </main>
+    <footer>
+      <div>
+        <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+      </div>
+    </footer>
+  </body>
+
+</html>

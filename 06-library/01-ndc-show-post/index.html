@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../_css/library.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>01-ndec-show-post</title>
+  </head>
+
+  <body>
+    <main>
+      <div class="wrapper">
+        <div class="explanation">
+          <h1>01-ndc-show-post</h1>
+          <h2>
+            This returns one post based on a JSON file for one post. For DEMO
+            purposes at this stage.
+          </h2>
+          <p>
+            We are using CSS custom properties defined in ../_css/library.css
+          </p>
+          <p>
+            In DEV > ELEMENTS we can change postid to 110 or 106 to get a new
+            post.
+          </p>
+        </div>
+        <div class="spacer"></div>
+        <div id="output">
+          <!-- OUTPUT OF CUSTOM ELEMENT -->
+          <button class="w3-button w3-blue" id="btnChange">
+            CHANGE POST TO ID:109
+          </button>
+
+          <!-- WEB COMPONENT -->
+          <show-post postid="88"></show-post>
+
+          <script type="module">
+            import './showPost.js';
+          </script>
+          <!-- WEB COMPONENT -->
+
+          <script>
+            const btn = document.getElementById('btnChange');
+            btn.addEventListener('click', function () {
+              // <show-post /> is an HTML tag
+              document.querySelector('show-post').setAttribute('postid', 109);
+              document
+                .querySelector('show-post')
+                .publicMethod('!!!! VALUE PASSED IN HERE');
+            });
+          </script>
+
+          <div class="spacer"></div>
+          <div class="exercise"">
+          <h3>
+            EXERCISE:
+            <p>
+              Change postid to 92, 103 or 112 in DEV > ELEMENTS as well as
+              clicking button.
+            </p>
+          </h3>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="w3-container w3-blue w3-center footer">
+        <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+      </div>
+    </footer>
+  </body>
+</html>

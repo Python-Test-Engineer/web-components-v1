@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="site.css" rel="stylesheet">
+    <title>20-demo-site</title>
+  
+</head>
+<body>
+    <nav>
+        <script src="../15-ndc-navbar/nav.js"></script>
+        <my-navbar></my-navbar>
+    </nav>
+    <main>
+        <div class="wrapper">
+            <div class="explanation">
+                <h1>WordPress as a micro front end service on an HTML site.</h1>
+                <h2>Using the WP Rest API and Web Components to deploy content and functionality with just two lines of
+                    code!</h2>
+                <br>
+                <p>Each of these pages uses custom HTML tags to render content and functionality from a WP site hosted
+                    on another domain. Use VIEW SOURCE to see how highly functionaly components can be used with just
+                    two lines of code.
+                </p>
+                <p class="code">&lt;show-post id="106"&gt;&lt;/show-post&gt;</p>
+                <p class="code">&lt;script src="showPost.js"&gt;&lt;/script&gt;</p>
+                <p>The navigation bar and back-to-top feature (on other pages) are also Web Components.</p>
+                <h1>01-ndc-show-post</h1>
+                <h2>This returns one post based on a JSON file for one post.</h2>
+                <br>
+                <p>We are using CSS custom properties defined in ../_css/library.css</p>
+                <p>In DEV > ELEMENTS we can change postid to 106 or 109 to get a new post.</p>
+            </div>
+            <div class="spacer"></div>
+            <div id="output">
+                <!-- OUTPUT OF CUSTOM ELEMENT -->
+                <br>
+                <button class="w3-button w3-blue" id="btnChange">CHANGE POST TO ID: 109</button>
+                <!-- WEB COMPONENT -->
+                <show-post postid="106"></show-post>
+                <!-- WEB COMPONENT -->
+                <script>
+                    const btn = document.getElementById('btnChange');
+                    btn.addEventListener('click', function () {
+                        // <show-post /> is an HTML tag
+                        document.querySelector('show-post').setAttribute('postid', 109)
+                        // this is 'like' creating and instance of the Web Component class and
+                        // accessing a method/property
+                        document.querySelector('show-post').publicMethod(
+                            'We can access the component via its methods');
+                    })
+                </script>
+                </section>
+            </div>
+        </div>
+    </main>
+    <script type='module'>
+        import '../01-ndc-show-post/showPost.js';
+  </script>
+    <wp-indexeddb-load cat="6"></wp-indexeddb-load>
+    <wp-indexeddb-load cat="7"></wp-indexeddb-load>
+    <wp-indexeddb-load cat="24"></wp-indexeddb-load>
+    <wp-indexeddb-load cat="25"></wp-indexeddb-load>
+    <script src="../10-ndc-indexeddb/wp-indexeddb-load.js" type="module"></script>
+</body>
+</html>

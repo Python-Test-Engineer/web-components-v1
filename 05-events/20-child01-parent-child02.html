@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../_css/w3.css">
+  <link rel="stylesheet" href="../_css/web-course.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>20-child01-parent-child02</title>
+
+  <style>
+    .parentContainer {
+      padding: 12px;
+      border: 4px solid purple;
+      background: #ccc;
+      width: 1200px;
+      border-radius: 10px;
+      margin: 0 auto;
+      color: purple;
+      font-weight: bold;
+    }
+
+    #pOutput {
+      color: #2196f3;
+      font-weight: bold;
+    }
+
+    #pOutput2 {
+      color: salmon;
+      font-weight: bold;
+    }
+
+    .card {
+      padding: 12px;
+      border: 4px solid red;
+      background: #f4f4f4;
+      width: 1000px;
+      border-radius: 10px;
+    }
+
+    .card h1 {
+      color: red;
+      font-weight: bold;
+    }
+
+    footer {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body><br>
+  <!-- PARENT CONTAINER -->
+  <div id="container" class="parentContainer">
+    <h1>PARENT DIV CONTAINER</h1>
+    <p>When <span style="color:blue">CHILD ONE COMPONENT</span> is clicked, its sends out a Custom Event ChildClickOne.
+    </p>
+    <span>The parent page has an event listener for this and then changes the attribute 'displaytext' value to a new
+      value and then renders the Custom Event's data payload into the <span style="color:blue">BLUE Component One</span>
+      Output.</p>
+      <p>When <span style="color:orange">CHILD TWO COMPONENT</span> is clicked it sends a Custom Event which the page
+        has an event listener for and then renders Custom Event data into Component Two output.</p>
+      <p>Child-Child communication is done via the parent page so Child01-->Parent-->Child02.</p>
+      <p>This is good practice because each component should be able to be used without relying on another component, in
+        which case they could be combined into one.</p>
+
+      <!-- WEB COMPONENT ONE -->
+      <child-one></child-one>
+      <script src="./20-child-one.js"></script>
+      <!-- WEB COMPONENT ONE -->
+
+      <br>
+
+      <!-- WEB COMPONENT TWO -->
+      <child-two></child-two>
+      <script src="./20-child-two.js"></script>
+      <!-- WEB COMPONENT TWO -->
+
+      <br>
+      <br>
+      <div class="card">
+        <h1>OUTPUT Container</h1>
+        <h2 id="title">Child to Child Custom Event</h2>
+        <p id="pOutput">Component One output will go here...</p>
+        <p id="pOutput2">Component Two output will go here...</p>
+      </div>
+      <br><br>
+  </div>
+  <!-- PARENT CONTAINER -->
+
+  <!-- Listen for Custom Event in container div tag -->
+  <script>
+    const container = document.getElementById('container');
+    container.addEventListener('childOneClick', function (e) {
+      //alert("<child-one> Event heard in parent div container");
+      console.log(e);
+
+      // parent receives Custom Event from child-one and then changes attribute on child-two
+      // which then triggers attributeChangedcallback() on child-two which then changes the child-two button text.
+      // we could change variables in child-two as well.
+      const childTwo = document.querySelector('child-two');
+      let rndNumber = Math.floor(Math.random() * 1000);
+      childTwo.setAttribute("displaytext", rndNumber);
+      // direct childOne communicating with child-two by firing a public method in child-two
+      // this is sibling to sibling communciation and not a general design pattern but possible
+      const componentTwo = document.querySelector('child-two');
+      componentTwo.publicMethod();
+
+      const pOutput = document.getElementById('pOutput');
+      pOutput.innerHTML = e.detail;
+
+
+    });
+    container.addEventListener('childTwoClick', function (e) {
+      //alert("<child-two> Event heard in parent div container");
+      console.log(e);
+      const pOutput2 = document.getElementById('pOutput2');
+      pOutput2.innerHTML = e.detail;
+    });
+  </script>
+
+
+  <footer>
+
+    <div class="w3-container w3-blue w3-center footer">
+      <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../_css/web-course.css" />
+    <title>01 Create a Custom Element</title>
+  </head>
+
+  <body>
+    <script>
+      // can define tag in class definition
+      // customElements.define('my-component', class extends HTMLElement {})
+      class MyComponent extends HTMLElement {
+        // constructor() creates class
+        // not yet part of the DOM and is just a regular tag
+        // can initialise the component/class here
+
+        constructor() {
+          super(); // this is needed to inherit HTMLElement properties and is standard JavaScript
+          console.log('Component created…');
+        }
+        connectedCallback() {
+          // this is the lifecycle event when the component is attached to the DOM
+          console.log('Component now part of DOM…');
+          // ES6 Template Literal back tick
+          this.innerHTML = ` 
+                    <h1 style="color:red;">This is my web component</h1>
+                    <p>This component is able to display HTML blocks.</p>
+                `; // does not work in constructor
+          // 'this' refers to the  my-component tag of MyComponent.
+        }
+      }
+      // We connect the custom HTML element ‘my-component’ with the class MyComponent
+      // We can use any name but must contain at least one dash (-) so that browser knows
+      // it is a Custom Element and avoids any future class with a new HTML tag that may become part of HTML
+      customElements.define('my-component', MyComponent);
+    </script>
+    <main>
+      <div class="explanation">
+        <h1>01-create-custom-element</h1>
+        <p>Page level CSS permeates into the component.</p>
+      </div>
+      <div class="component">
+
+        <!-- $COMPONENT -->
+        <my-component></my-component>
+        <!-- $COMPONENT -->
+
+      </div>
+      <div class="notes">Notes about this page...</div>
+    </main>
+    <footer>
+      <div>
+        <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+      </div>
+    </footer>
+  </body>
+
+</html>

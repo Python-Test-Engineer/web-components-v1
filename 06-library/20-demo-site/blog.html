@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+   <link href="site.css" rel="stylesheet">
+   <style>
+      .postGrid {
+         display: grid;
+         grid-template-columns: 10% 90%;
+         grid-gap: 50px;
+         border: 3px solid #2196f3;
+         border-radius: 10px;
+         background: #fff;
+         padding: 10px;
+         overflow: none;
+      }
+   </style>
+   <title>Document</title>
+</head>
+<body>
+   <nav>
+      <script src="../15-ndc-navbar/nav.js"></script>
+      <my-navbar></my-navbar>
+   </nav>
+   <main>
+      <h2>Two components: &lt;all-posts&gt; and &lt;the-post&gt;</h2>
+      <br>
+      <p>As this component loads data from a REST API, the data is held in browser memory.</p>
+      <p>It wil therefore appear 'instant' as the brain precieves anything under 100ms as instant.</p>
+      <p>It will also work offline provided the page is not refreshed - it a an offline Single Page Applicaiton that
+         runs WordPress in this instance as a client-side app.</p>
+      <br>
+      <div class="postGrid">
+
+         <!-- ================== WEB COMPONENTS HERE ================== -->
+
+         <all-posts></all-posts>
+         <the-post></the-post>
+         
+         <!-- ================== WEB COMPONENTS HERE ================== -->
+
+      </div>
+   </main>
+   <script type="module" src="../06-ndc-blog/index.js"></script>
+</body>
+</html>

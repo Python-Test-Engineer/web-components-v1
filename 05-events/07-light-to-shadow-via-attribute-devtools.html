@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../_css/w3.css">
+  <link rel="stylesheet" href="../_css/web-course.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>02-light-to-shadow-via-attribute-devtools</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      --color-primary: #a4fcda;
+      font-family: sans-serif;
+    }
+  </style>
+  <script>
+    class IconHover extends HTMLElement {
+      constructor() {
+        super();
+        this._iconContainer;
+        this._iconText = 'Initial dummy icon text.';
+        this.attachShadow({
+          mode: 'open'
+        });
+        this.shadowRoot.innerHTML = `
+            <style>
+                div {
+                  margin-top:10px;
+                  font-weight: normal;
+                  background-color: orange;
+                  color: white;
+                  position: absolute;
+                  top: 1.5rem;
+                  left: 0.75rem;
+                  z-index: 10;
+                  padding: 0.15rem;
+                  border-radius: 3px;
+                  box-shadow: 1px 1px 6px rgba(0,0,0,0.26);
+                  width:200px;
+                }
+                .icon {
+                  background: orange;
+                  color: white;
+                  padding: 0.15rem 0.5rem;
+                  text-align: center;
+                  border-radius: 10px;
+                  width:500px;
+                  font-size:30px;
+                }
+            </style>
+            
+            <span class="icon">TOOLTIP ICON</span>
+        `;
+      }
+
+      connectedCallback() {
+        if (this.hasAttribute('displaytext')) {
+          this._iconText = this.getAttribute('displaytext');
+        } else {
+          this._iconText = this._iconText;
+        }
+        const iconIcon = this.shadowRoot.querySelector('span');
+        iconIcon.addEventListener('mouseenter', this._showIconText.bind(this));
+        iconIcon.addEventListener('mouseleave', this._hideIconText.bind(this));
+        this.shadowRoot.appendChild(iconIcon);
+        this.style.position = 'relative';
+      }
+      disconnectedCallback() {
+        iconIcon.removeEventListener('mouseenter', this._showIconText.bind(this));
+        iconIcon.removeEventListener('mouseleave', this._hideIconText.bind(this));
+      }
+
+      static get observedAttributes() {
+        return ['displaytext'];
+      }
+
+      attributeChangedCallback(name, oldValue, newValue) {
+        if (oldValue === newValue) {
+          return;
+        }
+        if (name === 'displaytext' && oldValue !== null) {
+          this._iconText = newValue;
+          console.log(`Name: ${name} changed from: ! ${oldValue} to: ! ${newValue}`)
+        }
+      }
+
+      _showIconText() {
+        this._iconContainer = document.createElement('div');
+        this._iconContainer.textContent = this._iconText;
+        this.shadowRoot.appendChild(this._iconContainer);
+      }
+
+      _hideIconText() {
+        this.shadowRoot.removeChild(this._iconContainer);
+      }
+    }
+
+    customElements.define('wp-icon-hover', IconHover);
+  </script>
+
+</head>
+
+<body>
+  <main>
+    <div class="wrapper">
+      <div class="explanation">
+        <h1>02-light-to-shadow-via-attribute-devtools</h1>
+
+        <h3>This demonstrates how changing attribute will be reflected in component via attributeChangedCallback
+          function.</h3>
+        <p>This example in our 06-library section shows the use of atributeChangedCallback with blog posts: <a
+            href="../06-library/01-ndc-show-post/index.html" target="_blank">A post example</a></p>
+        <p>This shows how the attributeChangedCallback feature can be used to pass properties to the component.</p>
+
+
+      </div>
+      <div class="spacer"></div>
+      <div id="output">
+        <!-- OUTPUT OF CUSTOM ELEMENT -->
+        <wp-icon-hover displaytext="If the displayText attribute exists then this text will be shown...">
+        </wp-icon-hover>
+      </div>
+      <div class="spacer"></div>
+      <div class="exercise">
+        <h3>EXERCISE:</h3>
+        <p>In DEV TOOLS > Elements change the value of 'displaytext' in div#output to see how the attribute change is
+          reflected into component.</p>
+        <p>When you click on TOOLTIP you will se new text being shown.</p>
+      </div>
+    </div>
+  </main>
+
+
+  <footer>
+
+    <div class=" w3-container w3-blue w3-center footer">
+      <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

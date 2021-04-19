@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../_css/library.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-ndc-show-post-dynamic</title>
+<body>
+    <main>
+        <div class="wrapper">
+            <div class="explanation">
+                <h1>02 Show Posts Dynamically</h1>
+                <p>We can dynamically load in the JS file and the Custom HTML tags.</p>
+                <p>This could also be done programatically via the Intersection Observer API - lazy loading of contentthat is below the fold.
+                </p>
+                <p>In DEV TOOLS, we can see dynamic.js being loaded when button is clicked and in XHR tab we can see the Web Components firing off an AJAX request for each postID.</p>
+
+            </div> 
+        <br>
+        <div id="output">
+            <button id="btnLoad">LOAD</button>
+            <div id="blog"></div>
+        </div>
+
+       
+        <div class="spacer"></div>
+        <div class="exercise">
+           <h3>EXERCISE: </h3>
+             <p>Load the page and click LOAD a few types with DEV > NETWORK to see which files are called. Use the ALL, XHR and JS filters too.</p>
+          
+        </div>
+    </main>
+   
+    <script>
+        const blog = document.getElementById('blog');
+        const btnLoad = document.getElementById('btnLoad');
+        btnLoad.addEventListener('click', () => loadPosts("loading posts..."));
+
+        function loadPosts(val) {
+            //alert(val);
+            loadJS('dynamic.js');
+            createHTML('show-post', 1142);
+            createHTML('show-post', 40);
+            createHTML('show-post', 45);
+        }
+
+        function loadJS(filename) {
+            var fileRef = document.createElement('script')
+            fileRef.setAttribute("type", "module");
+            fileRef.setAttribute("src", filename);
+            blog.appendChild(fileRef);
+        }
+
+        function createHTML(customHTML, id) {
+            var tag = document.createElement(customHTML);
+            tag.setAttribute('postid', id);
+            console.log(tag);
+            var blog = document.getElementById('blog')
+            blog.appendChild(tag);
+        }
+    </script>
+
+<footer>
+
+    <div class="w3-container w3-blue w3-center footer">
+      <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

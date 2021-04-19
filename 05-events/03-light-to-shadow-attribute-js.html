@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../_css/w3.css" />
+    <link rel="stylesheet" href="../_css/web-course.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>03-light-to-shadow-attribute-js</title>
+  </head>
+
+  <body>
+    <style>
+      my-component {
+        color: red;
+        text-transform: uppercase;
+      }
+    </style>
+    <script>
+      class MyComponent extends HTMLElement {
+        // constructor() creates class
+        // not yet part of the DOM
+        constructor() {
+          super(); // this is needed to inherit HTMLElement properties and is standard JavaScript
+
+          this.attachShadow({
+            mode: 'open'
+          });
+        }
+        // connectedCallback() is an event when the component is attached to the DOM
+        connectedCallback() {
+          // Notice how we can access elements in the Light DOM from the Shadow DOM
+          // We must do this once the component has been added to the Light DOM and this
+          // is done in this connectedCallback lifecycle event.
+          const myItem = document.getElementById('comp');
+
+          //alert("Initial value is " + myItem.getAttribute("system"));
+          console.log('connectedCallback START -------------');
+          console.log('Initial value is: ' + myItem.getAttribute('system'));
+          console.log('connectedCallback END -------------');
+        }
+        static get observedAttributes() {
+          return ['system'];
+        }
+        // these can be any names but first is attribute name, then original value, then new value
+        // initially the attribute is null so initial setting fires a change
+        // that is why we check oldVaue !== newValue although there are cases where this
+        // may not be required.
+        attributeChangedCallback(attributeName, oldValue, newValue) {
+          console.log(
+            'The attribute SYSTEM has been changed from: ' +
+              oldValue +
+              ' to: ' +
+              newValue
+          );
+          // if (attributeName === 'system' && oldValue !== newValue) {
+          //     this._temp = newValue;
+          //     // we can carry out other actions etc.
+          //     // this will fire twice as initial setting of value on page is considered a change.
+          //     alert(`attribute changed to ${newValue}...alert called in component`);
+          // }
+          // this checks if oldValue was null to avoid firing with initial setting.
+          if (
+            attributeName === 'system' &&
+            oldValue !== newValue &&
+            oldValue !== null
+          ) {
+            newValue;
+            // we can carry out other actions etc.
+            // this will fire twice as initial setting of value on page is considered a change.
+            alert(
+              `attribute changed to ${newValue}...alert called in component`
+            );
+            console.log('attributeChangedCallback -------------');
+            console.log('attribute changed...new value is: ' + newValue);
+          }
+        }
+      }
+      // We connect the custom HTML element ‘my-component’ with the class MyComponent
+      customElements.define('my-component', MyComponent);
+    </script>
+
+    <main>
+      <div class="wrapper">
+        <div class="explanation">
+          <h1>03-light-to-shadow-attribute-js</h1>
+        </div>
+        <div class="spacer"></div>
+        <div id="output">
+          <!-- OUTPUT OF CUSTOM ELEMENT -->
+          <p>
+            Open DEV TOOLS > console to see how the attribute is changed
+            programatically after 20 seconds.
+          </p>
+
+          <my-component system="WordPress" id="comp"></my-component>
+        </div>
+        <div class="spacer"></div>
+        <div class="exercise"></div>
+      </div>
+    </main>
+
+    <script>
+      // select by id
+      var myItem = document.getElementById('comp');
+      console.log(myItem.getAttribute('system'));
+      setTimeout(function () {
+        myItem.setAttribute('system', 'JavaScript');
+        document.querySelector('.exercise').innerHTML +=
+          '<h1>System Attribute is now ' +
+          myItem.getAttribute('system') +
+          '</h1>';
+        console.log(myItem.getAttribute('system'));
+      }, 20000);
+    </script>
+
+    <footer>
+      <div class="w3-container w3-blue w3-center footer">
+        <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+      </div>
+    </footer>
+  </body>
+</html>

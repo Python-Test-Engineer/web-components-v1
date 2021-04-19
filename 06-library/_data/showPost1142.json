@@ -1,0 +1,87 @@
+{
+   "id": 1142,
+   "date": "2019-09-24T11:19:10",
+   "date_gmt": "2019-09-24T11:19:10",
+   "guid": {
+      "rendered": "https://wpjs.co.uk/wpb/?p=1142"
+   },
+   "modified": "2019-10-10T07:09:25",
+   "modified_gmt": "2019-10-10T07:09:25",
+   "slug": "gutenberg-sample-01",
+   "status": "publish",
+   "type": "post",
+   "link": "https://wpjs.co.uk/wpb/gutenberg-sample-01/",
+   "title": {
+      "rendered": "LOCAL DATA SET Gutenberg Sample 01"
+   },
+   "content": {
+      "rendered": "\n<p><a href=\"https://wpjs.co.uk/wpb/wp-json/udemy/v1/latest-posts/25\">https://wpjs.co.uk/wpb/wp-json/udemy/v1/latest-posts/25</a></p>\n\n\n\n<p><a href=\"https://github.com/WordPress/WordPress/tree/master/wp-includes/css/dist/block-library\">https://github.com/WordPress/WordPress/tree/master/wp-includes/css/dist/block-library</a></p>\n\n\n\n<p>Outputting Gutenberg blocks from  https://wpjs.co.uk/wpb/wp-json/wp/v2/posts?categories=25</p>\n\n\n\n<figure class=\"wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\">\n<iframe title=\"Wordpress JSON REST API Tutorial for beginners(#14) Register Methods Types in Custom Rest Route WP\" width=\"640\" height=\"360\" src=\"https://www.youtube.com/embed/videoseries?list=PLT9miexWCpPU3TtDIVxA765dh2MaJY5X3\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n</div></figure>\n\n\n<div class=\"wp-block-calendar aligncenter\"><table id=\"wp-calendar\">\n\t<caption>January 2020</caption>\n\t<thead>\n\t<tr>\n\t\t<th scope=\"col\" title=\"Monday\">M</th>\n\t\t<th scope=\"col\" title=\"Tuesday\">T</th>\n\t\t<th scope=\"col\" title=\"Wednesday\">W</th>\n\t\t<th scope=\"col\" title=\"Thursday\">T</th>\n\t\t<th scope=\"col\" title=\"Friday\">F</th>\n\t\t<th scope=\"col\" title=\"Saturday\">S</th>\n\t\t<th scope=\"col\" title=\"Sunday\">S</th>\n\t</tr>\n\t</thead>\n\n\t<tfoot>\n\t<tr>\n\t\t<td colspan=\"3\" id=\"prev\"><a href=\"https://wpjs.co.uk/wpb/2019/12/\">&laquo; Dec</a></td>\n\t\t<td class=\"pad\">&nbsp;</td>\n\t\t<td colspan=\"3\" id=\"next\" class=\"pad\">&nbsp;</td>\n\t</tr>\n\t</tfoot>\n\n\t<tbody>\n\t<tr>\n\t\t<td colspan=\"2\" class=\"pad\">&nbsp;</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>\n\t</tr>\n\t<tr>\n\t\t<td>6</td><td id=\"today\">7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>\n\t</tr>\n\t<tr>\n\t\t<td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>\n\t</tr>\n\t<tr>\n\t\t<td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>\n\t</tr>\n\t<tr>\n\t\t<td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>\n\t\t<td class=\"pad\" colspan=\"2\">&nbsp;</td>\n\t</tr>\n\t</tbody>\n\t</table></div>\n\n<ul class=\"wp-block-categories wp-block-categories-list\">\t<li class=\"cat-item cat-item-7\"><a href=\"https://wpjs.co.uk/wpb/category/cors/\">CORS</a>\n</li>\n\t<li class=\"cat-item cat-item-6\"><a href=\"https://wpjs.co.uk/wpb/category/decoupled-wp/\">DECOUPLED WP</a>\n</li>\n\t<li class=\"cat-item cat-item-26\"><a href=\"https://wpjs.co.uk/wpb/category/frontpage/\">frontpage</a>\n</li>\n\t<li class=\"cat-item cat-item-8\"><a href=\"https://wpjs.co.uk/wpb/category/references/\">REFERENCES</a>\n</li>\n\t<li class=\"cat-item cat-item-5\"><a href=\"https://wpjs.co.uk/wpb/category/rest-api/\">REST-API</a>\n</li>\n\t<li class=\"cat-item cat-item-2\"><a href=\"https://wpjs.co.uk/wpb/category/site-set-up/\">SITE SET UP</a>\n</li>\n\t<li class=\"cat-item cat-item-24\"><a href=\"https://wpjs.co.uk/wpb/category/vienna/\">VIENNA</a>\n</li>\n\t<li class=\"cat-item cat-item-25\"><a href=\"https://wpjs.co.uk/wpb/category/wpbtn/\">WPBTN</a>\n</li>\n</ul>\n\n<p class=\"wp-block-tag-cloud\"><a href=\"https://wpjs.co.uk/wpb/tag/tag1/\" class=\"tag-cloud-link tag-link-17 tag-link-position-1\" style=\"font-size: 22pt;\" aria-label=\"tag1 (4 items)\">tag1</a>\n<a href=\"https://wpjs.co.uk/wpb/tag/tag2/\" class=\"tag-cloud-link tag-link-18 tag-link-position-2\" style=\"font-size: 22pt;\" aria-label=\"tag2 (4 items)\">tag2</a>\n<a href=\"https://wpjs.co.uk/wpb/tag/tag3/\" class=\"tag-cloud-link tag-link-19 tag-link-position-3\" style=\"font-size: 14.3pt;\" aria-label=\"tag3 (2 items)\">tag3</a>\n<a href=\"https://wpjs.co.uk/wpb/tag/tag4/\" class=\"tag-cloud-link tag-link-20 tag-link-position-4\" style=\"font-size: 8pt;\" aria-label=\"tag4 (1 item)\">tag4</a>\n<a href=\"https://wpjs.co.uk/wpb/tag/tag5/\" class=\"tag-cloud-link tag-link-21 tag-link-position-5\" style=\"font-size: 18.5pt;\" aria-label=\"tag5 (3 items)\">tag5</a>\n<a href=\"https://wpjs.co.uk/wpb/tag/tag6/\" class=\"tag-cloud-link tag-link-22 tag-link-position-6\" style=\"font-size: 8pt;\" aria-label=\"tag6 (1 item)\">tag6</a>\n<a href=\"https://wpjs.co.uk/wpb/tag/tag7/\" class=\"tag-cloud-link tag-link-23 tag-link-position-7\" style=\"font-size: 14.3pt;\" aria-label=\"tag7 (2 items)\">tag7</a></p>",
+      "protected": false
+   },
+   "excerpt": {
+      "rendered": "<p>https://wpjs.co.uk/wpb/wp-json/udemy/v1/latest-posts/25 https://github.com/WordPress/WordPress/tree/master/wp-includes/css/dist/block-library Outputting Gutenberg blocks from https://wpjs.co.uk/wpb/wp-json/wp/v2/posts?categories=25</p>\n",
+      "protected": false
+   },
+   "author": 14,
+   "featured_media": 0,
+   "comment_status": "closed",
+   "ping_status": "open",
+   "sticky": false,
+   "template": "",
+   "format": "standard",
+   "meta": [],
+   "categories": [
+      25
+   ],
+   "tags": [],
+   "authorName": "Craig Admin",
+   "acf": {
+      "source": "We have added ACF support using ACF TO REST plugin"
+   },
+   "_links": {
+      "self": [{
+         "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/1142"
+      }],
+      "collection": [{
+         "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts"
+      }],
+      "about": [{
+         "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/types/post"
+      }],
+      "author": [{
+         "embeddable": true,
+         "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/users/14"
+      }],
+      "replies": [{
+         "embeddable": true,
+         "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/comments?post=1142"
+      }],
+      "version-history": [{
+         "count": 15,
+         "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/1142/revisions"
+      }],
+      "predecessor-version": [{
+         "id": 1180,
+         "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/1142/revisions/1180"
+      }],
+      "wp:attachment": [{
+         "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/media?parent=1142"
+      }],
+      "wp:term": [{
+            "taxonomy": "category",
+            "embeddable": true,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/categories?post=1142"
+         },
+         {
+            "taxonomy": "post_tag",
+            "embeddable": true,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/tags?post=1142"
+         }
+      ],
+      "curies": [{
+         "name": "wp",
+         "href": "https://api.w.org/{rel}",
+         "templated": true
+      }]
+   }
+}

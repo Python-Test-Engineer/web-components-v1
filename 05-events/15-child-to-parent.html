@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../_css/w3.css">
+  <link rel="stylesheet" href="../_css/web-course.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>15-child-to-parent</title>
+</head>
+<style>
+  .container {
+    padding: 20px;
+    border: 4px solid red;
+    background: #ccc;
+    width: 900px;
+    border-radius: 10px;
+    margin: 10px auto;
+  }
+
+  #pOutput {
+    color:black;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  child-one {
+    background: linen
+  }
+</style>
+</head>
+
+<body>
+
+  <!-- EVENT BUBBLING up nested elements - component is nested in div#container -->
+  <div class="container" id="container">
+    <h3>Parent Container (<span style="color: red; font-weight:bold">red</span>) Child Web Component (<span style="color: green;font-weight:bold">green</span>)</h3>
+    <p id="pOutput">...output here when Child Component One Custom Event is fired...</p>
+    <br>
+    <div>
+      <!-- WEB COMPONENT -->
+      <div style="padding:30px; border: 3px solid green;;border-radius:10px;">
+        <child-one></child-one>
+      </div>
+      <script src="./15-child-to-parent.js"></script>
+      <!-- WEB COMPONENT -->
+      <!-- 
+        
+      As we have bubbles set to true, events bubble up the DOM tree.
+      We can thus listen for the Custom Event either on the web component or its parent and higher.
+      In this case we can listen for the Custom Event on the div with class parent. 
+    
+    -->
+    </div>
+
+    <p>
+      When the CHILD ONE button is clicked it sends a CUSTOM EVENT that bubbles up out of the component. We can listen
+      for this event (childOneClick) with an addEventListener.
+    </p>
+    <p>
+      Data is also passed with the event in the [detail]
+      property of the CUSTOM EVENT. A RND number has been added for demo purposes.
+    </p>
+    <p>We see this in the BLOG1 where the POST titles are buttons that cause the post to be displayed in the main
+      area.</p>
+  </div>
+  <br>
+
+  </div>
+
+  <!-- Listen for Custom Event in Custom HTML tag -->
+  <script>
+    const childOne = document.querySelector('child-one')
+    childOne.addEventListener('childOneClick', e => {
+      console.log("PAGE: <child-one> HTML PAGE: Event heard on page in childOne");
+      console.log(e);
+      const pOutput = document.getElementById('pOutput');
+      pOutput.innerHTML = '<b>' + e.detail + '</b>';
+   
+    });
+  </script>
+  <!-- Listen for Custom Event in container div tag -->
+  <!-- <script>
+    const container = document.getElementById('container');
+    container.addEventListener('childOneClick', e => {
+      console.log("PAGE <child-one> event HEARD on page in container");
+      console.log(e);
+      const pOutput = document.getElementById('pOutput');
+      pOutput.innerHTML = '<b>' + e.detail + '</b>';
+      const divOutput = document.getElementById('divOutput');
+      divOutput.innerHTML = '<b>' + e.detail + '</b>';
+    });
+  </script> -->
+
+  <footer>
+
+    <div class="w3-container w3-blue w3-center footer">
+      <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

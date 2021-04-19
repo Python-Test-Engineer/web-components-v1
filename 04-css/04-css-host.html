@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../_css/w3.css" />
+    <link rel="stylesheet" href="../_css/web-course.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>04 Style Hosted</title>
+  </head>
+
+  <body>
+    <style>
+      :root {
+        /* --primary-color:orange; */
+        /* --primary-background: #ccc; */
+        /* --primary-size: 30px; */
+      }
+      div {
+        color: green;
+      }
+    </style>
+    <script>
+      const template = document.createElement('template');
+      template.innerHTML = `
+        <style>
+          .card {
+            background: #ccc;
+            width:50%;
+            padding:30px;
+            border: 2px solid orange;
+            margin:30px;
+            border-radius: 40px;
+            letter-spacing:2px;
+            font-size: 20px;
+            }
+            :host(#showHost) {
+              color: red;
+            }
+            :host(.important) div{
+              color: orange;
+              font-weight: bold;
+            }
+            :host(.cool) {
+              color: green;
+              font-weight: bold;
+              font-size: 44px;
+            }
+        </style>
+        <div class="card">
+          <slot>Some default slot text</slot>
+          <br>
+          <div>Hosted CSS - REMEMBER! Light DOM will always override Shadow CSS.</div>
+        </div>
+        `;
+
+      class BusinessCard extends HTMLElement {
+        constructor() {
+          super();
+          this.attachShadow({
+            mode: 'open'
+          });
+          this.shadowRoot.appendChild(template.content.cloneNode(true));
+        }
+      }
+      customElements.define('my-card', BusinessCard);
+    </script>
+    <main>
+      <div class="wrapper">
+        <div class="explanation">
+          <h1>css-04-host</h1>
+          <h2>Use the :host() or :host(&lt;css selector&gt;) selector</h2>
+          <p>
+            We can style the host using :host() which is the same as styling
+            my-component on page.
+          </p>
+          <p>
+            We can also add further selctors with :host(#showHost) or
+            :host(.important) for example.
+          </p>
+          <p>
+            By placing a selctor on the custom tag on the page, we can further
+            style the compone within the component using this selector feature.
+          </p>
+        </div>
+        <div class="spacer"></div>
+        <div id="output">
+          <!-- OUTPUT OF CUSTOM ELEMENT -->
+          <my-card id="showHost">id=showHost</my-card>
+          <my-card id="showHost2" class="important"
+            >id=showHost2 class=important</my-card
+          >
+          <my-card class="cool">class=cool</my-card>
+        </div>
+        <div class="spacer"></div>
+        <div class="exercise">
+          <h3>
+            EXERCISE:
+            <p>Add/Remove an id="showHost" to my-card</p>
+            <p>Remove the id and add class="important"</p>
+            <p>Change cool='no'.</p>
+            <p>Change to cool only.</p>
+            <p>
+              Notice how even if we have cool='yes' if we have just cool
+              the:host[cool] takes precedence as it is lower in the style rules.
+              Thus it sees
+            </p>
+          </h3>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="w3-container w3-blue w3-center footer">
+        <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+      </div>
+    </footer>
+  </body>
+</html>

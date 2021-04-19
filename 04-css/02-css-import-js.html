@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../_css/w3.css">
+    <link rel="stylesheet" href="../_css/web-course.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css-02-custom-properties-shadow</title>
+</head>
+
+<body>
+    <!-- we can declare custom css variables in the Light Dom and
+    pass these into the Shadow Dom -->
+    <style>
+        /* Custom CSS Variables */
+        :root {
+            --primary-color: green;
+            --primary-size: 36px;
+            --background: pink;
+        }
+    </style>
+    <div>Light dom div not affected by Shadow DOM CSS</div>
+    <!-- ES6 Module -->
+    <script type="module"> //We must use the type="module" nto be able to import 
+        import {CSS} from './02-css.js';
+        customElements.define('my-component', class extends HTMLElement {
+            constructor() {
+                super(); // always call super() first in the constructor.
+                // Attach a shadow root to <fancy-tabs>.
+                const shadowRoot = this.attachShadow({mode: 'open'});
+                shadowRoot.innerHTML = `
+                <style>
+                    ${CSS}
+                </style>
+                <div class="import">A styled DIV element</div>
+                
+                `;
+               // linking a stylesheet can work but is not considered good practice
+            }
+        });
+    </script>
+    <main>
+        <div class="wrapper">
+            <div class="explanation">
+                <h1>css-02-custom-properties-shadow</h1>
+                <p>We can pass in CSS custom properties into the SHADOW DOM.</p>
+                <p>This means we can have default styles in the component and they can be overwritted by page level CSS
+                    custom properites</p>
+            </div>
+            <div class="spacer"></div>
+            <div id="output">
+                <!-- OUTPUT OF CUSTOM ELEMENT -->
+                <my-component>Some slot text</my-component>
+            </div>
+            <div class="spacer"></div>
+            <div class="exercise"">
+                   <h3>EXERCISE:</h3>
+                </div>
+            </div>
+        </main> 
+        <footer>
+            <div class=" w3-container w3-blue w3-center footer">
+                <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+            </div>
+            </footer>
+</body>
+
+</html>

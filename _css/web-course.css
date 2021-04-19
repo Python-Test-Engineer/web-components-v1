@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+/* @import is an an anti-pattern - just used for the course samples but not in the main app */
+* {
+	--primary: purple;
+	--secondary: orange;
+	--component-border: green;
+	--font-color: #666766;
+	--notes-background: linen;
+	--notes-font-color: black;
+	--notes-border: black;
+	--hover: color:green;
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-family: 'Quicksand', sans-serif;
+	color: var(--font-color, black);
+	font-size: 22px;
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a:visited {
+	text-decoration: none;
+	font-weight: bold;
+	color: var(--secondary, black);
+}
+
+a:hover {
+	color: var(--secondary, black);
+	text-decoration: underline;
+}
+
+p {
+	font-size: 22px;
+	/* font-weight: bold; */
+	margin-bottom: 10px;
+}
+
+button {
+	margin: 5px;
+	width: 250px;
+	font-size: 18px;
+	background-color: var(--primary, black);
+	color: white;
+	padding: 5px 10px;
+	outline: var(--primary, black);
+	border-radius:5px;
+}
+button:hover {
+	color: red;
+	outline: var(--primary, black);
+}
+li {
+	list-style: none;
+	margin-left: 30px;
+	color: var(--primary, black);
+	font-size: 22px;
+	font-weight: bold;
+}
+main {
+	margin: 20px auto;
+	max-width: 1000px;
+}
+
+footer {
+	margin-top: 30px;
+	background: var(--primary, black);
+	text-align: center;
+	color: white;
+	padding: 20px 0;
+}
+div.explanation h1 {
+	font-size: 24px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+.header {
+	padding: 5px;
+	text-align: center;
+}
+.component {
+	border: 3px solid var(--component-border, black);
+	background: white;
+	border-radius: 5px;
+	min-height: 100px;
+	padding: 20px;
+	font-size: 20px;
+	margin: 20px 0;
+}
+.notes {
+	border: 2px solid var(--notes-border, black);
+	background: var(--notes-background, white);
+	border-radius: 5px;
+	min-height: 100px;
+	padding: 20px;
+	color: var(--notes-font-color, black);
+	font-size: 20px;
+	margin-top: 20px;
+}
+.spacer {
+	height: 20px;
+}

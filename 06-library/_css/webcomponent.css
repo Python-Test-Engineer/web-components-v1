@@ -1,0 +1,152 @@
+*,
+*::after,
+*:before {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+.w3-btn,
+.w3-button {
+   border: none;
+   display: inline-block;
+   padding: 8px 16px;
+   vertical-align: middle;
+   overflow: hidden;
+   text-decoration: none;
+   color: inherit;
+   background-color: inherit;
+   text-align: center;
+   cursor: pointer;
+   white-space: nowrap
+}
+
+.w3-btn:hover {
+   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.w3-btn,
+.w3-button {
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none
+}
+
+.w3-disabled,
+.w3-btn:disabled,
+.w3-button:disabled {
+   cursor: not-allowed;
+   opacity: 0.3
+}
+
+.w3-disabled *,
+:disabled * {
+   pointer-events: none
+}
+
+.w3-btn.w3-disabled:hover,
+.w3-btn:disabled:hover {
+   box-shadow: none
+}
+
+.error {
+   color: red;
+   font-size: 14px;
+}
+
+.success {
+   color: green;
+   font-size: 14px;
+}
+
+body {
+   font-family: var(--main-font, 'Quicksand');
+   font-size: var(--main-size, 18px);
+}
+
+p {
+   font-family: var(--main-font, 'Quicksand');
+   font-size: 20px;
+}
+
+label {
+   font-size: var(--main-size, 18px);
+   color: #2196f3;
+   font-family: var(--main-font, 'Quicksand');
+}
+
+span.req {
+   color: red;
+   font-size: 22px;
+   font-weight: bold;
+}
+
+input,
+textarea {
+   padding: 10px;
+   font-family: var(--main-font, 'Quicksand');
+   font-size: var(--main-size, 18px);
+}
+
+.input-initial {
+   outline: none;
+   border: 3px solid #ccc;
+   border-radius: 10px;
+}
+
+.input-success {
+   background-color: #ffffff;
+   background-image: url("https://49plus.co.uk/udemy-webcomponents/_images/icon-tick.jpg");
+   background-size: 35px 35px;
+   background-position: right center;
+   background-repeat: no-repeat;
+   font-weight: bold;
+   color: green;
+   border: solid 3px green;
+   border-radius: 10px;
+}
+
+.input-error {
+   background-color: #ffffff;
+   background-image: url("https://49plus.co.uk/udemy-webcomponents/_images/cross.png");
+   background-size: 35px 35px;
+   background-position: right center;
+   background-repeat: no-repeat;
+   font-weight: bold;
+   color: red;
+   border: solid 3px red;
+   border-radius: 10px;
+}
+
+
+
+form span.req,
+p span.req {
+   display: inline;
+   float: none;
+   color: red !important;
+   font-weight: bold;
+   margin: 0;
+   padding: 0;
+}
+
+/* Placeholder text in input fields */
+::placeholder {
+   /* Chrome, Firefox, Opera, Safari 10.1+ */
+   color: #808080;
+   font-style: italic;
+   font-weight: normal;
+   opacity: 1;
+   /* Firefox */
+}
+
+
+@media only screen and (max-width: 600px) {
+   body {
+      font-size: 20px;
+      background-color: lightblue;
+   }
+}

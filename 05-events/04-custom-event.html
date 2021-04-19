@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../_css/w3.css" />
+    <link rel="stylesheet" href="../_css/web-course.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>04-light-to-shadow-via-attribute-page</title>
+    <style>
+      .card {
+        padding: 12px;
+        border: 4px solid red;
+        background: #ccc;
+        width: 900px;
+        border-radius: 10px;
+      }
+      .parentContainer {
+        padding: 12px;
+        border: 4px solid purple;
+        background: #ccc;
+        width: 900px;
+        border-radius: 10px;
+      }
+      #pOutput {
+        color: #2196f3;
+        font-weight: bold;
+      }
+      #pOutput2 {
+        color: green;
+        font-weight: bold;
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <br />
+    <!-- PARENT CONTAINER -->
+    <div class="wrapper">
+      <div id="container" class="parentContainer">
+        DIV PARENT CONTAINER<br />
+        <br />
+        <!-- WEB COMPONENT TWO -->
+        <child-component count="0"></child-component>
+        <script src="./04-custom-event.js"></script>
+        <!-- WEB COMPONENT TWO -->
+        <br />
+      </div>
+      <!-- PARENT CONTAINER -->
+
+      <br /><br />
+      <div class="card">
+        <h1>Component Output</h1>
+        <p id="pOutput2">Child Component data will go here...</p>
+        <p>
+          In component, when the CHILD COMPONENT button is clicked the count is
+          increased and the atributeChangedCallback is fired and we change the
+          text of the button to reflect the count value.
+        </p>
+        <p>
+          At the page level, when the Custom Event is heard it sets the output
+          to the data passed in the Custom Event.
+        </p>
+      </div>
+    </div>
+
+    <!-- Listen for Custom Event in container div tag -->
+    <!-- Demonstrates event bubbling as event works its way up the nested DOM tree child-two>div>body -->
+    <script>
+      const container = document.getElementById('container'); // needs bubbles: true, composed: true
+      // const container =  document.querySelector('child-component'); // needs just bubbles: true
+      // either work as event bubbles up from child-component -> div#container -> body
+      // console.log(container)
+
+      container.addEventListener('childClick', function (e) {
+        //alert("<child-component> Event heard in parent div container");
+        console.log(e);
+        const pOutput2 = document.getElementById('pOutput2');
+        // e.detail is payload information of event
+        pOutput2.innerHTML = e.detail;
+      });
+    </script>
+
+    <footer>
+      <div class="w3-container w3-blue w3-center footer">
+        <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+      </div>
+    </footer>
+  </body>
+</html>

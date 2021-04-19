@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <link href="site.css" rel="stylesheet" />
+    <title>Document</title>
+    <style>
+      main {
+        max-width: 700px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <script src="../15-ndc-navbar/nav.js"></script>
+      <my-navbar></my-navbar>
+    </nav>
+    <main>
+      <div id="content">
+        <h2>All grey box is the web component &lt;wp-login&gt;</h2>
+        <p>https://49plus.co.uk/wp-social/</h2>
+        <br />
+        <p>
+          In this component, we authenticate the user against a WordPress site.
+        </p>
+        <p>
+          We can return a range of data and in this instance a JSON Web Token,
+          JWT, is created and returned to the page.
+        </p>
+        <p>
+          This token can contains the user id and creation date. It can be
+          stored in localStorage or in a cookie and passed with requests that
+          need user authentication.
+        </p>
+        <br />
+        <!-- ///////////  WEB COMPONENT    //////////////-->
+        <script src="../08-ndc-authenticate/login.js" type="module"></script>
+        <wp-login></wp-login>
+        <!-- ///////////  WEB COMPONENT    //////////////-->
+        <br />
+      </div>
+      <br /><br />
+    </main>
+  </body>
+</html>

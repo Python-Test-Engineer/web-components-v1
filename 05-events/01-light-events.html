@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../_css/w3.css" />
+    <link rel="stylesheet" href="../_css/web-course.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>01-light-events</title>
+  </head>
+
+  <body>
+    <style>
+      button {
+        background: #2196f3;
+        color: white;
+        font-size: 24px;
+        padding: 10px;
+        width: 200px;
+        border-radius: 10px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #9bb8cf;
+      }
+    </style>
+
+    <main>
+      <div class="wrapper">
+        <div class="explanation">
+          <h1>01-light-events</h1>
+          <p>
+            We can add a page level event like onclick() to the component as in
+            'CLICK ME'.
+          </p>
+          <p>
+            JavaScript does not have public and private methods and properties
+            so we can if we want access them.
+          </p>
+          <p>
+            For components for third party use, we would not advertise this an
+            create interfaces instead.
+          </p>
+          <!-- <img src="../_images/shadow-dom-fragement.png" alt="">-->
+        </div>
+        <div class="spacer"></div>
+        <div id="output">
+          <!-- OUTPUT OF CUSTOM ELEMENT -->
+          <!-- We can add events to our Custom HTML tag just like regular HTML tags -->
+          <my-component onclick="alert('Event Click')"></my-component>
+        </div>
+        <div class="spacer"></div>
+        <button id="btnPublicVariable">Public Variable</button>
+        <button id="btnPublicMethod">Public Method</button>
+        <div class="exercise">
+          <h3>
+            EXERCISE:
+            <p>Click the three events and observe output and DEV > CONSOLE</p>
+          </h3>
+        </div>
+      </div>
+    </main>
+    <!-- We can access methods and properties in the Web Component -->
+    <script>
+      // we can now get a reference to the Custom HTML tag
+      var customComponent = document.querySelector('my-component');
+      var btnValue = document.getElementById('btnPublicVariable');
+      var btnMethod = document.getElementById('btnPublicMethod');
+
+      btnValue.addEventListener('click', function () {
+        // Now that we have a reference to the web component called customComponent
+        // that we made at the top of this script block, we can access its methods and properties
+        console.log('INITIAL Pub Val: ' + customComponent.pubVal);
+        customComponent.pubVal = 'SOME NEW VALUE';
+        console.log('NEW Pub Val: ' + customComponent.pubVal);
+      });
+      // Now that we have a reference to the web component called customComponent
+      // that we made at the top of this script block, we can access its methods and properties
+      btnMethod.addEventListener('click', function () {
+        customComponent.publicMethod(Math.floor(Math.random() * 1000));
+      });
+    </script>
+    <script>
+      const template = document.createElement('template');
+      template.innerHTML = `
+                <style>
+                    h2 {
+                        border:2px solid orange;
+                        width:600px;
+                        padding:20px;
+                        cursor:pointer;
+                    }
+                    h2:hover {
+                        background: #ccc;
+                    }
+                </style>
+                <h2>CLICK ME: EVENTS IN WEB COMPONENTS</h2>
+            `;
+      class MyComponent extends HTMLElement {
+        // constructor() creates class
+        // not yet part of the DOM
+        constructor() {
+          super(); // this is needed to inherit HTMLElement properties and is standard JavaScript
+          console.log('Component created…');
+          const shadowRoot = this.attachShadow({
+            mode: 'open'
+          });
+          this.shadowRoot.appendChild(template.content.cloneNode(true));
+          // declare a variable - JS has no private variables.
+          this.pubVal = 'initial value set in constructor';
+          console.log('CONSTRUCTOR pubVal: ', this.pubVal);
+        }
+        connectedCallback() {
+          // this as an event when the component is attached to the DOM
+          console.log('Component now part of DOM…');
+        }
+        // create a method - JS has no private methods.
+        publicMethod(val) {
+          alert('[FN] Public Method in Web Component called...' + val);
+          console.log(
+            'Public Method in Web Component called...[VALUE] ' +
+              val +
+              ' passed in'
+          );
+        }
+      }
+      // We connect the custom HTML element ‘my-component’ with the class MyComponent
+      customElements.define('my-component', MyComponent);
+    </script>
+    <footer>
+      <div class="w3-container w3-blue w3-center footer">
+        <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+      </div>
+    </footer>
+  </body>
+</html>

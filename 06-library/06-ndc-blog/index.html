@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+  <title>WP Blog</title>
+ 
+  <style>
+    :root {
+
+    }
+    body {
+      background-color: rgb(250, 245, 245);
+      box-sizing: border-box;
+      overflow-y: scroll;
+      font-family: "Quicksand";
+    }
+
+    .postGrid {
+      display: grid;
+      grid-template-columns: 10% 90%;
+      grid-gap: 30px;
+      border: 3px solid #2196f3;
+      border-radius: 10px;
+      background: #fff;
+      padding:10px;
+    }
+
+    .main {
+      padding-left: 50px;
+      margin-top: 70px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="status"></div>
+  <main>
+    <div class="main">
+      <div class="postGrid">
+
+        <!-- ================== WEB COMPONENTS HERE ================== -->
+
+        <all-posts></all-posts>
+        <the-post></the-post>
+        <script type="module" src="./index.js"></script>
+
+        <!-- ================== WEB COMPONENTS HERE ================== -->
+
+      </div>
+    </div>
+  </main>
+  <script>
+    // THIS USES BROWSER'S OFFLINE EVENT
+    window.addEventListener('load', function () {
+      var status = document.getElementById("status");
+      //var log = document.getElementById("log");
+
+      function updateOnlineStatus(event) {
+        var condition = navigator.onLine ? "online" : "offline";
+        if (condition === "offline") {
+          //status.className = "offline";
+          status.innerHTML = "<span class='offline' style='color:red;font-weight:bold;font-size:1.5rem;'>YOU ARE NOW: " + condition.toUpperCase() + " - external links will not work but posts will...</span>";
+          // set background to grey to emphasise offline
+          document.body.style.backgroundColor = "#fff";
+        }
+        else {
+          status.className = "";
+          status.innerHTML = "";
+          document.body.style.backgroundColor = "#fff";
+        }
+      }
+
+      window.addEventListener('online', updateOnlineStatus);
+      window.addEventListener('offline', updateOnlineStatus);
+    });
+
+  </script>
+</body>
+
+</html>

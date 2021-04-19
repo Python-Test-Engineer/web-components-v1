@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../_css/w3.css">
+    <link rel="stylesheet" href="../_css/web-course.css">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03 Style Slotted</title>
+    <style>
+        h3 {
+            color: orange;
+            font-size: 34px
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        const template = document.createElement('template');
+        template.innerHTML = `
+        
+        <style>
+            .card {
+                background: #ccc;
+                max-width:900px;;
+                padding:20px;
+                border: 4px solid black;
+                border-radius: 20px;
+                letter-spacing:1px;
+                font-size:16px;
+                font-weight:bold;
+            }
+            h1 {
+                color: red;
+            }
+            slot[name=email]  {
+                color: green;
+            }
+            slot[name=title]  {
+                color: purple;
+            }
+            ::slotted(.first) {
+                color: orange;
+                font-size:28px;
+
+            }
+           ::slotted(#nested) {
+                color: grene;
+                font-size:34px;
+           }
+           
+        </style> 
+       
+        <div class="card">
+            <h1>This is template h1 styled by component</h1>  
+            <h3>Some h3 text which will not be styled by page level h3 rule</h3>     
+            <slot name="first" id="first" ></slot><br>
+            <slot name="title" ></slot><br>
+            <slot name="email" ></slot>
+        </div>
+        `;
+
+        class BusinessCard extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({
+                    mode: 'open'
+                });
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
+            }
+        }
+
+        customElements.define('my-card', BusinessCard);
+    </script>
+
+    <main>
+        <div class="wrapper">
+            <div class="explanation">
+                <h1>css-03-slotted</h1>
+                <h2>Slotted Styling</h2>
+                <p><em>REMEMBER! Light DOM will always override Shadow CSS.</em></p>
+                <p>We cant style the SLOT in the component as the element is in the LIGHT DOM. It gets projected into
+                    the SLOT in the component.</p>
+            </div>
+            <div class="spacer"></div>
+            <div id="output">
+                <!-- OUTPUT OF CUSTOM ELEMENT -->
+                <my-card>
+                    <!-- This is slotted text -->
+                    <!-- slotted text is Light DOM projected into the Shadow DOM -->
+                    <span slot="first" class="first">John</span><br>
+                    <span slot="title">Engineer<br>
+                        <span id="nested">Nested text NOT styled by ::slotted(#nested) - only top
+                            level.
+                        </span>
+                    </span><br>
+                    <span slot="email">john@example.com</span>
+                    <!-- End slotted text -->
+                </my-card>
+            </div>
+            <div class="spacer"></div>
+            <div class="exercise"">
+               <h3>EXERCISE: (this is an h3 tag so styled by page CSS)</h3>
+               <p>Styles we will use later...</p>
+            </div>
+            <footer>
+                <div class=" w3-container w3-blue w3-center footer">
+                <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+            </div>
+            </footer>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+{
+    "id": 45,
+    "date": "2008-09-17T17:08:48",
+    "date_gmt": "2008-09-17T17:08:48",
+    "guid": {
+        "rendered": "http://dev.wpcoder.com/dan/wordpress/?p=45"
+    },
+    "modified": "2020-01-07T18:18:59",
+    "modified_gmt": "2020-01-07T18:18:59",
+    "slug": "web-component",
+    "status": "publish",
+    "type": "post",
+    "link": "https://wpjs.co.uk/wpb/web-component/",
+    "title": {
+        "rendered": "Web Component &#8211; &lt;show-post&gt;"
+    },
+    "content": {
+        "rendered": "<p>By storing the creation date of the JWT in our database, we can add an expiration policy, forcing the user to login again on a subsequent visit. We store the JWT in local rather than session storage because if the user opens a new window or a new tab the token is not available. </p>\n",
+        "protected": false
+    },
+    "excerpt": {
+        "rendered": "<p>The &lt;show-post postid=&#8221;45&#8243;&gt;&lt;/show-post&gt;</p>\n",
+        "protected": false
+    },
+    "author": 9,
+    "featured_media": 0,
+    "comment_status": "closed",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": [],
+    "categories": [
+        24
+    ],
+    "tags": [
+        17,
+        19,
+        22
+    ],
+    "authorName": "Jane Editor",
+    "acf": {
+        "source": ""
+    },
+    "_links": {
+        "self": [{
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/45"
+        }],
+        "collection": [{
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts"
+        }],
+        "about": [{
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/types/post"
+        }],
+        "author": [{
+            "embeddable": true,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/users/9"
+        }],
+        "replies": [{
+            "embeddable": true,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/comments?post=45"
+        }],
+        "version-history": [{
+            "count": 21,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/45/revisions"
+        }],
+        "predecessor-version": [{
+            "id": 1280,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/45/revisions/1280"
+        }],
+        "wp:attachment": [{
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/media?parent=45"
+        }],
+        "wp:term": [{
+                "taxonomy": "category",
+                "embeddable": true,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/categories?post=45"
+            },
+            {
+                "taxonomy": "post_tag",
+                "embeddable": true,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/tags?post=45"
+            }
+        ],
+        "curies": [{
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+        }]
+    }
+}

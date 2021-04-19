@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../_css/library.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-ndec-show-post</title>
+</head>
+<body>
+    <main>
+        <div class="wrapper">
+            <div class="explanation">
+                <h1>07-ndc-update-post</h1>
+                <p>We use &lt;wp-show-post&gt; with &lt;wp-update&gt; to display a post and then edit it.</p>
+            </div>
+            <div class="spacer"></div>
+            <div>
+                <button id="btn1">Random Record 1 - 20</button>
+            </div>
+            <div id="output">
+                
+                <!-- OUTPUT OF CUSTOM ELEMENT -->
+                <show-post postid="" style="display:none;"></show-post>
+                <script>
+                   
+                    const showPost = document.querySelector('show-post')
+                    const btn1 = document.getElementById('btn1');;
+                    const rndID = Math.floor(Math.random() *20)
+                    btn1.addEventListener('click', function() {
+                        showPost.setAttribute('postid', rndID)
+                        showPost.style.display = 'block';
+                    })
+                </script>
+            <div class="spacer"></div>
+            <div class="exercise">
+                <h3>EXERCISE:
+                    <p>Change postid to 40 or 45 in DEV > ELEMENTS as well as clicking button.</p>
+                </h3>
+            </div>
+        </div>
+    </main>
+    <script type='module'>
+        import './showPost.js';
+    </script>
+    <footer>
+        <div class="w3-container w3-blue w3-center footer">
+            <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+        </div>
+    </footer>
+</body>
+</html>

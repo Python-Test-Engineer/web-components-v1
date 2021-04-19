@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+   <link href="site.css" rel="stylesheet">
+   <title>Document</title>
+
+</head>
+
+<body>
+   <nav>
+      <script src="../15-ndc-navbar/nav.js"></script>
+      <my-navbar></my-navbar>
+   </nav>
+   <main>
+      <h2>Preload IndexedDB with posts on another page and render on this page.</h2>
+      <br>
+      <p>By preloading posts on the home page with <b>&lt;wp-indexeddb-read cat="X"&gt;,</b> for categories 6,7,24 and
+         25, this page reads post from the browsers own IndexedDB database for near instant perfomance.</p>
+      <p><b>An offline Single Page Application.
+            If we go offline all the categories can be rendered.</b></p>
+      <p>A service worker file has been added so we can use the Browser's Cache API to store a copy of the page. A page
+         refresh will work offline.</p>
+      <br>
+      <button id="btn25" newcat="25">LOAD CAT 25</button>&nbsp;
+      <button id="btn6" newcat="6">LOAD CAT 6</button>&nbsp;
+      <button id="btn7" newcat="7">LOAD CAT 7</button>&nbsp;
+      <button id="btn24" newcat="24">LOAD CAT 24</button>
+      <br><br>
+      <script>
+         const btn25 = document.getElementById('btn25');
+         btn25.addEventListener('click', function () {
+            var newCat = btn25.getAttribute('newcat');
+            document.querySelector('wp-indexeddb-read').setAttribute('cat', newCat)
+         })
+         const btn6 = document.getElementById('btn6');
+         btn6.addEventListener('click', function () {
+            var newCat = btn6.getAttribute('newcat');
+            document.querySelector('wp-indexeddb-read').setAttribute('cat', newCat)
+         })
+         const btn7 = document.getElementById('btn7');
+         btn7.addEventListener('click', function () {
+            var newCat = btn7.getAttribute('newcat');
+            document.querySelector('wp-indexeddb-read').setAttribute('cat', newCat)
+         })
+         const btn24 = document.getElementById('btn24');
+         btn24.addEventListener('click', function () {
+            var newCat = btn24.getAttribute('newcat');
+            document.querySelector('wp-indexeddb-read').setAttribute('cat', newCat)
+         })
+      </script>
+      <wp-indexeddb-read cat="24"></wp-indexeddb-read>
+   </main>
+
+   <footer>
+      <!-- WEB COMPONENT -->
+
+     
+
+      <!-- WEB COMPONENT -->
+   </footer>
+   
+   <script src="../10-ndc-indexeddb/wp-indexeddb-read.js" type="module"></script>
+   <script src="../15-ndc-navbar/back-to-top.js"></script>
+   
+   <back-to-top></back-to-top>
+
+</body>
+</html>

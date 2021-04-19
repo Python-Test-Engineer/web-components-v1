@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../_css/w3.css">
+    <link rel="stylesheet" href="../_css/web-course.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01 Shadow DOM</title>
+</head>
+
+<body>
+    <style>
+        my-component {
+            color: red;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+    </style>
+    
+    <script>
+        // Alternative way to define component
+        customElements.define('my-component', class extends HTMLElement {
+            constructor() {
+                super(); // always call super() first in the constructor.
+
+                // Attach a shadow root.
+                const shadowRoot = this.attachShadow({mode: 'open'}); 
+                // open means accessible from outside, although closed can be accessed with advanced JS.
+                
+                // BACK TICKS for ES6 template literals
+                // We use this approach for content and style rather than a template tag outside
+                // of the  component as we can then ship one JS file for our users rather than
+                // a JS file and some HTML they need to include in their page
+                shadowRoot.innerHTML = ` 
+                    <style>
+                        div {
+                            margin: 20px;
+                            border: 4px solid orange;
+                            padding:20px;
+                            border-radius: 10px;
+                            font-size: 1.5rem;
+                            width:300px;
+                            color: green;
+                        }
+                    </style>
+                    <div>This is the SHADOW DOM</div>
+                    <slot></slot>
+                `;
+            }
+            connectedCallback() { // this as an event when the component is attached to the DOM
+                const lightDiv = document.getElementById("light");
+                const lightContent = lightDiv.textContent;
+                
+                console.log("Light DIV content = " + lightContent);
+            }
+        });
+    </script>
+    <main>
+        <div class="wrapper">
+            <div class="explanation">
+                <h1>01-shadow-dom</h1>
+                <p>We now explore the SHADOW DOM.</p>
+                <p>
+                    The SLOT text is part of the LIGHT DOM and gets projected into the SHADOW DOM. 
+                </p>
+                <p>
+                    The Web Component is now just a regular Light DOM element so slot text is in the Light DOM.
+                </p>
+                <img src="../_images/shadow-dom-fragement.png" alt="fragment of dom">
+            </div>
+            <div class="spacer"></div>
+            <div id='light'>Light dom div not affected by Shadow DOM CSS</div>
+            <div id="output">
+                <!-- OUTPUT OF CUSTOM ELEMENT -->
+                <my-component>SLOT TEXT HERE</my-component> 
+            </div>
+            
+            <div class="spacer"></div>
+            <div class="exercise"">
+               <h3>EXERCISE:</h3>
+            
+            </div>
+        </div>
+    </main> 
+  
+
+    <footer>
+        <div class=" w3-container w3-blue w3-center footer">
+                <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

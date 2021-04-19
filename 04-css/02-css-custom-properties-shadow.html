@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../_css/w3.css">
+    <link rel="stylesheet" href="../_css/web-course.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css-02-custom-properties-shadow</title>
+</head>
+<body>
+    <!-- we can declare custom css variables in the Light Dom and
+    pass these into the Shadow Dom -->
+    <style>
+        /* Custom CSS Variables */
+        :root {
+            --primary-color: red;
+            --primary-size: 25px;
+        }
+           
+        my-component {
+            color: var(--primary-color, goldenrod);
+            text-transform: uppercase;
+            font-size: var(--primary-size);
+        }
+    </style>
+    <div>Light dom div not affected by Shadow DOM CSS</div>
+    <script >  
+       
+
+        customElements.define('my-component', class extends HTMLElement {
+            constructor() {
+                super(); // always call super() first in the constructor.
+
+                // Attach a shadow root to <my-component>.
+                const shadowRoot = this.attachShadow({mode: 'open'});
+                shadowRoot.innerHTML = `
+                    <style>
+                        div {
+                            background: linen;
+                            border-radius: 10px;
+                            border: 5px solid orange;
+                            padding: 20px;
+                            color: var(--primary-color, green);
+                            text-transform: uppercase;
+                            font-size: var(--primary-size);
+                            width: 600px;
+                            margin-bottom:20px;
+                            font-family: inherit;
+                        }
+                        slot {
+                            color: purple
+                        }
+                    </style>
+                    <div>A styled DIV element</div>
+                    <slot>DEFAULT SLOT TEXT</slot>
+                `;
+            }
+        });
+    </script>
+             <main>
+            <div class="wrapper">
+                <div class="explanation">
+                    <h1>css-02-custom-properties-shadow</h1>
+                    <p>We can pass in CSS custom properties into the SHADOW DOM.</p>
+                    <p>This means we can have default styles in the component and they can be overwritted by page level CSS custom properites</p>
+                    <h3>The Shadow Dom CSS has div styled with {background: linen} but does not affect Light DOM.</h3>
+                    <!-- Regular DIV not affected by background of Shado DOM background css -->
+                    <div><h1 style="color:red">This regular DIV element not affected...</h1></div>
+                </div> 
+                <div class="spacer"></div>
+                <div id="output">
+                    <!-- OUTPUT OF CUSTOM ELEMENT -->
+                    <my-component>Some slot text</my-component>
+                </div>
+                <div class="spacer"></div>
+                <div class="exercise"">
+                   <h3>EXERCISE:</h3>
+                </div>
+            </div>
+        </main> 
+
+        <footer>
+            <div class=" w3-container w3-blue w3-center footer">
+              <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+            </div>
+          </footer>
+    
+    </body>
+    
+    </html>

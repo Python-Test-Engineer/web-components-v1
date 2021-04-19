@@ -1,0 +1,35 @@
+:root {
+	--primary-color: red;
+	--primary-size: 18px;
+}
+h2 {
+	color: red;
+}
+h3 {
+	font-weight: bold;
+	color: pink;
+	/* EXERCISE will be pink as it is an h3 but h3 in component won't be pink */
+}
+my-card {
+	color: goldenrod;
+	/* this will make text brown until overwritten by other styles */
+}
+
+/* ------------------- */
+/* this will work as element is in light dom */
+#nested {
+	/* color: purple; */
+}
+
+/* ------------------- */
+/* span will overwrite css from inside component */
+/* span { 
+	color: red;
+	font-weight: bold;
+} */
+
+/* ------------------- */
+/* these will not work as the Shadow DOM is encapsulated */
+.card {
+	background: aqua;
+}

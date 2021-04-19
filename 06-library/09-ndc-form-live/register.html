@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form Live</title>
+  <head>
+   
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --main-bg-color: #2196f3;
+        --main-text-color: black;
+        --main-padding: 15px;
+        --main-max-width: 1200px;
+        --main-nav-max-width: 1230px;
+        --main-font: 'Quicksand', sans-serif;
+        --main-font-size: 28px;
+        --mobile-font-size: 16px;
+        --background-color-00: white;
+        --background-color-01: #ccc;
+        --background-color-02: #add8e6;
+        --background-color-03: #e9e6cc;
+        --background-color-04: #c6cad4;
+        --background-color-05: #f7d198;
+      }
+      body {
+        background: #fff;
+        font-family: "Quicksand";
+      }
+      main {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 90px;
+      }
+      .center {
+        display: flex;
+        justify-content: center;
+        margin-top: -100px;
+      }
+      p{
+          font-size:22px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+<body>
+  <div id="page" class="hfeed site grid-container container grid-parent">
+    <div id="content" class="site-content">
+      <br>
+      <div class="w3-row">
+        <main>
+          <div class="center">
+            <!-- ///////////  PAGE CONTROLLER  //////////////-->
+            <script>
+              const el = document.getElementById('content');
+              el.addEventListener('contactform', e => {
+                console.log("Event HEARD on page ");
+                console.log(e);
+                //alert(e.detail);
+                const formMessage = document.getElementById('formMessage');
+                formMessage.innerHTML = `
+                    <p><strong>Form posted successfully...now remove form component</strong></p>
+                    <p>Posted data:</p>
+                    <p>${e.detail}</p>
+                  `;
+              });
+            </script>
+            <!-- ///////////  PAGE CONTROLLER  //////////////-->
+            <!--                                             -->
+            <!-- ///////////  WEB COMPONENT    //////////////-->
+            <script src="register-form-live.js"></script>
+            <wp-register-live></wp-register-live>
+            <!-- ///////////  WEB COMPONENT    //////////////-->
+          </div>
+          <div id="formMessage"></div>
+        </main>
+        <br><br>
+      </div><!-- #row -->
+    </div><!-- #content -->
+  </div><!-- #page -->
+</body>
+</html>

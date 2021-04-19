@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_css/library.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Show All Posts in a Category</title>
+
+
+  <style>
+    .wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="content">
+
+      <h2>Raw POSTS data loaded.</h2>
+      <br>
+      <p>
+        <strong>Explanantion: </strong>We load all posts in <br><a
+          href='https://49plus.co.uk/udemy/wp-json/wp/v2/posts?categories=4' target='_new'>../-data/cat24.json</a><br>
+        and then display certain
+        fields.
+      </p>
+
+
+      <!-- WEB COMPONENT -->
+      <!-- cat 4 or 6 for 49plus - 6,7,24,25. 26 for wpjs -->
+      <show-all-posts-category cat="25"></show-all-posts-category>
+      <script src="showAllPostsCategory.js" type="module"></script>
+      <!-- WEB COMPONENT -->
+
+
+
+
+    </div>
+    <br><br>
+  </div>
+</body>
+
+</html>

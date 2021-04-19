@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+  <link href="site.css" rel="stylesheet">
+  <style>
+    .cover {
+      position: fixed;
+      top: 100px;
+      right: 0px;
+      bottom: 400px;
+      border-bottom: 3px solid red;
+      left: 0px;
+      /* background-color: rgba(224, 218, 211, 0.3); */
+    }
+    p {
+      font-size:28px;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+    <script src="../15-ndc-navbar/nav.js"></script>
+    <my-navbar></my-navbar>
+  </nav>
+  <main>
+    <script src="../11-ndc-lazyload/lazyLoadComponent.js"></script>
+    <script src="../11-ndc-lazyload/lazyLoadImage.js"></script>
+    <section class="a">
+      <div >
+        <p >This uses a lazy load image Web Component with the requirement that lazy load image crosses the red bar. In production, bar would be below the fold.
+        </p>
+        <p class="code">&lt;wp-lazy-load-component postid="36"&gt;&lt;/wp-lazy-load-component&gt;</p>
+        <p class="code">&lt;script src="lazyLoadComponent.js"&gt;&lt;/script&gt;</p>
+        <br>
+        <p>This uses the HTML Intersection Observer API and is built into the component.</p>
+      </div>
+      <div class="cover">&nbsp;</div>
+
+      <wp-lazy-load pic="https://picsum.photos/200/300?random=21"></wp-lazy-load>
+      <wp-lazy-load pic="https://picsum.photos/200/300?random=2"></wp-lazy-load>
+     
+      <wp-lazy-load-component postid="4"> </wp-lazy-load-component>
+     
+      <wp-lazy-load pic="https://picsum.photos/200/300?random=3"></wp-lazy-load>
+
+      <wp-lazy-load-component postid="34"> </wp-lazy-load-component>
+
+      <wp-lazy-load pic="https://picsum.photos/200/300?random=4"></wp-lazy-load>
+
+      <wp-lazy-load-component postid="36"> </wp-lazy-load-component>
+    </section>
+    
+  </main>
+ 
+  <back-to-top></back-to-top>
+  <script src="../15-ndc-navbar/back-to-top.js"></script>
+</body>
+</html>

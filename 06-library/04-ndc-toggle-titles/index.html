@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Web Components</title>
+  <style>
+    :root {
+      --color-primary: #a4fcda;
+      --main-font: "Quicksand";
+    }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+     
+      font-family: var(--main-font,sans-serif);
+    }
+
+    show-posts {
+      background: #ccc;
+ 
+    }
+
+    .named {
+      background: orange;
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-radius: 20px;
+      border: 4px solid blue;
+      padding: 10px;
+    }
+
+    /*  #info does not work as shadow DOM is encapsulated 
+          can be done by using css variables
+      */
+    #info {
+      background: red;
+    }
+    .container{
+      margin: 0 auto;
+      max-width: 800px;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <!-- ================== WEB COMPONENT HERE ================== -->
+ 
+  <script src="showHide.js"></script>
+  <div class="container">
+  
+   
+  </div>
+  <show-hide></show-hide>
+
+  <!-- ================== WEB COMPONENT HERE ================== -->
+</body>
+
+</html>

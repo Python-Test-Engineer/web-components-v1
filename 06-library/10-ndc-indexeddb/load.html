@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LOAD INDEXEDDB</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.0/webcomponents-bundle.js"></script>
+</head>
+
+<body>
+    <!-- Load IndexedDB for use on PWA page -->
+ 
+    <script src="./wp-indexeddb-load-local.js" type="module"></script>
+    <wp-indexeddb-load-local cat="1"></wp-indexeddb-load-local>
+    <wp-indexeddb-load-local cat="2"></wp-indexeddb-load-local>
+
+    <h1>Data has been loaded...</h1>
+    <h2><a href="read.html">READ</a> data...</h2>
+</body>
+
+</html>

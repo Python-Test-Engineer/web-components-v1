@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../_css/web-course.css">
+        <title>04 Attributes</title>
+    </head>
+
+    <body>
+        <script>
+            class MyComponent extends HTMLElement {
+                // constructor() creates class
+                // not yet part of the DOM
+                constructor() {
+                    super(); // this is needed to inherit HTMLElement properties and is standard JavaScript
+                    console.log('Component created…');
+                }
+                connectedCallback() { // this as an event when the component is attached to the DOM
+                    var myItem = document.getElementById("comp")
+                    this.innerHTML = '<h1>This is my web component</h1>'; // this refers to the class component.
+                    this.innerHTML += '<h1>System Attribute is now <span style="color:purple;">'
+                        + myItem.getAttribute("system") + '</span></h1>';
+                    console.log('Component now part of DOM…');
+                }
+            }
+            // We connect the custom HTML element ‘my-component’ with the class MyComponent
+            customElements.define('my-component', MyComponent);
+        </script>
+
+        <main>
+
+            <div class="explanation">
+                <h1>04-attributes</h1>
+
+            </div>
+
+            <div class="component">
+
+                <!-- $COMPONENT -->
+                <my-component system='JS' id="comp"></my-component>
+                <!-- $COMPONENT -->
+
+            </div>
+            <script>
+
+                setTimeout(() => {
+                    const component = document.querySelector('my-component')
+                    component.setAttribute('system', 'NODE')
+                    component.innerHTML += '<h1>...attribute:system changed to <span style="color:purple";>NODE</span></h1>'
+                }, 5000)
+
+            </script>
+            <div class="notes">
+                <p>We can define any attribute name we want.</p>
+                <p>We can get/set Attribute from within the component.</p>
+                <p>Later we will see how we can configure our component to react to a change in its attributes or
+                    'props'.</p>
+                <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute"
+                        target=_blank">https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute</a></p>
+                <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute"
+                        target=_blank">https://developer.mozilla.org/en-US/docs/Web/API/Element/settAttribute</a>
+                </p>
+
+            </div>
+        </main>
+
+        <footer>
+            <div>
+                <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+            </div>
+        </footer>
+    </body>
+
+</html>
