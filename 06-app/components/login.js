@@ -41,6 +41,7 @@ class WPLogin extends HTMLElement {
 	}
 	sendForm(e) {
 		var self = this;
+		console.log('self', this);
 		e.preventDefault(); // prevent default submission
 		const formMessage = this.shadowRoot.getElementById('formMessage');
 		console.log('VALID ');
@@ -60,7 +61,7 @@ class WPLogin extends HTMLElement {
 			})
 			.then(function (data) {
 				// console.log(data.token);
-
+				console.log('fetch', this);
 				// send Custom Event to Parent that can then do something
 				self.dispatchEvent(
 					new CustomEvent('contactform', {
