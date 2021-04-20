@@ -14,26 +14,28 @@
    <body>
       <main>
          <div id="content">
-            <!-- $COMPONENT -->
-            <script src="./components/login.js" type="module"></script>
-            <wp-login></wp-login>
-            <!-- $COMPONENT -->
+            <div id="component">
+               <!-- $COMPONENT -->
+               <script src="./components/login.js" type="module"></script>
+               <wp-login></wp-login>
+               <!-- $COMPONENT -->
+
+            </div>
             <div id="formMessage"></div>
          </div>
 
       </main>
       <!-- ///////////  PAGE CONTROLLER  //////////////-->
       <script>
-         const content = document.getElementById('content');
-         content.addEventListener('contactform', e => {
-            console.log(e);
-            console.log('Event HEARD on page ');
-            //alert('CUSTOM EVENT HEARD -> DETAIL = ' + e.detail);
-            console.log('CUSTOM EVENT DETAIL  = ' + e.detail);
+         const component = document.getElementById('component');
+         component.addEventListener('contactform', e => {
+            const eventType = e.type
+            console.log(`%cEvent ${eventType.toUpperCase()}`, 'color:green;font-size: 18px;');
+            console.log(e)
             const formMessage = document.getElementById('formMessage');
             if (e.detail.length != 0) {
                formMessage.innerHTML = `
-          <p><strong>LOGIN FORM posted successfully...now remove form component</strong></p>
+          <p><strong>Login successful</strong></p>
         `;
             } else {
                formMessage.innerHTML = `

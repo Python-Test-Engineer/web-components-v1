@@ -84,13 +84,9 @@ div.explanation h1 {
 	text-transform: uppercase;
 	margin-bottom: 10px;
 }
-.header {
-	padding: 5px;
-	text-align: center;
-}
 .component,
 #component {
-	border: 3px solid var(--component-border, black);
+	border: 3px solid green;
 	background: white;
 	border-radius: 5px;
 	min-height: 100px;
@@ -98,6 +94,11 @@ div.explanation h1 {
 	font-size: 20px;
 	margin: 20px 0;
 }
+.header {
+	padding: 5px;
+	text-align: center;
+}
+
 .notes {
 	border: 2px solid var(--notes-border, black);
 	background: var(--notes-background, white);

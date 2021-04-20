@@ -1,8 +1,26 @@
-import { UI, BTN } from '../components/global.js';
-
 const template = document.createElement('template');
 template.innerHTML = `
-
+		<style>input {
+	font-size: var(--main-font-size, 20px);
+	padding: 5px 10px;
+	border: 2px solid var(--primary, black);
+	border-radius:5px;
+}
+button {
+	margin: 5px;
+	width: 250px;
+	font-size: 18px;
+	background-color: var(--primary, black);
+	color: white;
+	padding: 5px 10px;
+	outline: var(--primary, black);
+	border-radius: 5px;
+	cursor: pointer;
+}
+button:hover {
+	color: var(--hover, white);
+	outline: var(--primary, black);
+}</style>
     <div class="container">
         <h1>LOGIN FORM</h1>
         <p>Uses a WordPress REST API to check login details and returns a success/fail message with UserId and JSON WEB TOKEN.</p>
@@ -21,7 +39,7 @@ template.innerHTML = `
             </div>
             <div>  
                 <button id="btnSubmit" name="btnSubmit"  >SEND</button>
-                <div id="formMessage"></div>
+                <div id="formMessage"  style="word-break:break-all"></div>
             </div>    
         </form>
     </div><!-- end container -->
