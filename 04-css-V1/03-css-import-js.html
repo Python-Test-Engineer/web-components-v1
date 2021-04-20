@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../_css/web-course.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>css-02-custom-properties-shadow</title>
+    <title>css-03-custom-properties-shadow</title>
   </head>
 
   <body>
@@ -16,9 +16,9 @@
     <style>
       /* Custom CSS Variables */
       :root {
-        --primary-color: green;
+        --primary-color: red;
         --primary-size: 36px;
-        --background: pink;
+        --background: #ccc;
       }
     </style>
     <main>
@@ -46,7 +46,7 @@
     </footer>
     <!-- ES6 Module -->
     <script type="module"> //We must use the type="module" nto be able to import 
-      import { CSS } from './02-css.js';
+      import { CSS } from './03-css.js';
       customElements.define('my-component', class extends HTMLElement {
         constructor() {
           super(); // always call super() first in the constructor.
