@@ -1,12 +1,12 @@
 class ProfileCard extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({
-      mode: 'open'
-    });
-  }
-  render() {
-    this.shadowRoot.innerHTML = `
+	constructor() {
+		super();
+		this.attachShadow({
+			mode: 'open',
+		});
+	}
+	render() {
+		this.shadowRoot.innerHTML = `
             <style>
             
             .card {
@@ -39,27 +39,25 @@ class ProfileCard extends HTMLElement {
                 </div>
             </div>  
         `;
-  }
-  static get observedAttributes() {
-    return ['postid', 'posttitle', 'author', 'content'];
-  }
-  attributeChangedCallback(attributeName, oldValue, newValue) {
-    console.log(
-      `attributeName: ${attributeName}, oldValue: ${oldValue}, newvalue: ${newValue}`
-    );
-    if (attributeName === 'posttitle') {
-      this.posttitle = newValue;
-    }
-    if (attributeName === 'postid') {
-      this.postid = newValue;
-    }
-    if (attributeName === 'author') {
-      this.author = newValue;
-    }
-    if (attributeName === 'content') {
-      this.content = newValue;
-    }
-    this.render();
-  }
+	}
+	static get observedAttributes() {
+		return ['postid', 'posttitle', 'author', 'content'];
+	}
+	attributeChangedCallback(attributeName, oldValue, newValue) {
+		console.log(`attributeName: ${attributeName}, oldValue: ${oldValue}, newvalue: ${newValue}`);
+		if (attributeName === 'posttitle') {
+			this.posttitle = newValue;
+		}
+		if (attributeName === 'postid') {
+			this.postid = newValue;
+		}
+		if (attributeName === 'author') {
+			this.author = newValue;
+		}
+		if (attributeName === 'content') {
+			this.content = newValue;
+		}
+		this.render();
+	}
 }
 customElements.define('profile-card', ProfileCard);

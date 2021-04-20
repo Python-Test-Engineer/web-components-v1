@@ -1,67 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="../_css/w3.css" />
     <link rel="stylesheet" href="../_css/web-course.css" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>01-light-events</title>
   </head>
 
   <body>
-    <style>
-      button {
-        background: #2196f3;
-        color: white;
-        font-size: 24px;
-        padding: 10px;
-        width: 200px;
-        border-radius: 10px;
-        margin-top: 20px;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background: #9bb8cf;
-      }
-    </style>
-
     <main>
-      <div class="wrapper">
-        <div class="explanation">
-          <h1>01-light-events</h1>
-          <p>
-            We can add a page level event like onclick() to the component as in
-            'CLICK ME'.
-          </p>
-          <p>
-            JavaScript does not have public and private methods and properties
-            so we can if we want access them.
-          </p>
-          <p>
-            For components for third party use, we would not advertise this an
-            create interfaces instead.
-          </p>
-          <!-- <img src="../_images/shadow-dom-fragement.png" alt="">-->
-        </div>
-        <div class="spacer"></div>
-        <div id="output">
-          <!-- OUTPUT OF CUSTOM ELEMENT -->
-          <!-- We can add events to our Custom HTML tag just like regular HTML tags -->
-          <my-component onclick="alert('Event Click')"></my-component>
-        </div>
-        <div class="spacer"></div>
-        <button id="btnPublicVariable">Public Variable</button>
-        <button id="btnPublicMethod">Public Method</button>
-        <div class="exercise">
-          <h3>
-            EXERCISE:
-            <p>Click the three events and observe output and DEV > CONSOLE</p>
-          </h3>
-        </div>
+
+      <div class="explanation">
+        <h1>01-light-events</h1>
       </div>
+      <div id="component">
+
+        <!-- $COMPONENT -->
+        <!-- We can add events to our Custom HTML tag just like regular HTML tags -->
+        <my-component onclick="alert('Event Click')"></my-component>
+        <!-- $COMPONENT -->
+
+      </div>
+      <div class="spacer"></div>
+      <button id="btnPublicVariable">Public Variable</button>
+      <button id="btnPublicMethod">Public Method</button>
+
+      <div class="notes">
+        <p><em>Deleting component in DEV > Elements will show the disconnectCallback().</em></p>
+        <p>
+          We can add a page level event like onclick() to the component as in
+          'CLICK ME'.
+        </p>
+        <p>
+          JavaScript does not have public and private methods and properties
+          so we can if we want access them.
+        </p>
+        <p>
+          For components for third party use, we would not advertise this an
+          create interfaces instead.
+        </p>
+        <p>In page we can get a reference to the component with document.querySelector and then call the public function
+          or set the internal properties. This is a an API as it were.</p>
+        <p><img src="../_images/01-events.png" alt="component" style="width:100%"></p>
+      </div>
+
     </main>
     <!-- We can access methods and properties in the Web Component -->
     <script>
@@ -74,7 +59,7 @@
         // Now that we have a reference to the web component called customComponent
         // that we made at the top of this script block, we can access its methods and properties
         console.log('INITIAL Pub Val: ' + customComponent.pubVal);
-        customComponent.pubVal = 'SOME NEW VALUE';
+        customComponent.pubVal = (Math.floor(Math.random() * 1000));
         console.log('NEW Pub Val: ' + customComponent.pubVal);
       });
       // Now that we have a reference to the web component called customComponent
@@ -117,23 +102,25 @@
           // this as an event when the component is attached to the DOM
           console.log('Component now part of DOM…');
         }
+        disconnectedCallback() {
+          // when component is removed from DOM
+          console.log('Component removed - disconnectedCallback()...');
+        }
         // create a method - JS has no private methods.
         publicMethod(val) {
-          alert('[FN] Public Method in Web Component called...' + val);
-          console.log(
-            'Public Method in Web Component called...[VALUE] ' +
-              val +
-              ' passed in'
-          );
+          console.log(`Public Method in Web Component called...[VALUE] ${val} passed in`);
         }
       }
       // We connect the custom HTML element ‘my-component’ with the class MyComponent
       customElements.define('my-component', MyComponent);
     </script>
+
+
     <footer>
-      <div class="w3-container w3-blue w3-center footer">
+      <div>
         <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
       </div>
     </footer>
   </body>
+
 </html>
