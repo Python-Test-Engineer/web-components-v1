@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../_css/web-course.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>05 Style Hosted</title>
+    <style>
+      my-card {
+        /* color: orange; */
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+
+      <div class="explanation">
+        <h1>css-05-host</h1>
+      </div>
+
+      <div id="component">
+
+        <!-- $COMPONENT -->
+        <my-card>id=showHost</my-card>
+        <my-card id="showHost">id=showHost</my-card>
+        <my-card id="showHost2">id=showHost2</my-card>
+        <my-card class="important">class=important</my-card>
+        <my-card class="cool">class=cool</my-card>
+        <!-- $COMPONENT -->
+
+      </div>
+
+      <div class="notes">
+        <h2>Use the :host() or :host(&lt;css selector&gt;) selector</h2>
+        <p>
+          :host(#showHost) means on the component, if an id=showHost exists then use the styles defined.
+        </p>
+        <p>
+          Note if the tag has a style defined in page this will take preference. Thus my-card with color:orange will
+          override andy of the color styles in the component.
+        </p>
+        <p>
+          We can use any CSS selector or combination of selectors.
+        </p>
+        <p>If you uncomment the color:orange in page, then all the text will be orange.</p>
+        <p>Remember we can add CSS custom properties to pass in CSS from outside. However, we are focussing on each type
+          of styling.</p>
+      </div>
+    </main>
+    <footer>
+      <div class=" w3-container w3-blue w3-center footer">
+        <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+      </div>
+    </footer>
+    <script>
+      const template = document.createElement('template');
+      template.innerHTML = `
+            <style>
+                .card {           
+                  width:600px;
+                  font-size: 20px; 
+                  border: 2px solid black; 
+                  margin: 10px 0;   
+                  padding: 20px;     
+                  }
+                /*on the host component tag, if #showHost exists then*/
+                :host(#showHost) {
+                  color: red;
+                 
+                }
+                :host(#showHost2) {
+                  color: blue;
+                 
+                }
+                :host(.important) div{
+                  color: orange;
+                  font-weight: bold;
+                
+                }
+                :host(.cool) {
+                  color: green;
+                  font-weight: bold;
+                  font-size: 44px;
+                  font-style: italic;
+                
+                }
+            </style>
+            <div class="card">
+              <slot>Some default slot text</slot>
+              <br>
+              <div>Hosted CSS - REMEMBER! Light DOM will always override Shadow CSS.</div>
+            </div>
+            `;
+
+      class BusinessCard extends HTMLElement {
+        constructor() {
+          super();
+          this.attachShadow({
+            mode: 'open'
+          });
+          this.shadowRoot.appendChild(template.content.cloneNode(true));
+        }
+      }
+      customElements.define('my-card', BusinessCard);
+    </script>
+  </body>
+
+</html>
