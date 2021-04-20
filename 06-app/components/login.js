@@ -13,14 +13,14 @@ template.innerHTML = `
         <form id="myForm">
             <div>
                 <label>Email</label><span class="req">*</span> <span id="errEmail"></span><br>
-                <input id="email" class="input-initial" type="text" name="email"  placeholder="email" >
+                <input id="email" class="input-initial" type="text" name="email"  placeholder="email" value='p@c.com' >
             </div>
             <div>  
                 <label>Password</label><span class="req">*</span> <span id="errPassword"></span><br>
-                <input id="password" class="input-initial" type="password" name="password" placeholder="Password" >
+                <input id="password" class="input-initial" type="password" name="password" placeholder="Password" value ='1234556' >
             </div>
             <div>  
-                <input id="btnSubmit" name="btnSubmit" type="button" ><br><br>
+                <button id="btnSubmit" name="btnSubmit"  >SEND</button>
                 <div id="formMessage"></div>
             </div>    
         </form>
@@ -34,114 +34,60 @@ class WPLogin extends HTMLElement {
 		});
 
 		this.shadowRoot.appendChild(template.content.cloneNode(true));
-		this.delay = 750;
-		// this.formValid = false;
-		this.btn = this.shadowRoot.getElementById('btnSubmit');
-		this.btnClick;
-		BTN.setBtnInitial(this.btn);
-		// form message
-		this.formMessage = this.shadowRoot.getElementById('formMessage');
-		// emai,
-		this.emailField = this.shadowRoot.getElementById('email');
-		this.errEmail = this.shadowRoot.getElementById('errEmail');
-		this.emailExists = 1; // if ajax email exists being used
-		this.emailValid = false;
-		this.emailHandlerListener; // so we can remove in disconnectedCallback lifecycle event
-		this.emailTimer; // so we can remove in disconnectedCallback lifecycle event
-		// password
-		this.passwordField = this.shadowRoot.getElementById('password');
-		this.errPassword = this.shadowRoot.getElementById('errPassword');
-		this.passwordValid = false;
-		this.passwordHandlerListener; // so we can remove in disconnectedCallback lifecycle event
-		this.passwordTimer; // so we can remove in disconnectedCallback lifecycle event
 	}
 	connectedCallback() {
+		this.btn = this.shadowRoot.getElementById('btnSubmit');
+		this.btn.addEventListener('click', this.sendForm.bind(this));
+	}
+	sendForm(e) {
 		var self = this;
-		// unable to remove event listeners with anonymous functions so we create
-		// a named function to then remove in disconnectedCallback
-		this.btnClick = function (e) {
-			e.preventDefault(); // prevent default submission
+		e.preventDefault(); // prevent default submission
+		const formMessage = this.shadowRoot.getElementById('formMessage');
+		console.log('VALID ');
+		const formData = new FormData();
+		formData.append('email', 'p@c.com');
+		formData.append('password', '123456');
+		// API CALL
+		let apiUrl = 'https://wp-html.co.uk/api/wp-json/api/v1/login';
+		console.log('url: ' + apiUrl);
+		fetch(apiUrl, {
+			method: 'POST',
+			body: formData,
+			// use FormData object as it is going to PHP so don't need to add content-type headers
+		})
+			.then(function (response) {
+				return response.json();
+			})
+			.then(function (data) {
+				// console.log(data.token);
 
-			if (this.formIsValid()) {
-				console.log('VALID ');
-				const formData = new FormData();
-				formData.append('email', this.emailField.value);
-				formData.append('password', this.passwordField.value);
-				// API CALL
-				let apiUrl = 'https://wp-html.co.uk/api/wp-json/api/v1/login';
-				console.log('url: ' + apiUrl);
-				fetch(apiUrl, {
-					method: 'POST',
-					body: formData,
-					// use FormData object as it is going to PHP so don't need to add content-type headers
-				})
-					.then(function (response) {
-						return response.json();
-					})
-					.then(function (data) {
-						// console.log(data.token);
+				// send Custom Event to Parent that can then do something
+				self.dispatchEvent(
+					new CustomEvent('contactform', {
+						detail: data,
+						bubbles: true, // by default Web Components do not bubble events unlike regular DOM events
+						composed: true, // this is needed to escape the Shadow DOM encapsulation and be heard by the Light DOM
+					}),
+				);
 
-						// send Custom Event to Parent that can then do something
-						self.dispatchEvent(
-							new CustomEvent('contactform', {
-								detail: data,
-								bubbles: true, // by default Web Components do not bubble events unlike regular DOM events
-								composed: true, // this is needed to escape the Shadow DOM encapsulation and be heard by the Light DOM
-							}),
-						);
-						// display in component
-						self.showResult(data.token);
-						// console.log('JWT = ' + data.token);
-						// console.log('CUSTOM EVENT emitted...');
-						console.log(data);
-						//window.location.href = "https://49 plus.co.uk/abob/";
-					})
-					.finally(function () {
-						self.clearFields();
-					});
-			} else {
-				alert('!!!!! FORM NOT VALID  XXXX');
-				console.log('NOT VALID');
-			}
-			// reuse afterDelay in the case of empty form
-			// highlights empty form fields on btn click
-			self.afterDelayPasswordHandler();
-			self.afterDelayEmailHandler();
-		};
-		// bind this to form not btn
-		this.btn.addEventListener('click', this.btnClick.bind(this));
-		// We cannot remove anonymous event liteneres in disconnectedCallback
-		// so we create named listeners to do so.
-		this.emailHandlerListener = function (e) {
-			self.emailHandler();
-		};
-		this.emailField.addEventListener('keyup', this.emailHandlerListener);
-		this.passwordHandlerListener = function (e) {
-			self.passwordHandler();
-		};
-		this.passwordField.addEventListener('keyup', this.passwordHandlerListener);
+				console.log(data.token);
+				//window.location.href = "https://49 plus.co.uk/abob/";
+
+				formMessage.innerHTML = `JWT: ${data.token}`;
+			})
+			.finally(function () {});
 	}
-	showResult(data) {
-		this.formMessage.innerHTML = `JWT: ${data}`;
-	}
-	clearFields() {
-		this.emailField.value = '';
-		this.passwordField.value = '';
-		this.errEmail.innerHTML = '';
-		this.errPassword.innerHTML = '';
-		BTN.setBtnInitial(this.btn);
-		UI.formatNeutral(this.emailField);
-		UI.formatNeutral(this.passwordField);
-	}
+
+	clearFields() {}
 	formIsValid() {
-		if (this.emailValid && this.passwordValid) {
+		if (true) {
 			return true;
 		} else {
 			return false;
 		}
 	}
 	activateSend() {
-		if (this.formIsValid()) {
+		if (true) {
 			this.formMessage.innerHTML = 'Form is now valid.';
 			BTN.setBtnValid(this.btn);
 		} else {
@@ -150,14 +96,6 @@ class WPLogin extends HTMLElement {
 		}
 	}
 	emailHandler() {
-		const delayTime = this.delay;
-
-		if (this.emailField.previousValue != this.emailField.value) {
-			this.immediateEmailHandler(this.emailField.value);
-			clearTimeout(this.emailTimer);
-			this.emailTimer = setTimeout(() => this.afterDelayEmailHandler(), delayTime);
-		}
-		this.emailField.previousValue = this.emailField.value;
 		this.activateSend();
 	}
 	immediateEmailHandler(val) {

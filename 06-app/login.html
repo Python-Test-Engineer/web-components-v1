@@ -24,12 +24,12 @@
       </main>
       <!-- ///////////  PAGE CONTROLLER  //////////////-->
       <script>
-         const el = document.getElementById('content');
-         el.addEventListener('contactform', e => {
-            // console.log(e);
-            // console.log('Event HEARD on page ');
-            // alert('CUSTOM EVENT HEARD -> DETAIL = ' + e.detail);
-            // console.log('CUSTOM EVENT DETAIL  = ' + e.detail);
+         const content = document.getElementById('content');
+         content.addEventListener('contactform', e => {
+            console.log(e);
+            console.log('Event HEARD on page ');
+            //alert('CUSTOM EVENT HEARD -> DETAIL = ' + e.detail);
+            console.log('CUSTOM EVENT DETAIL  = ' + e.detail);
             const formMessage = document.getElementById('formMessage');
             if (e.detail.length != 0) {
                formMessage.innerHTML = `
