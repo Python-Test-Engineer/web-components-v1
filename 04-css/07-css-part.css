@@ -1,0 +1,27 @@
+before-after-demo::part(div)::before {
+	display: block;
+	content: 'before';
+	color: green;
+}
+
+before-after-demo::part(div)::after {
+	display: block;
+	content: 'after';
+	color: blue;
+}
+
+input-demo::part(input)::placeholder {
+	color: red;
+}
+
+selection-demo::part(text)::selection {
+	color: hotpink;
+}
+
+line-demo::part(text)::first-line {
+	color: rebeccapurple;
+}
+
+letter-demo::part(text)::first-letter {
+	color: red;
+}
