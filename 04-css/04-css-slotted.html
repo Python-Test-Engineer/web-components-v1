@@ -11,7 +11,11 @@
   </head>
 
   <body>
-
+    <style>
+      h3 {
+        color: pink;
+      }
+    </style>
     <main>
       <div class="explanation">
         <h1>css-03-slotted</h1>
@@ -37,9 +41,9 @@
       </div>
       <div class="notes">
         <h2>Slotted Styling</h2>
-        <p><em>REMEMBER! Light DOM will always override Shadow CSS.</em></p>
-        <p>We cant style the SLOT in the component as the element is in the LIGHT DOM. It gets projected into
-          the SLOT in the component.</p>
+        <p><em>REMEMBER! SLOT is in the Light DOM</em></p>
+        <p>We can use slot as a selector but :slotted(css-selector) trumps it.</p>
+        <p>Remove :slotted and see effect. One can only select top level not child elements.</p>
       </div>
     </main>
     <footer>
@@ -64,27 +68,31 @@
                   h1 {
                       color: red;
                   }
+                  /* Anything that is a span in SLOT 
+                  ::slotted(span) {
+                        color: green;
+                        font-size:34px;
+                  }
+               */
                   slot[name=email]  {
                       color: green;
                   }
                   slot[name=title]  {
                       color: purple;
                   }
-                  ::slotted(.first) {
+                  slot[name=first] {
                       color: orange;
                       font-size:28px;
-      
+
                   }
-                 ::slotted(#nested) {
-                      color: grene;
-                      font-size:34px;
-                 }
+                 
+               
                  
               </style> 
              
               <div class="card">
                   <h1>This is template h1 styled by component</h1>  
-                  <h3>Some h3 text which will not be styled by page level h3 rule</h3>     
+                  <h3>Some h3 text which will not be styled by page level h3 rule as there is no channel to do so.</h3>     
                   <slot name="first" id="first" ></slot><br>
                   <slot name="title" ></slot><br>
                   <slot name="email" ></slot>
