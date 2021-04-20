@@ -19,45 +19,8 @@
                 --primary-color: red;
                 --primary-size: 25px;
             }
-
-            my-component {
-                color: var(--primary-color, goldenrod);
-                text-transform: uppercase;
-                font-size: var(--primary-size);
-            }
         </style>
 
-        <script>
-            customElements.define('my-component', class extends HTMLElement {
-                constructor() {
-                    super(); // always call super() first in the constructor.
-
-                    // Attach a shadow root to <my-component>.
-                    const shadowRoot = this.attachShadow({ mode: 'open' });
-                    shadowRoot.innerHTML = `
-                    <style>
-                        div {
-                            background: linen;
-                            border-radius: 10px;
-                            border: 5px solid orange;
-                            padding: 20px;
-                            color: var(--primary-color, green);
-                            text-transform: uppercase;
-                            font-size: var(--primary-size);
-                            width: 600px;
-                            margin-bottom:20px;
-                            font-family: inherit;
-                        }
-                        slot {
-                            color: purple
-                        }
-                    </style>
-                    <div>A styled DIV element</div>
-                    <slot>DEFAULT SLOT TEXT</slot>
-                `;
-                }
-            });
-        </script>
         <main>
 
             <div class="explanation">
@@ -79,19 +42,60 @@
                 <!-- $COMPONENT -->
 
             </div>
-            <div class="notes">
+            <div id="component">
 
-                <p>We can pass in CSS custom properties into the SHADOW DOM.</p>
-                <p>This means we can have default styles in the component and they can be overwritted by page level CSS
-                    custom properites</p>
+                <!-- $COMPONENT -->
+                <my-component>Some slot text</my-component>
+                <!-- $COMPONENT -->
+
+            </div>
+            <div class="notes">
+                <p>With no Shadow Dom, normal CSS rules apply.</p>
+                </p>
 
             </div>
         </main>
+
         <footer>
             <div>
                 <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
             </div>
         </footer>
+
+        <script>
+            customElements.define('my-component', class extends HTMLElement {
+                constructor() {
+                    super(); // always call super() first in the constructor.
+
+                    // Attach a shadow root to <my-component>.
+                    const shadowRoot = this.attachShadow({ mode: 'open' });
+                    shadowRoot.innerHTML = `
+                            <style>
+                                div {
+                                    background: linen;
+                                    border-radius: 10px;
+                                    border: 5px solid orange;
+                                    padding: 20px;
+                                    color: var(--primary-color, green);
+                                    text-transform: uppercase;
+                                    font-size: var(--primary-size);
+                                    width: 600px;
+                                    margin-bottom:20px;
+                                    font-family: inherit;
+                                }
+                                slot {
+                                    color: purple;
+                                    font-weight: bold;
+                                    font-style: italic;
+                                    font-size: 34px;
+                                }
+                            </style>
+                            <div>A styled DIV element</div>
+                            <slot>DEFAULT SLOT TEXT</slot>
+                        `;
+                }
+            });
+        </script>
     </body>
 
 </html>
