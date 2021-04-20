@@ -18,7 +18,10 @@ body {
 	color: var(--font-color, black);
 	font-size: 22px;
 }
-
+hr {
+   border-top: 3px solid var(--primary, black);;
+   margin: 15px 0;
+}
 a,
 a:hover,
 a:focus,
