@@ -1,53 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>LOGIN FORM</title>
-      <link
-         href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
-         rel="stylesheet"
-      />
-      <link rel="stylesheet" href="../_css/library.css" />
-      <style>
-         :root {
-            --main-font: 'Quicksand';
-            --main-font-size: 22px;
-            --mobile-font-size: 16px;
-         }
-
-         body {
-            background: #fff;
-            font-family: var(--main-font, sans-serif);
-         }
-
-         main {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-         }
-
-         #formMessage {
-            word-break: break-all;
-         }
-      </style>
-
-      <title>LOGIN</title>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet" />
+      <link rel="stylesheet" href="./css/main.css" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>login</title>
    </head>
 
    <body>
       <main>
          <div id="content">
-            <h2>https://49plus.co.uk/wp-social/</h2>
-            <!-- ///////////  WEB COMPONENT    //////////////-->
-            <script src="login.js" type="module"></script>
+            <!-- $COMPONENT -->
+            <script src="./components/login.js" type="module"></script>
             <wp-login></wp-login>
-            <!-- ///////////  WEB COMPONENT    //////////////-->
-            <br />
-            <div>LIGHT DOM output =></div>
+            <!-- $COMPONENT -->
             <div id="formMessage"></div>
          </div>
-         <br /><br />
+
       </main>
       <!-- ///////////  PAGE CONTROLLER  //////////////-->
       <script>
@@ -71,4 +44,5 @@
       </script>
       <!-- ///////////  PAGE CONTROLLER  //////////////-->
    </body>
+
 </html>

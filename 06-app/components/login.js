@@ -1,4 +1,4 @@
-import { UI, BTN } from '../00-ndc-global/global.js';
+import { UI, BTN } from '../components/global.js';
 
 const template = document.createElement('template');
 template.innerHTML = `

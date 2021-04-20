@@ -12,9 +12,9 @@ html {
 }
 
 body {
-	font-family: 'Quicksand', sans-serif;
+	font-family: var(--main-font, serif);
 	color: var(--font-color, black);
-	font-size: 22px;
+	font-size: var(--main-font-size, 20px);
 }
 hr {
 	border-top: 3px solid var(--primary, black);
@@ -34,7 +34,11 @@ a:hover {
 	color: var(--secondary, black);
 	text-decoration: underline;
 }
-
+input {
+	font-size: var(--main-font-size, 20px);
+	padding: 5px 10px;
+	border: 2px solid var(--primary, black);
+}
 p {
 	font-size: 22px;
 	/* font-weight: bold; */
