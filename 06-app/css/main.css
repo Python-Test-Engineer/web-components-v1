@@ -1,4 +1,4 @@
-html {
+* {
 	--primary: purple;
 	--secondary: orange;
 	--hover: green;
@@ -12,7 +12,10 @@ html {
 	margin: 0px;
 	padding: 0px;
 }
-
+html {
+	/* https://aykevl.nl/2014/09/fix-jumping-scrollbar */
+	margin-left: calc(100vw - 100%);
+}
 body {
 	font-family: var(--main-font, serif);
 	color: var(--font-color, black);
