@@ -1,4 +1,6 @@
-This takes a Vanilla Webn Component and publishes it to NPM.
+### This takes a Vanilla Webn Component and publishes it to NPM.
+
+### In NPM as test-webcomponent-js
 
 ```
 <script type="module" src="https://unpkg.com/test-webcomponent-js@1.0.1/index.js"></script>
