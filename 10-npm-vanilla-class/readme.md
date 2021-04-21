@@ -1,4 +1,4 @@
-### This takes a Vanilla Webn Component and publishes it to NPM.
+### This takes a Vanilla Web Component and publishes it to NPM.
 
 ### In NPM as test-webcomponent-js
 
