@@ -2,6 +2,8 @@ We load in the JS Vanilla NPM in index.html and can then use the component in in
 
 index.html
 
+NPM install !
+
 ```
 <!-- VANILL JS TO NPM -->
       <script type="module" src="https://unpkg.com/test-webcomponent-js@1.0.0/index.js"></script>
