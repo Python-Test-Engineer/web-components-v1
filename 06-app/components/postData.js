@@ -31,11 +31,11 @@ button:hover {
         <form id="myForm">
             <div>
                 <label>Email</label><span class="req">*</span> <span id="errEmail"></span><br>
-                <input id="email" class="input-initial" type="text" name="email"  placeholder="email" value='p@c.com' >
+                <input id="email" class="input-initial" type="text" name="email"  placeholder="email" >
             </div>
             <div>  
                 <label>Password</label><span class="req">*</span> <span id="errPassword"></span><br>
-                <input id="password" class="input-initial" type="password" name="password" placeholder="Password" value ='1234556' >
+                <input id="password" class="input-initial" type="password" name="password" placeholder="Password" >
             </div>
             <div>  
                 <button id="btnSubmit" name="btnSubmit"  >SEND</button>
@@ -60,7 +60,10 @@ class WPLogin extends HTMLElement {
 	sendForm(event) {
 		event.preventDefault(); // prevent default submission
 		const formMessage = this.shadowRoot.getElementById('formMessage');
-		console.log('VALID ');
+		const email = this.shadowRoot.getElementById('email').value;
+		const password = this.shadowRoot.getElementById('password').value;
+		console.log(email, password);
+
 		const formData = new FormData();
 		formData.append('email', 'p@c.com');
 		formData.append('password', '123456');
