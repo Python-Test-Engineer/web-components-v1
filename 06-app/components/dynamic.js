@@ -1,4 +1,4 @@
-import { SERVER, Utility } from './global.js';
+import { SERVER } from '../util/global.js';
 
 class ShowPost extends HTMLElement {
 	constructor() {

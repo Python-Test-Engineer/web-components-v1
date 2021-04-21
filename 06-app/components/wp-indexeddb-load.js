@@ -1,6 +1,6 @@
 // import { SERVER } from '../components/global';
 
-import { IDB } from './idb.js';
+import { IDB } from '../util/idb.js';
 class WPIndexedDBLoad extends HTMLElement {
 	constructor() {
 		super();

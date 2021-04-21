@@ -1,6 +1,4 @@
-import { IDB } from './idb.js';
-
-// import './profile-card.js'
+import { IDB } from '../util/idb.js';
 
 class WPIndexedDBRead extends HTMLElement {
 	constructor() {

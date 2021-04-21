@@ -1,6 +1,6 @@
 // We can important site wide variables
 // either through an IMPORT or a CLASS
-import { SERVER, testFn } from './global.js';
+import { SERVER, testFn } from '../util/global.js';
 
 class ShowPost extends HTMLElement {
 	constructor() {
