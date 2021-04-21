@@ -6,6 +6,8 @@ html {
 	--main-font: 'Quicksand';
 	--main-font-color: #666766;
 	--main-font-size: 20px;
+	--notes-border: black;
+	--notes-background: linen;
 
 	margin: 0px;
 	padding: 0px;

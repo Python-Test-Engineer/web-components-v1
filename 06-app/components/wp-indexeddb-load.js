@@ -1,10 +1,6 @@
-import {
-	SERVER
-} from '../00-ndc-global/global.js';
+// import { SERVER } from '../components/global';
 
-import {
-	IDB
-} from './idb.js'
+import { IDB } from './idb.js';
 class WPIndexedDBLoad extends HTMLElement {
 	constructor() {
 		super();
@@ -14,14 +10,14 @@ class WPIndexedDBLoad extends HTMLElement {
 		this.TABLE; // = 'wpCAT6';
 		this.URL; // = 'https://wpjs.co.uk/wpb/wp-json/wp/v2/posts?categories=' + 6;
 		this.attachShadow({
-			mode: 'open'
+			mode: 'open',
 		});
 	}
 	connectedCallback() {
 		//this.getData(this.DB_NAME, this.TABLE, this.DB_VERSION, this.URL);
 	}
 	static get observedAttributes() {
-		return ["cat"];
+		return ['cat'];
 	}
 	attributeChangedCallback(name, oldValue, newValue) {
 		// this will fire initially as the element has no atrribute but is added when page runs
@@ -32,9 +28,8 @@ class WPIndexedDBLoad extends HTMLElement {
 			console.log(name, oldValue, newValue);
 			var db = 'cat' + newValue;
 			var table = 'wpcat' + newValue;
-			console.log("[SERVER] " + SERVER);
 			let url = 'https://wpjs.co.uk/wpb/wp-json/wp/v2/posts?categories=' + newValue;
-			console.log("[INDEXEDDB URL] " + url);
+			console.log('[INDEXEDDB URL] ' + url);
 			this.loadData(db, table, 2, url);
 		}
 	}
@@ -52,9 +47,9 @@ class WPIndexedDBLoad extends HTMLElement {
 		fetch(URL)
 			.then(res => res.json())
 			.then(data => {
-				console.log("--------------" + data.length);
+				console.log('--------------' + data.length);
 				console.log(data);
-				console.log("Number of posts: " + data.length);
+				console.log('Number of posts: ' + data.length);
 				IDB.db(DB_NAME, DB_VERSION, TABLE).then(function (db) {
 					const tx = db.transaction(TABLE, 'readwrite');
 					const dbTable = tx.objectStore(TABLE);
@@ -63,7 +58,7 @@ class WPIndexedDBLoad extends HTMLElement {
 							id: data[i].id,
 							title: data[i].title.rendered, //double quotes on field optional
 							content: data[i].content.rendered,
-							authorName: data[i].authorName
+							authorName: data[i].authorName,
 						});
 					}
 					return tx.complete;
@@ -72,4 +67,4 @@ class WPIndexedDBLoad extends HTMLElement {
 	}
 	disconnectedCallback() {}
 }
-customElements.define("wp-indexeddb-load", WPIndexedDBLoad);
+customElements.define('wp-indexeddb-load', WPIndexedDBLoad);
