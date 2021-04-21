@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>login</title>
+  </head>
+
+  <body>
+    <main>
+      <div id="content">
+        <div id="component">
+          <!-- $COMPONENT -->
+          <script src="./components/postData.js" type="module"></script>
+          <wp-login></wp-login>
+          <!-- $COMPONENT -->
+
+        </div>
+        <div id="formMessage"></div>
+      </div>
+
+    </main>
+    <!-- ///////////  PAGE CONTROLLER  //////////////-->
+    <script>
+      const component = document.getElementById('component');
+      component.addEventListener('contactform', e => {
+        const eventType = e.type
+        console.log(`%cEvent ${eventType.toUpperCase()}`, 'color:green;font-size: 18px;');
+        console.log(e)
+        const formMessage = document.getElementById('formMessage');
+        if (e.detail.length != 0) {
+          formMessage.innerHTML = `
+            <p><strong>Login successful</strong></p>
+          `;
+        } else {
+          formMessage.innerHTML = `
+            <p><strong>Invalid login</strong></p>
+          `;
+        }
+      });
+    </script>
+    <!-- ///////////  PAGE CONTROLLER  //////////////-->
+  </body>
+
+</html>
