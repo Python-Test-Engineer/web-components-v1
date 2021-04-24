@@ -1,0 +1,3 @@
+C:\Users\Owner\Dropbox\COURSES\NDC\50-WEB-COMPONENTS-AS-MICROAPPS\50-STENCIL-NDC-DEPLOY\02-PUBLISH-TO-NPM
+
+iwswordpress-wp2 uses component
