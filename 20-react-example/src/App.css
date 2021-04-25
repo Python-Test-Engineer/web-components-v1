@@ -12,8 +12,16 @@
 	font-size: calc(10px + 2vmin);
 	color: white;
 }
-
+img {
+	width: 120px;
+}
 .web-component {
 	max-width: 1000px;
 	margin: 0 auto;
+}
+
+.title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
