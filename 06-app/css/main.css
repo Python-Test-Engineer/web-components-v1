@@ -1,7 +1,8 @@
 * {
 	--primary: purple;
 	--secondary: orange;
-	--hover: green;
+	--hover-color: white;
+	--hover-background: rgb(221, 95, 221);
 	--background: linen;
 	--main-font: 'Quicksand';
 	--main-font-color: #666766;
@@ -62,8 +63,8 @@ button {
 	cursor: pointer;
 }
 button:hover {
-	color: var(--hover, white);
-	outline: var(--primary, black);
+	color: var(--hover-color, white);
+	background: var(--hover-background, black);
 }
 li {
 	list-style: none;
