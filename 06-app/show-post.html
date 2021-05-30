@@ -12,39 +12,22 @@
   </head>
 
   <body>
-    <main>
-      <div class="wrapper">
-        <div class="explanation">
-          <h1>WP-SHOW-POST</h1>
-          <h2>
-            This returns one post based on a JSON file for one post. For DEMO
-            purposes at this stage.
-          </h2>
-          <p>4,1031, 1027
-            We are using CSS custom properties defined in ../_css/library.css
-          </p>
-          <p>
-            In DEV > ELEMENTS we can change postid to 110 or 106 to get a new
-            post.
-          </p>
-        </div>
-        <div class="spacer"></div>
-        <div id="output">
-          <!-- OUTPUT OF CUSTOM ELEMENT -->
-          <button id="btnChange">
-            CHANGE POST TO ID:1031
-          </button>
-          <wp-show-post postid="4"></wp-show-post>
-          <script>
-            const btn = document.getElementById('btnChange');
-            btn.addEventListener('click', function () {
-              // <show-post /> is an HTML tag
-              document.querySelector('wp-show-post').setAttribute('postid', 1031);
-            })
-          </script>
+    <main style="	margin: 20px auto;
+	max-width: 1000px;">
 
-        </div>
-      </div>
+      <!-- OUTPUT OF CUSTOM ELEMENT -->
+      <button id="btnChange">
+        CHANGE POST TO ID:1031
+      </button>
+      <show-post postid="4"></show-post>
+      <script>
+        const btn = document.getElementById('btnChange');
+        btn.addEventListener('click', function () {
+          // <show-post /> is an HTML tag
+          document.querySelector('show-post').setAttribute('postid', 1031);
+        })
+      </script>
+
     </main>
 
     <footer>
@@ -128,7 +111,7 @@
 
       }
       // We define custom component tag
-      customElements.define('wp-show-post', WPShowPost);
+      customElements.define('show-post', WPShowPost);
 
     </script>
   </body>

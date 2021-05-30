@@ -14,7 +14,9 @@ class App extends Component {
 					</div>
 					<div className='web-component'>
 						<p>We can edit props postid to 1220, 1050, 955, 647</p>
+
 						<show-post postid='1220'></show-post>
+
 						<show-post postid='647'></show-post>
 					</div>
 				</header>

@@ -11,10 +11,14 @@
 
   <body>
     <style>
-      my-component {
+      a-my-component {
         color: green;
         text-transform: uppercase;
-        font-size: 38px;
+        font-size: 26px;
+      }
+
+      a-my-component h1 {
+        color: pink
       }
 
       h1 {
@@ -30,7 +34,6 @@
           console.log('Component created…');
         }
         connectedCallback() {
-          // this as an event when the component is attached to the DOM
           this.innerHTML =
             '<h1 style="color:orange;">This is my web component</h1>'; // this refers to the class component.
           console.log('Component now part of DOM…');
@@ -43,7 +46,7 @@
 
       <div class="explanation">
         <h1>02-simple-css-styling</h1>
-        <p>Page level CSS permeates into the component.</p>
+        <p>Regular CSS rules apply</p>
       </div>
 
       <div class="component">
