@@ -26,12 +26,13 @@
           console.log('Component created…');
         }
         connectedCallback() {
+          // this refers to the class component.
           this.innerHTML = `
             <style> 
              h1  {color:green;} 
             </style>
-            <h1>This is my web component with no Shadow DOM</h1>
-              `; // this refers to the class component.
+            <h1>This is my web component with no Shadow DOM</h1>`;
+
           console.log('Component now part of DOM…');
         }
       }
@@ -48,8 +49,9 @@
 
       </div>
       <div class="notes">
-        <p>With no Shadow Dom, normal CSS rules apply.</p>
-        </p>
+        <p>With no Shadow Dom, normal CSS rules apply, so inline takes priority over page style css.</p>
+        <p>Using an embedded &lt;link stylesheet reference can be used but is considered and anti-pattern as it can
+          cause Flash Of Unstyled Content - FOUC.</p>
 
       </div>
     </main>

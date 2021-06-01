@@ -42,7 +42,7 @@
       </div>
       <div class="notes">
         <p>If host is in a context of #showContext then style the div element</p>
-        <p>Change id="showContext" and the styling of :host-context(#showContext) is not applied.</p>
+        <p>Remove id="showContext" and the styling of :host-context(#showContext) is not applied.</p>
       </div>
     </main>
     <footer>
@@ -55,7 +55,7 @@
       template.innerHTML = `
               <style>       
                 :host-context(#showContext) div {
-                    /* if host is in a context of #showContext then style the div element */
+                    /* IF (host is in a context of #showContext) THEN {style the div element} */
                     color: green;
                     font-weight: bold;
                     font-size: 2.0rem;

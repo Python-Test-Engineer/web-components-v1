@@ -44,7 +44,12 @@
       </div>
 
       <div class="notes">
-        <p>With no Shadow Dom, normal CSS rules apply.</p>
+        <p>
+          CSS variables can be passed into Shadow DOM. We can also style SLOT (children) using the slot selector.
+        </p>
+        <p>
+          There
+          are more advanced slot css styling features which we will see shortly...</p>
         </p>
 
       </div>
@@ -63,30 +68,31 @@
 
           // Attach a shadow root to <my-component>.
           const shadowRoot = this.attachShadow({ mode: 'open' });
-          shadowRoot.innerHTML = `
-                            <style>
-                                div {
-                                    background: linen;
-                                    border-radius: 10px;
-                                    border: 5px solid orange;
-                                    padding: 20px;
-                                    color: var(--primary-color, green);
-                                    text-transform: uppercase;
-                                    font-size: var(--primary-size);
-                                    width: 600px;
-                                    margin-bottom:20px;
-                                    font-family: inherit;
-                                }
-                                slot {
-                                    color: purple;
-                                    font-weight: bold;
-                                    font-style: italic;
-                                    font-size: 34px;
-                                }
-                            </style>
-                            <div>A styled DIV element</div>
-                            <slot>DEFAULT SLOT TEXT</slot>
-                        `;
+          shadowRoot.innerHTML =
+            `
+              <style>
+                  div {
+                      background: linen;
+                      border-radius: 10px;
+                      border: 5px solid orange;
+                      padding: 20px;
+                      color: var(--primary-color, green);
+                      text-transform: uppercase;
+                      font-size: var(--primary-size);
+                      width: 600px;
+                      margin-bottom:20px;
+                      font-family: inherit;
+                  }
+                  slot {
+                      color: purple;
+                      font-weight: bold;
+                      font-style: italic;
+                      font-size: 34px;
+                  }
+              </style>
+              <div>A styled DIV element</div>
+              <slot>DEFAULT SLOT TEXT</slot>
+          `;
         }
       });
     </script>
