@@ -23,12 +23,16 @@
                         width: 600px;
                         border-radius:10px;
                     }
+                    .slotCSS {
+                        color: green;
+                        font-weight: bold;
+                    }
                 </style>
                 
                 <div class="card">
                     <h2>Heading</h2>
-                    <slot style="color:red;font-size:32px;">
-                        <p >Default text in template will be rendered in the SLOT of the component.</p>
+                    <slot class="slotCSS">
+                        <p>Default text in template will be rendered in the SLOT of the component.</p>
                     </slot>
                     <p>Some paragraph text here</p>
                 </div>

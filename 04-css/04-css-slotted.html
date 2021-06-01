@@ -12,9 +12,11 @@
 
   <body>
     <style>
-      h3 {
-        color: pink;
-      }
+      /* h3,
+      p {
+        color: green;
+        font-style: oblique;
+      } */
     </style>
     <main>
       <div class="explanation">
@@ -27,6 +29,8 @@
         <my-card>
           <!-- This is slotted text -->
           <!-- slotted text is Light DOM projected into the Shadow DOM -->
+          <span class="highlight">Page level p text in SLOT - can be styled by page as it is in Light DOM.</span>
+
           <span slot="first" class="first">John</span><br>
           <span slot="title">Engineer<br>
             <span id="nested">Nested text NOT styled by ::slotted(#nested) - only top
@@ -69,11 +73,12 @@
                       color: red;
                   }
                   Anything that is a span in SLOT 
-                  ::slotted(span) {
-                        color: green;
-                        font-size:34px;
+                 
+                  ::slotted(.highlight) {
+                    border-bottom: 5px dotted red;
                   }
-               
+
+               /*
                   slot[name=email]  {
                       color: green;
                   }
@@ -85,7 +90,7 @@
                       font-size:28px;
 
                   }
-                 
+                 */
                
                  
               </style> 
@@ -93,6 +98,7 @@
               <div class="card">
                   <h1>This is template h1 styled by component</h1>  
                   <h3>Some h3 text which will not be styled by page level h3 rule as there is no channel to do so.</h3>     
+                  <slot></slot>
                   <slot name="first" id="first" ></slot><br>
                   <slot name="title" ></slot><br>
                   <slot name="email" ></slot>

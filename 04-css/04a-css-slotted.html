@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Web Components</title>
+    <style>
+      div {
+        margin: 30px 10px;
+        background: #ccc;
+        padding: 30px;
+        width: 300px;
+      }
+
+      .highlight {
+        /* border-bottom: 5px dashed blue; */
+      }
+    </style>
+    <script src="4a.js"></script>
+
+  </head>
+
+  <body>
+
+    <p>
+      <my-component class="important">
+        <!-- This is SLOT (children) -->
+        <span class="highlight">Web Components</span>
+      </my-component>
+
+    </p>
+    <div>This does not get the web component styles!</div>
+    <div>Comment out page level .highlight class and see it override component CSS.</div>
+  </body>
+
+</html>
