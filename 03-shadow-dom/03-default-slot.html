@@ -52,26 +52,22 @@
         <!-- if there is a space, comment or new line in between my-card tags then this is treated as content as this is a text node. -->
         <br>
         <main>
-            <div class="wrapper">
-                <div class="explanation">
-                    <h1>03-default-slot</h1>
-                    <p>We can set the default text for slot in component so that if there is nothing in the slot on the
-                        page, the default slot text will be rendered.</p>
 
-
-                </div>
-                <div class="spacer"></div>
-                <div id="component">
-
-                    <!-- $COMPONENT -->
-                    <my-card>this is slot text</my-card>
-                    <!-- Default slot text will be rendered below as there is no text.-->
-                    <my-card></my-card>
-                    <!-- $COMPONENT -->
-
-                </div>
-                <div class="notes">Notes...</div>
+            <div class="explanation">
+                <h1>02-shadow-dom-template</h1>
+                <p>We use the TEMPLATE approach.</p>
             </div>
+            <div id="component">
+
+                <!-- $COMPONENT -->
+                <my-card>this is slot text</my-card>
+                <!-- Default slot text will be rendered below as there is no text.-->
+                <my-card></my-card>
+                <!-- $COMPONENT -->
+
+            </div>
+            <div class="notes">Notes...</div>
+
         </main>
         <footer>
             <div>

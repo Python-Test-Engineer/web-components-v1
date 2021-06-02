@@ -1,5 +1,5 @@
 # Web Components JS V1
 
-Craig West
+GitHub https://github.com/iwswordpress/web-components-v1
 
-19APR2021 - CSS and file template change for 01.
+Craig West
