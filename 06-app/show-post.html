@@ -25,6 +25,7 @@
         btn.addEventListener('click', function () {
           // <show-post /> is an HTML tag
           document.querySelector('show-post').setAttribute('postid', 1031);
+          // One can change attribute from within if one wants to create sync between properties and attributes so that the component is the source of all truth.
         })
       </script>
 
@@ -78,6 +79,7 @@
         connectedCallback() {
           // When component is added to DOM
           console.log('connectedCallback fired...');
+
         }
         disconnectedCallback() {
           // when component is removed from DOM

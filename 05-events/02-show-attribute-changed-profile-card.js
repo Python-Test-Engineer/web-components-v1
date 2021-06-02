@@ -59,5 +59,10 @@ class ProfileCard extends HTMLElement {
 		}
 		this.render();
 	}
+	connectedCallback() {
+		// Demo of Component set attributes on itself
+		const lightComponent = document.querySelector('profile-card');
+		lightComponent.setAttribute('test', 'YES');
+	}
 }
 customElements.define('profile-card', ProfileCard);
