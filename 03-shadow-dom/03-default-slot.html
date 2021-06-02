@@ -32,7 +32,7 @@
                 <div class="card">
                     <h2>Heading</h2>
                     <slot class="slotCSS">
-                        <p>Default text in template will be rendered in the SLOT of the component.</p>
+                        <p>Default text in template will be rendered in the SLOT of the component if no content provided.</p>
                     </slot>
                     <p>Some paragraph text here</p>
                 </div>
@@ -60,7 +60,7 @@
             <div id="component">
 
                 <!-- $COMPONENT -->
-                <my-card>this is slot text</my-card>
+                <my-card>SLOT text supplied...</my-card>
                 <!-- Default slot text will be rendered below as there is no text.-->
                 <my-card></my-card>
                 <!-- $COMPONENT -->
