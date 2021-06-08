@@ -28,7 +28,9 @@
           We use the static get observedAttributes() to listen to changes in attributes and then carry out a callback -
           attributeChangedCallback(attributeName, oldValue, newValue)
         </p>
-        <p>We can also set attributes from within the component. Demo has test="YES" added.</p>
+        <p>We can also set attributes from within the component. Demo has test="YES" added in connectCallback.</p>
+        <p>NB We could also set attribute of another component from this component by getting
+          document.querySelector('another-component')...see JS code.</p>
 
       </div>
 

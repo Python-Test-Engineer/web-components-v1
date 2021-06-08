@@ -27,7 +27,7 @@ class ChildOne extends HTMLElement {
 	}
 	connectedCallback() {
 		const btn = this.shadowRoot.getElementById('btn');
-		btn.addEventListener('click', e => {
+		btn.addEventListener('click', (e) => {
 			const rnd = Math.floor(Math.random() * 1000);
 			const eventData = 'DATA SENT IN CUSTOM EVENT ' + rnd;
 			this.shadowRoot.getElementById('btn').innerHTML = eventData;

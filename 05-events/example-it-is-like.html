@@ -1,0 +1,18 @@
+
+
+
+<my-component></my-component>
+
+<script>
+  // In Web Component definiton
+  customElements.define('my-component', MyComponent);
+  // we can now get a reference to the Custom HTML tag
+  var obj = document.querySelector('my-component');
+  // above line is like
+  // var obj = new MyComponent;
+
+  // We can do the following...
+  obj.someMethod();
+  obj.someProperty = '';
+
+</script>

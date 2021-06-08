@@ -39,6 +39,9 @@ class Child extends HTMLElement {
 			// Remember the web component is now part of the DOM as a regular HMTL element.
 			comp.setAttribute('count', this._currentCount);
 			console.log('_currentCount = ' + comp.getAttribute('count'));
+
+
+
 			this.dispatchEvent(
 				new CustomEvent('childClick', {
 					detail: 'Button clicked ' + this._currentCount + ' times.',
@@ -46,6 +49,9 @@ class Child extends HTMLElement {
 					composed: true, // allows it to penetrate Shadow DOM and be heard in in tags outside of component
 				}),
 			);
+
+			
+
 		});
 	}
 	static get observedAttributes() {

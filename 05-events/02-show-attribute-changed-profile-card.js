@@ -60,9 +60,12 @@ class ProfileCard extends HTMLElement {
 		this.render();
 	}
 	connectedCallback() {
-		// Demo of Component set attributes on itself
+		// Demo of Component setting attributes on itself
+
 		const lightComponent = document.querySelector('profile-card');
 		lightComponent.setAttribute('test', 'YES');
+
+		// NB We could also set attribute of another component from this component by getting document.querySelector('another-component')
 	}
 }
 customElements.define('profile-card', ProfileCard);
