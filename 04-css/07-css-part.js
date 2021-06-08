@@ -46,7 +46,7 @@ customElements.define(
 			this.attachShadow({ mode: 'open' });
 
 			this.shadowRoot.innerHTML = `
-      <p part="text">Select this text to see what happens.</p>
+      	<p part="text">Select this text to see what happens.</p>
     `;
 		}
 	},

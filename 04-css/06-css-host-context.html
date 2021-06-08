@@ -22,18 +22,16 @@
 
       <div class="explanation">
         <h1>css-06-host-context</h1>
-        <p>
-          We can change the styling of the component based on the context of
-          the host, which in this case is div#showContext
-        </p>
+        <p>Styling itself based on its DOM location.</p>
+
         <p></p>
       </div>
 
       <div id="component">
-        <div id="showContext">
+        <div>
 
           <!-- $COMPONENT -->
-          <my-card>:host-context(#showContext)</my-card>
+          <my-card>using -> :host-context(#showContext)</my-card>
           <!-- $COMPONENT -->
 
         </div>
@@ -41,6 +39,10 @@
 
       </div>
       <div class="notes">
+        <p>
+          We can change the styling of the component based on the context of
+          the host, which in this case is div#showContext
+        </p>
         <p>If host is in a context of #showContext then style the div element</p>
         <p>Remove id="showContext" and the styling of :host-context(#showContext) is not applied.</p>
       </div>
