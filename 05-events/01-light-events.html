@@ -43,7 +43,7 @@
           create interfaces instead.
         </p>
         <p>In page we can get a reference to the component with document.querySelector and then call the public function
-          or set the internal properties. This is a an API as it were.</p>
+          or set the internal properties. This is an API as it were.</p>
         <p><img src="../_images/01-events.png" alt="component" style="width:100%"></p>
       </div>
 
@@ -90,9 +90,7 @@
         constructor() {
           super(); // this is needed to inherit HTMLElement properties and is standard JavaScript
           console.log('Component created…');
-          const shadowRoot = this.attachShadow({
-            mode: 'open'
-          });
+          const shadowRoot = this.attachShadow({ mode: 'open' }); // change to closed to see effect
           this.shadowRoot.appendChild(template.content.cloneNode(true));
           // declare a variable - JS has no private variables.
           this.pubVal = 'initial value set in constructor';

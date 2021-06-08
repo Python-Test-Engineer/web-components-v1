@@ -7,44 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="../_css/web-course.css">
         <title>01 Shadow DOM</title>
-        <script>
-            // Alternative way to define component
-            customElements.define('my-component', class extends HTMLElement {
-                constructor() {
-                    super(); // always call super() first in the constructor.
 
-                    // Attach a shadow root.
-                    const shadowRoot = this.attachShadow({ mode: 'open' });
-                    // open means accessible from outside, although closed can be accessed with advanced JS.
-                    // We will see examples of creating a ref to a Component using const objWebComponent = document.querySelector etc and we can then use this to access properties and methods in Component, e.g. objWebcomponent.publicMethod()
-
-                    // BACK TICKS for ES6 template literals
-                    // We use this approach for content and style rather than a template tag outside of the  component as we can then ship one JS file for our users rather than a JS file and some HTML they need to include in their page
-                    shadowRoot.innerHTML = ` 
-                    <style>
-                        div {
-                            margin: 20px;
-                            border: 4px solid orange;
-                            padding:20px;
-                            border-radius: 10px;
-                            font-size: 1.5rem;
-                            width:600px;
-                            color: green;
-                        }
-                    </style>
-                    <div>This is the SHADOW DOM with div styled color:green</div>
-                    <slot></slot>
-                `;
-                }
-                connectedCallback() {
-                    // We can access the Light DOM but the Light DOM cannot access the Shadow DOM
-                    const lightDiv = document.getElementById("light");
-                    const lightContent = lightDiv.textContent;
-
-                    console.log("Light DIV content = " + lightContent);
-                }
-            });
-        </script>
     </head>
 
     <body>
@@ -84,6 +47,45 @@
                 <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
             </div>
         </footer>
+        <script>
+            // Alternative way to define component
+            customElements.define('my-component', class extends HTMLElement {
+                constructor() {
+                    super(); // always call super() first in the constructor.
+
+                    // Attach a shadow root.
+                    const shadowRoot = this.attachShadow({ mode: 'open' });
+                    // open means accessible from outside, although closed can be accessed with advanced JS.
+                    // We will see examples of creating a ref to a Component using const objWebComponent = document.querySelector etc and we can then use this to access properties and methods in Component, e.g. objWebcomponent.publicMethod() 
+
+                    // BACK TICKS for ES6 template literals
+                    // We use this approach for content and style rather than a template tag outside of the  component as we can then ship one JS file for our users rather than a JS file and some HTML they need to include in their page
+                    shadowRoot.innerHTML = ` 
+                            <style>
+                                div {
+                                    margin: 20px;
+                                    border: 4px solid orange;
+                                    padding:20px;
+                                    border-radius: 10px;
+                                    font-size: 1.5rem;
+                                    width:600px;
+                                    color: green;
+                                }
+                            </style>
+                            <div>This is the SHADOW DOM with div styled color:green</div>
+                            <slot></slot>
+                        `;
+                }
+                connectedCallback() {
+                    // We can access the Light DOM but the Light DOM cannot access the Shadow DOM
+                    const lightDiv = document.getElementById("light");
+                    console.log(lightDiv);
+                    const lightContent = lightDiv.textContent;
+
+                    console.log("Light DIV content = " + lightContent);
+                }
+            });
+        </script>
     </body>
 
 </html>
