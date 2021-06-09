@@ -17,6 +17,9 @@
         color: green;
         font-style: oblique;
       } */
+      .first {
+        /* color: aqua */
+      }
     </style>
     <main>
       <div class="explanation">
@@ -45,7 +48,7 @@
       </div>
       <div class="notes">
         <h2>Slotted Styling</h2>
-        <p><em>REMEMBER! SLOT is in the Light DOM</em></p>
+        <p><em>REMEMBER! SLOT is in the Light DOM. Change Page .first CSS to see it override slot.</em></p>
         <p>We can use slot as a selector but ::slotted(css-selector) trumps it.</p>
         <p>Remove :slotted and see effect. One can only select top level not child elements.</p>
       </div>
@@ -82,7 +85,7 @@
                   slot[name=first] {
                       color: orange;
                       font-size:28px;
-
+                      font-style: italic;
                   }
                 
                

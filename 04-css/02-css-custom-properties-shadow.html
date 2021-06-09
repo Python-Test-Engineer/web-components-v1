@@ -17,7 +17,16 @@
       /* Custom CSS Variables */
       :root {
         --primary-color: red;
+        --primary-border-color: orange;
         --primary-size: 25px;
+      }
+
+      my-component {
+        color: green;
+      }
+
+      div {
+        background: #eee;
       }
     </style>
 
@@ -30,7 +39,8 @@
       <div>
         <br>
         <hr>
-        <h1>This regular DIV element not affected...</h1>
+        <p>This regular DIV element not affected by Shadow DOM CSS for div.</p>
+        <p>Page CSS for div does not affect Component.</p>
         <hr>
       </div>
       </div>
@@ -74,7 +84,7 @@
                   div {
                       background: linen;
                       border-radius: 10px;
-                      border: 5px solid orange;
+                      border: 5px solid  var(--primary-border-color, green);
                       padding: 20px;
                       color: var(--primary-color, green);
                       text-transform: uppercase;

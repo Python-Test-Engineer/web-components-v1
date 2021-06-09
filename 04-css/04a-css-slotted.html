@@ -1,39 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../_css/web-course.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css-03-custom-properties-shadow</title>
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Web Components</title>
-    <style>
-      div {
-        margin: 30px 10px;
-        background: #ccc;
-        padding: 30px;
-        width: 300px;
-      }
+  <style>
+    .info {
+      border: 3px solid #ccc;
+      padding: 20px;
+      margin-top: 30px;
+    }
 
-      .highlight {
-        /* font-size: 30px;
+    .highlight {
+      /* font-size: 30px;
         border-bottom: 7px dashed blue; */
-      }
-    </style>
-    <script src="./04a-css-slotted.js"></script>
+    }
+  </style>
+</head>
+<script src="./04a-css-slotted.js"></script>
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <p>
-      <my-component class="important">
-        <!-- This is SLOT (children) and is in Light DOM -->
-        <span class="highlight">Web Components</span>
-      </my-component>
+  <main>
+    <div class="explanation">
+      <h1>03-css-import-js</h1>
+      <p>We can use JS in CSS as it where by importing the CSS values as an import file.</p>
+    </div>
 
-    </p>
-    <div>This does not get the web component styles!</div>
-    <div>Comment out page level .highlight class and see it override component CSS.</div>
-  </body>
+
+    <my-component class="important">
+      <!-- This is SLOT (children) and is in Light DOM -->
+      <span class="highlight">Using slotted CSS in Component.</span>
+    </my-component>
+
+
+    <div class="info">This does not get the web component styles!</div>
+
+    <div class="notes">
+      <p>Comment out page level .highlight class and see it override component CSS.</p>
+      <p>This shows that SLOT is in Light DOM.</p>
+    </div>
+  </main>
+  <footer>
+    <div>
+      <p>WEB COMPONENTS WORKSHOP - &copy; Craig West 2020</p>
+    </div>
+  </footer>
+</body>
 
 </html>

@@ -5,20 +5,26 @@ class MyComponent extends HTMLElement {
 		this.attachShadow({ mode: 'open' });
 		this.shadowRoot.innerHTML = `
         <style>
-            ::slotted(.highlight) {
-              border-bottom: 5px dotted red;
-            }
             div {
               background: linen;
-              width: 300px;
+              width: 500px;
               padding:20px;
               margin-left:50px;
               border: 3px solid black;
+              border-radius:15px;
             }
+            ::slotted(.highlight) {
+              border-bottom: 5px dotted red;
+            }
+            ::slotted(.title) {
+              color: green;
+              font-size:22px;
+            }
+         
         </style>
-            <div>
+        <div>
           <slot>Some default</slot>
-          </div>
+        </div>
        
       
     `;
