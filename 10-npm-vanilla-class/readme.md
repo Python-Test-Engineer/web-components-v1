@@ -11,3 +11,10 @@
   <!-- $COMPONENT -->
 
 ```
+
+1. the NAME in package.json mut be unique across npm
+2. make changes to js
+3. update package.json version etc...
+4. login to npm
+5. npm publish (be in correct folder!)
+6. change version number in html page

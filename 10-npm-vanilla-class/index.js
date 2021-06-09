@@ -18,7 +18,12 @@ class ShowPost extends HTMLElement {
               font-family: var(--main-font, inherit);
               color: var(--main-font-color, black);
             }  
+						.edit {
+							font-size:24px;
+							color:red;
+						}
         </style>
+				<div class="edit">An edit on 09JUN2021 to 1.0.3</div>
         <!-- COMPONENT OUTPUT HERE -->
         <div id="info"></div>
     `;
@@ -52,8 +57,8 @@ class ShowPost extends HTMLElement {
 		let url = 'https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/' + postID;
 		console.log(url);
 		fetch(url)
-			.then(res => res.json())
-			.then(data => {
+			.then((res) => res.json())
+			.then((data) => {
 				console.log(data);
 				let output = '<br>';
 				// reference the output INFO element in this components Shadow DOM

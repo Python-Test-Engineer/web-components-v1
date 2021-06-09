@@ -1,11 +1,11 @@
 {
 	"name": "test-webcomponent-js",
-	"version": "1.0.1",
-	"description": "1.0.1 has new styles: Testing a JS class webcomponent published to NPM",
+	"version": "1.0.3",
+	"description": "1.0.3 practice test for upcoming workshop",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"author": "",
+	"author": "Craig West",
 	"license": "ISC"
 }
