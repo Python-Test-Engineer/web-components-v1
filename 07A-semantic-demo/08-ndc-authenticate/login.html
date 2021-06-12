@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOGIN FORM</title>
+  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_css/library.css">
+  <style>
+    :root {
+     
+      --main-font: 'Quicksand';
+      --main-font-size: 22px;
+      --mobile-font-size: 16px;
+    }
+
+    body {
+      background: #fff;
+      font-family: var( --main-font, sans-serif);
+    }
+
+    main {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    #formMessage {
+      word-break: break-all;
+    }
+  </style>
+
+  <title>LOGIN</title>
+</head>
+
+<body>
+  <main>
+    <div id="content">
+      <!-- ///////////  WEB COMPONENT    //////////////-->
+      <script src="login.js" type="module"></script>
+      <wp-login></wp-login>
+      <!-- ///////////  WEB COMPONENT    //////////////-->
+      <br>
+      <div>LIGHT DOM output =></div>
+      <div id="formMessage"></div>
+    </div>
+    <br><br>
+  </main>
+  <!-- ///////////  PAGE CONTROLLER  //////////////-->
+  <script>
+    const el = document.getElementById('content');
+    el.addEventListener('contactform', e => {
+      console.log("Event HEARD on page ");
+      alert("CUSTOM EVENT HEARD -> DETAIL = " + e.detail);
+      console.log("CUSTOM EVENT DETAIL  = " + e.detail);
+      const formMessage = document.getElementById('formMessage');
+      if (e.detail.length != 0) {
+        formMessage.innerHTML = `
+          <p><strong>LOGIN FORM posted successfully...now remove form component</strong></p>
+          <p>Posted data:</p>
+          <p>${e.detail}</p>
+        `;
+      } else {
+        formMessage.innerHTML = `
+          <p><strong>Invalid login</strong></p>
+        `;
+      }
+    });
+  </script>
+  <!-- ///////////  PAGE CONTROLLER  //////////////-->
+</body>
+
+</html>

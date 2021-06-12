@@ -1,0 +1,113 @@
+:root {
+
+    --main-bg-color: #2196f3;
+    --main-text-color: black;
+    --main-padding: 15px;
+    --main-max-width: 1200px;
+    --main-nav-max-width: 1230px;
+
+
+    --main-font: 'Quicksand', sans-serif;
+    --main-font-size: 22px;
+    --mobile-font-size: 20px;
+
+    --background-color-00: white;
+    --background-color-01: #ccc;
+    --background-color-02: #add8e6;
+
+    --background-color-03: #e9e6cc;
+    --background-color-04: #c6cad4;
+    --background-color-05: #f7d198;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+    font-size: 18px;
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a:visited {
+    text-decoration: none;
+    font-weight: bold;
+    color: orange;
+}
+
+a:hover {
+    color: orange;
+    text-decoration: underline;
+
+}
+
+p {
+    font-size: 22px;
+    /* font-weight: bold; */
+    margin-bottom: 10px;
+}
+
+button {
+    margin: 5px;
+    width: 250px;
+    font-size: 18px;
+}
+
+li {
+    list-style: none;
+    margin-left: 30px;
+    color: #2196f3;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.header {
+    padding: 5px;
+    text-align: center;
+}
+
+.footer {
+    padding: 10px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wrapper {
+    margin: 20px;
+}
+
+#output {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
+}
+
+.explanation {
+    border: 2px solid #2196f3;
+    padding: 10px;
+    margin: 10px;
+}
+
+.explanation h1 {
+    color: #2196f3;
+}
+
+.exercise {
+    border: 2px solid orange;
+
+    padding: 10px;
+    margin: 10px;
+}
+
+.spacer {
+    height: 20px;
+}
+
+footer {
+    margin-top: 30px;
+}

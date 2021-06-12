@@ -1,0 +1,269 @@
+[{
+        "id": 38,
+        "date": "2008-09-11T22:20:39",
+        "date_gmt": "2008-09-11T22:20:39",
+        "guid": {
+            "rendered": "http://dev.danphilibin.com/wordpress/?p=57"
+        },
+        "modified": "2020-01-07T18:19:36",
+        "modified_gmt": "2020-01-07T18:19:36",
+        "slug": "browser-memory",
+        "status": "publish",
+        "type": "post",
+        "link": "https://wpjs.co.uk/wpb/browser-memory/",
+        "title": {
+            "rendered": "Browser Memory"
+        },
+        "content": {
+            "rendered": "\n<p>The two blogs store the posts in a JS array and so are in page memory.</p>\n\n\n\n<p>This means that going from on epost to another is &#8216;instant&#8217; and can be done offline.</p>\n\n\n\n<p>It is effectively a client-side page.</p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>The two blogs store the posts in a JS array and so are in page memory. This means that going from on epost to another is &#8216;instant&#8217; and can be done offline. It is effectively a client-side page.</p>\n",
+            "protected": false
+        },
+        "author": 9,
+        "featured_media": 0,
+        "comment_status": "closed",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            24
+        ],
+        "tags": [],
+        "authorName": "Jane Editor",
+        "acf": {
+            "source": ""
+        },
+        "_links": {
+            "self": [{
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/38"
+            }],
+            "collection": [{
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts"
+            }],
+            "about": [{
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/types/post"
+            }],
+            "author": [{
+                "embeddable": true,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/users/9"
+            }],
+            "replies": [{
+                "embeddable": true,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/comments?post=38"
+            }],
+            "version-history": [{
+                "count": 4,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/38/revisions"
+            }],
+            "predecessor-version": [{
+                "id": 1277,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/38/revisions/1277"
+            }],
+            "wp:attachment": [{
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/media?parent=38"
+            }],
+            "wp:term": [{
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/categories?post=38"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/tags?post=38"
+                }
+            ],
+            "curies": [{
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+            }]
+        }
+    }, {
+        "id": 40,
+        "date": "2008-09-11T22:23:11",
+        "date_gmt": "2008-09-11T22:23:11",
+        "guid": {
+            "rendered": "http://dev.danphilibin.com/wordpress/?p=59"
+        },
+        "modified": "2020-01-07T18:19:20",
+        "modified_gmt": "2020-01-07T18:19:20",
+        "slug": "create-pwa",
+        "status": "publish",
+        "type": "post",
+        "link": "https://wpjs.co.uk/wpb/create-pwa/",
+        "title": {
+            "rendered": "Create PWA"
+        },
+        "content": {
+            "rendered": "\n<p>We can create a Progressive Web App by adding two files:</p>\n\n\n\n<ol><li><strong>manifest.json</strong> file that has configuration settings</li><li>A <strong>service worker</strong> file, (JS), that bridges the web site and the operating system.</li></ol>\n\n\n\n<p>With a very basic service worker, we can intercept requests and look for resource in Cache API store. If it is not there we can proceed to network.</p>\n\n\n\n<pre class=\"wp-block-code\"><code>self.addEventListener('fetch', function (event) {\n    event.respondWith(\n      caches.match(event.request) \n      .then(function (cacheResponse) {\n        if (cacheResponse) {\n          return cacheResponse;\n        } else {\n// go to network\n          return fetch(event.request) \n        }})\n      .catch(function () { \n// catch occurs if failure occurs\n        // If both fail, show a generic fallback:\n        return caches.match(FALLBACK_PAGE);\n      })\n    );\n  });\n  </code></pre>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>We can create a Progressive Web App by adding two files: manifest.json file that has configuration settings A service worker file, (JS), that bridges the web site and the operating system. With a very basic service worker, we can intercept requests and look for resource in Cache API store. If it is not there we &#8230; <a title=\"Create PWA\" class=\"read-more\" href=\"https://wpjs.co.uk/wpb/create-pwa/\">Read more <span class=\"screen-reader-text\">Create PWA</span></a></p>\n",
+            "protected": false
+        },
+        "author": 9,
+        "featured_media": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            24
+        ],
+        "tags": [
+            18,
+            20,
+            23
+        ],
+        "authorName": "Jane Editor",
+        "acf": {
+            "source": ""
+        },
+        "_links": {
+            "self": [{
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/40"
+            }],
+            "collection": [{
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts"
+            }],
+            "about": [{
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/types/post"
+            }],
+            "author": [{
+                "embeddable": true,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/users/9"
+            }],
+            "replies": [{
+                "embeddable": true,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/comments?post=40"
+            }],
+            "version-history": [{
+                "count": 6,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/40/revisions"
+            }],
+            "predecessor-version": [{
+                "id": 1276,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/40/revisions/1276"
+            }],
+            "wp:attachment": [{
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/media?parent=40"
+            }],
+            "wp:term": [{
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/categories?post=40"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/tags?post=40"
+                }
+            ],
+            "curies": [{
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+            }]
+        }
+    },
+    {
+        "id": 45,
+        "date": "2008-09-17T17:08:48",
+        "date_gmt": "2008-09-17T17:08:48",
+        "guid": {
+            "rendered": "http://dev.wpcoder.com/dan/wordpress/?p=45"
+        },
+        "modified": "2020-01-07T18:18:59",
+        "modified_gmt": "2020-01-07T18:18:59",
+        "slug": "web-component",
+        "status": "publish",
+        "type": "post",
+        "link": "https://wpjs.co.uk/wpb/web-component/",
+        "title": {
+            "rendered": "Web Component &#8211; &lt;show-post&gt;"
+        },
+        "content": {
+            "rendered": "<h3>The <strong>&lt;show-post postid=&#8221;45&#8243;&gt;&lt;/show-post&gt;</strong></h3>\n\n\n<pre class=\"wp-block-code\"><code>class ShowPost extends HTMLElement {\n    constructor() {\n        super();\n        this.ID;\n// Create a SHADOW DOM - encapsulated\n        this.attachShadow({\n            mode: 'open'\n        });\n// STYLE HTML TEMPLATE\n        this.shadowRoot.innerHTML = `\n        &lt;!-- CSS scoped and will not affect page -->\n        &lt;style>\n            .card {\n              border: 2px solid black;\n              border-radius: 10px;\n              padding:20px;\n              margin-bottom:20px;\n              background: var(--background-color-01,#ccc);\n              font-size: var(--main-font-size, 20px);\n              font-family: var(--main-font);\n            }  \n        &lt;/style>\n         &lt;!-- HTML -->\n        &lt;div id=\"info\">&lt;/div>\n// END\n    `;\n    }\n// Observe attributes\n    static get observedAttributes() {\n        return &#91;\"postid\"];\n    }\n// When an attribute changes, get old and new value \n// and then do something\n    attributeChangedCallback(name, oldValue, newValue) {\n// This will fire initially as the element has \n// no atrribute but is added when page runs\n        console.log(\"attribute has changed\")\n        if (oldValue === newValue) {\n            return;\n        }\n        if (name === \"postid\") {\n            console.log(name, oldValue, newValue);\n            this.ID = newValue;\n            this._getPosts(this.ID)\n        }\n\n    }\n// Lifecycle events\n    connectedCallback() {\n    }\n\n    disconnectedCallback() {\n    }\n\n// Functions...\n    _getPosts(postID) {\n        console.log(postID);\n        let apiUrl = 'https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/';\n        apiUrl += postID;\n        //let apiUrl = 'singlePost.json';\n        fetch(apiUrl)\n            .then(res => res.json())\n            .then(data => {\n                console.log(data);\n                console.log(apiUrl);\n\n                let i;\n                let output = '&lt;br>';\n                const info = this.shadowRoot.querySelector('#info');\n                info.innerHTML = '';\n                console.log(\"Loading Lazy Post\");\n                output = ...\n\n                info.innerHTML += output;\n            });\n    }\n\n}\n// Define name of web component and associate \n// with the JS class that extends HTMLElements.\ncustomElements.define('show-post', ShowPost);</code></pre>\n\n\n\n<p></p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>The &lt;show-post postid=&#8221;45&#8243;&gt;&lt;/show-post&gt;</p>\n",
+            "protected": false
+        },
+        "author": 9,
+        "featured_media": 0,
+        "comment_status": "closed",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "categories": [
+            24
+        ],
+        "tags": [
+            17,
+            19,
+            22
+        ],
+        "authorName": "Jane Editor",
+        "acf": {
+            "source": ""
+        },
+        "_links": {
+            "self": [{
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/45"
+            }],
+            "collection": [{
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts"
+            }],
+            "about": [{
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/types/post"
+            }],
+            "author": [{
+                "embeddable": true,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/users/9"
+            }],
+            "replies": [{
+                "embeddable": true,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/comments?post=45"
+            }],
+            "version-history": [{
+                "count": 21,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/45/revisions"
+            }],
+            "predecessor-version": [{
+                "id": 1280,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/45/revisions/1280"
+            }],
+            "wp:attachment": [{
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/media?parent=45"
+            }],
+            "wp:term": [{
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/categories?post=45"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/tags?post=45"
+                }
+            ],
+            "curies": [{
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+            }]
+        }
+    }
+]

@@ -1,0 +1,70 @@
+* {
+   box-sizing: border-box;
+}
+
+:root {
+   /* CSS CUSTOM VARIABLES */
+   --main-bg-color: #2196f3;
+   --main-text-color: black;
+   --main-padding: 15px;
+   --main-max-width: 1200px;
+   --main-nav-max-width: 1000px;
+   --main-font: 'Quicksand', sans-serif;
+   --main-font-size: 22px;
+   --mobile-font-size: 20px;
+   --background-color-00: white;
+   --background-color-01: #ccc;
+   --background-color-02: #add8e6;
+   --background-color-03: #e9e6cc;
+   --background-color-04: #c6cad4;
+   --background-color-05: #f7d198;
+}
+
+html {
+   margin-left: calc(100vw - 100%);
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Quicksand', sans-serif;
+}
+
+body {
+   color: black;
+   font-size: 18px;
+}
+
+main {
+   max-width: 1000px;
+   margin: 0 auto;
+   padding: 20px;
+
+}
+
+p {
+   font-size: 1.3rem;
+   margin-bottom: 10px;
+}
+
+.code {
+   font-weight: bold;
+   font-size: 1.7rem;
+}
+
+button {
+   background: #2196f3;
+   padding: 10px;
+   color: #fff;
+   font-size: 20px;
+   border-radius: 10px;
+   outline: none;
+   cursor: pointer;
+}
+
+button:hover,
+button:focus,
+button:active {
+   outline: none;
+}

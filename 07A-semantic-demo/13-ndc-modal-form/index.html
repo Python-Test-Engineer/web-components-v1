@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/library.css">
+  <style>
+    :root {
+      --main-font-size: 20px;
+      --main-font-color: red;
+    }
+
+    .wrapper {
+      margin: 0 auto;
+      max-width: 1000px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body></body>
+<div class="wrapper">
+
+  <modal-auto>
+    <wp-autocomplete url="https://49plus.co.uk/social/api/controllers/user/get-user-search.php?search=">
+    </autocomplete>
+  </modal-auto>
+  <modal-email class="email">
+    <wp-check-email></check-email>
+  </modal-email>
+
+
+  <!-- LIGHT DOM -->
+  <button id="btnAuto">LOAD AUTO FORM</button>
+  <script>
+    const btnAuto = document.querySelector('#btnAuto');
+    const modalAuto= document.querySelector('modal-auto');
+    btnAuto.addEventListener('click', () => {
+      //  modal.setAttribute('opened', '');
+      if (!modalAuto.isOpen) {
+        modalAuto.open();
+        console.log('Opening AUTO...');
+      }
+    });
+  </script>
+  
+
+   <button id="btnEmail">LOAD EMAIL FORM</button>
+   <script>
+     const btnEmail = document.querySelector('#btnEmail');
+     const modalEmail= document.querySelector('.email');
+     btnEmail.addEventListener('click', () => {
+       //  modal.setAttribute('opened', '');
+       if (!modalEmail.isOpen) {
+         modalEmail.open();
+         console.log('Opening AUTO...');
+       }
+     });
+   </script>
+  <!-- LIGHT DOM -->
+</div> <!-- end wrapper div -->
+<!--                        -->
+<!-- JS WEB COMPONENT FILES -->
+
+<script src="./components/ModalAuto.js"></script>
+<script src="./components/ModalEmail.js"></script>
+<script src="./components/CheckEmail.js" type="module"></script>
+<script src="./components/Autocomplete.js" type="module"></script>
+
+</body>
+
+</html>

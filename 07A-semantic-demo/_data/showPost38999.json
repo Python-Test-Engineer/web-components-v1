@@ -1,0 +1,87 @@
+{
+    "id": 38,
+    "date": "2008-09-11T22:20:39",
+    "date_gmt": "2008-09-11T22:20:39",
+    "guid": {
+        "rendered": "http://dev.danphilibin.com/wordpress/?p=57"
+    },
+    "modified": "2020-01-07T18:19:36",
+    "modified_gmt": "2020-01-07T18:19:36",
+    "slug": "browser-memory",
+    "status": "publish",
+    "type": "post",
+    "link": "https://wpjs.co.uk/wpb/browser-memory/",
+    "title": {
+        "rendered": "UPDATED - Render a post to page."
+    },
+    "content": {
+        "rendered": "<p>We render this post but can change it using the postid attribute.</p><p>This can be done programatically.</p>",
+        "protected": false
+    },
+    "excerpt": {
+        "rendered": "<p>The two blogs store the posts in a JS array and so are in page memory. This means that going from on epost to another is &#8216;instant&#8217; and can be done offline. It is effectively a client-side page.</p>\n",
+        "protected": false
+    },
+    "author": 9,
+    "featured_media": 0,
+    "comment_status": "closed",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": [],
+    "categories": [
+        24
+    ],
+    "tags": [],
+    "authorName": "Craig West",
+    "acf": {
+        "source": "WEB"
+    },
+    "_links": {
+        "self": [{
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/38"
+        }],
+        "collection": [{
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts"
+        }],
+        "about": [{
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/types/post"
+        }],
+        "author": [{
+            "embeddable": true,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/users/9"
+        }],
+        "replies": [{
+            "embeddable": true,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/comments?post=38"
+        }],
+        "version-history": [{
+            "count": 4,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/38/revisions"
+        }],
+        "predecessor-version": [{
+            "id": 1277,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/38/revisions/1277"
+        }],
+        "wp:attachment": [{
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/media?parent=38"
+        }],
+        "wp:term": [{
+                "taxonomy": "category",
+                "embeddable": true,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/categories?post=38"
+            },
+            {
+                "taxonomy": "post_tag",
+                "embeddable": true,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/tags?post=38"
+            }
+        ],
+        "curies": [{
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+        }]
+    }
+}

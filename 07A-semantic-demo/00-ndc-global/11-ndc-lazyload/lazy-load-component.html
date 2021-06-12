@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+  
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../_css/library.css">
+  
+
+    <title>Lazy load images</title>
+    <style>
+        .cover {
+            position: fixed;
+            top: 100px;
+            right: 0px;
+            bottom: 400px;
+            border-bottom: 3px solid red;
+            left: 0px;
+            /* background-color: rgba(224, 218, 211, 0.3); */
+        }
+    </style>
+    <script src="lazyLoadImage.js"></script>
+    <script src="lazyLoadComponent.js"></script>
+
+</head>
+
+<body>
+   
+    <section class="a">
+        <div>This uses a lazy load image Web Component with the requirement that lazy load image needs to cross
+            threshold 350px from bottom with at least 20% of its height
+        </div>
+
+        <div class="cover">&nbsp;</div>
+
+        <wp-lazy-load pic="https://picsum.photos/200/300?random=21"></wp-lazy-load>
+        <wp-lazy-load pic="https://picsum.photos/200/300?random=2"></wp-lazy-load>
+        <div>
+            <wp-lazy-load-component postid="4"> </wp-lazy-load-component>
+        </div>
+        <wp-lazy-load pic="https://picsum.photos/200/300?random=3"></wp-lazy-load>
+        <wp-lazy-load-component postid="34"> </wp-lazy-load-component>
+        <wp-lazy-load pic="https://picsum.photos/200/300?random=4"></wp-lazy-load>
+        <wp-lazy-load-component postid="36"> </wp-lazy-load-component>
+
+
+    </section>
+
+    <script src="back-to-top.js"></script>
+
+    <back-to-top></back-to-top>
+</body>
+
+</html>

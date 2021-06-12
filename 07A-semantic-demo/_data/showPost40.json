@@ -1,0 +1,91 @@
+{
+    "id": 40,
+    "date": "2008-09-11T22:23:11",
+    "date_gmt": "2008-09-11T22:23:11",
+    "guid": {
+        "rendered": "http://dev.danphilibin.com/wordpress/?p=59"
+    },
+    "modified": "2020-01-07T18:19:20",
+    "modified_gmt": "2020-01-07T18:19:20",
+    "slug": "create-pwa",
+    "status": "publish",
+    "type": "post",
+    "link": "https://wpjs.co.uk/wpb/create-pwa/",
+    "title": {
+        "rendered": "Create PWA"
+    },
+    "content": {
+        "rendered": "<p>This is another post with search term WP-SEARCH.</p><p>We store the JWT in local rather than session storage because if the user opens a new window or a new tab the token is not available.By storing the creation date of the JWT in our database, we can add an expiration policy, forcing the user to login again on a subsequent visit. </p>",
+        "protected": false
+    },
+    "excerpt": {
+        "rendered": "<p>We can create a Progressive Web App by adding two files: manifest.json file that has configuration settings A service worker file, (JS), that bridges the web site and the operating system. With a very basic service worker, we can intercept requests and look for resource in Cache API store. If it is not there we &#8230; <a title=\"Create PWA\" class=\"read-more\" href=\"https://wpjs.co.uk/wpb/create-pwa/\">Read more <span class=\"screen-reader-text\">Create PWA</span></a></p>\n",
+        "protected": false
+    },
+    "author": 9,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": [],
+    "categories": [
+        24
+    ],
+    "tags": [
+        18,
+        20,
+        23
+    ],
+    "authorName": "Jane Editor",
+    "acf": {
+        "source": ""
+    },
+    "_links": {
+        "self": [{
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/40"
+        }],
+        "collection": [{
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts"
+        }],
+        "about": [{
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/types/post"
+        }],
+        "author": [{
+            "embeddable": true,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/users/9"
+        }],
+        "replies": [{
+            "embeddable": true,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/comments?post=40"
+        }],
+        "version-history": [{
+            "count": 6,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/40/revisions"
+        }],
+        "predecessor-version": [{
+            "id": 1276,
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/posts/40/revisions/1276"
+        }],
+        "wp:attachment": [{
+            "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/media?parent=40"
+        }],
+        "wp:term": [{
+                "taxonomy": "category",
+                "embeddable": true,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/categories?post=40"
+            },
+            {
+                "taxonomy": "post_tag",
+                "embeddable": true,
+                "href": "https://wpjs.co.uk/wpb/wp-json/wp/v2/tags?post=40"
+            }
+        ],
+        "curies": [{
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+        }]
+    }
+}

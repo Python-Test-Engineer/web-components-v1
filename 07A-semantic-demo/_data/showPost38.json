@@ -1,0 +1,26 @@
+{
+    "id": 38,
+    "date": "2008-09-11T22:20:39",
+    "date_gmt": "2008-09-11T22:20:39",
+    "guid": {
+        "rendered": "http://dev.danphilibin.com/wordpress/?p=57"
+    },
+    "modified": "2020-01-07T18:19:36",
+    "modified_gmt": "2020-01-07T18:19:36",
+    "slug": "browser-memory",
+    "status": "publish",
+    "type": "post",
+    "link": "https://wpjs.co.uk/wpb/browser-memory/",
+    "title": {
+        "rendered": "NDC WEB COMPONENTS WORKSHOP"
+    },
+    "content": {
+        "rendered": "<h3>Initial demo of highly funcional web components to create micro-frontend services.</h3><p>This can be thought of as a HERO section.</p><p>The data source is from a WordPress site.</p><p>A MONOLITHIC APPlICATION has been converted to server MICRO FRONT END SERVICES Application rendered on an HTML page.</p>"
+
+    },
+    "author": 9,
+
+    "authorName": "Craig West"
+
+
+}

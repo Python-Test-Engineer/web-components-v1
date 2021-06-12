@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../_css/library.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Show All Posts in a Category</title>
+  <script src="showAllPostsUrl.js"></script>
+  <style>
+    .wrapper {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="content">
+      <p>
+        <strong>Explanantion: </strong>We set the url attribute programmatically  and display results.
+      </p>
+      <p>We change also change this attribute the logn way round by a public method in component that accesses the component in the Light DOM and changes the url attribute.</p>
+      <p>This shows how we can access the web component in the Light DOM from within the component.</p>
+      <p>The component sits on the border of the Light and Shadow DOM effectively.</p>
+    </div>
+    <script>
+      const dataSource = '../_data/cat24.json';
+      const dataSource2 = '../_data/cat26.json'
+    </script>
+    <br>
+    <button id="btn"class="w3-button w3-blue" style="width:300px">Public Method in component<br>Shows Cat26</button>
+
+    <!-- WEB COMPONENT -->
+    <show-all-posts-url url= "https://central.wordcamp.org/wp-json/wp/v2/posts"></show-all-posts-url>
+    <!-- WEB COMPONENT -->
+    
+    <script>
+      const btn = document.getElementById('btn');
+      const webComponent = document.querySelector('show-all-posts-url');
+      btn.addEventListener('click', function(){
+        webComponent.publicMethod(dataSource2);
+      })
+    </script>
+    <br><br>
+  </div>
+</body>
+</html>

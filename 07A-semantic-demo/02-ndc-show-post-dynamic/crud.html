@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../_css/w3.css">
+  <link rel="stylesheet" href="../_css/library.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Show All Posts in a Category</title>
+  
+  <style>
+    .wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper" id="content">
+    <!-- WEB COMPONENT -->
+    <!-- <show-all-posts-url url="../_data/cat24.json"></show-all-posts-url> -->
+    <!-- WEB COMPONENT -->
+    
+    <script src="crud.js" type="module"></script> 
+    <script type="module">
+      // create and append Web Component
+      const crud = document.createElement('show-all-posts-url');
+      crud.setAttribute('url', '../_data/cat24.json');
+      const content = document.getElementById('content');
+      content.appendChild(crud);
+    </script>
+  </div>
+</body>
+
+</html
