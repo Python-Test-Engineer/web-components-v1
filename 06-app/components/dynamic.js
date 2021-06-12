@@ -17,7 +17,7 @@ class ShowPost extends HTMLElement {
               background: var(--background,white);
               font-size: var(--main-font-size, 20px);
               font-family: var(--main-font);
-              color: var(--main-text-color, red);
+              color: var(--main-text-color, black);
             }  
         </style>
         <div id="info"></div>
@@ -53,8 +53,8 @@ class ShowPost extends HTMLElement {
 		console.log('[SERVER] ' + SERVER);
 		let url = SERVER + 'udemy/wp-json/wp/v2/posts/' + postID;
 		fetch(url)
-			.then(res => res.json())
-			.then(data => {
+			.then((res) => res.json())
+			.then((data) => {
 				console.log(data);
 
 				let i;
