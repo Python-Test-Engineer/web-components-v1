@@ -3,5 +3,3 @@
 GitHub https://github.com/iwswordpress/web-components-v1
 
 Craig West
-
-EDIT
