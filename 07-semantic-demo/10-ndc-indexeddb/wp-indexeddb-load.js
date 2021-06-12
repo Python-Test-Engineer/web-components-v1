@@ -28,9 +28,9 @@ class WPIndexedDBLoad extends HTMLElement {
 			console.log(name, oldValue, newValue);
 			var db = 'cat' + newValue;
 			var table = 'wpcat' + newValue;
-			console.log(`%cSERVER: ${SERVER}`, 'color:green;font-size:18px');
+			console.log(`%cIDB SERVER: ${SERVER}`, 'color:green;font-size:18px');
 			let url = `${SERVER}wpb/wp-json/wp/v2/posts?categories=` + newValue;
-			console.log(`%cURL: ${url}`, 'color:green;font-size:18px');
+			console.log(`%cIDB URL: ${url}`, 'color:green;font-size:18px');
 			this.loadData(db, table, 2, url);
 		}
 	}

@@ -63,8 +63,7 @@ class ShowHide extends HTMLElement {
 	}
 	_getPosts() {
 		let url = `${SERVER}wpb/wp-json/wp/v2/posts`;
-		console.log(`%cURL: ${url}`, 'color:green;font-size:18px');
-		console.log(`%cCAT: ${this.cat}`, 'color:purple;font-size:18px');
+		console.log(`%cSHOW-HIDE URL: ${url}`, 'color:green;font-size:18px');
 
 		let i;
 		fetch(url)
