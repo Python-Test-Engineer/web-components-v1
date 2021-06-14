@@ -29,6 +29,7 @@
 
       <div id="component">
         <div id="showContext">
+          <!-- Remove id above to see effect. -->
 
           <!-- $COMPONENT -->
           <my-card>using -> :host-context(#showContext)</my-card>
@@ -56,6 +57,7 @@
       const template = document.createElement('template');
       template.innerHTML = `
               <style>       
+                /* Remove the div selector and see what happens */
                 :host-context(#showContext) div {
                     /* IF (host is in a context of #showContext) THEN {style the div element} */
                     color: green;

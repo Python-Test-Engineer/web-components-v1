@@ -17,12 +17,15 @@
       /* Custom CSS Variables */
       :root {
         --primary-color: red;
+        /* EX1 - change this primary colour */
         --primary-border-color: orange;
-        --primary-size: 25px;
+        --primary-size: 36px;
       }
 
       my-component {
         color: green;
+        /* font-weight: bold; */
+        /* EX2: This style passes into component unless component has its own overriding style Uncomment bold to see slot text change */
       }
 
       div {
@@ -54,9 +57,13 @@
       </div>
 
       <div class="notes">
+        <h3>General rule is that component wil inherit page CSS unless overridden.</h3>
         <p>
-          CSS variables can be passed into Shadow DOM. We can also style SLOT (children) using the slot selector.
+          CSS variables can be passed into Shadow DOM. We can also style SLOT (children) using the slot selector in the
+          component but if it is not there the Page CSS will apply as the SLOT is in the Light DOM.
         </p>
+        <p>Page level CSS for the component selector also filters through unless the component has its own CSS
+          overriding it.</p>
         <p>
           There
           are more advanced slot css styling features which we will see shortly...</p>
@@ -86,19 +93,20 @@
                       border-radius: 10px;
                       border: 5px solid  var(--primary-border-color, green);
                       padding: 20px;
-                      color: var(--primary-color, green);
+                      color: var(--primary-color, orange); /* take this out and Page level CSS will apply */
                       text-transform: uppercase;
                       font-size: var(--primary-size);
                       width: 600px;
                       margin-bottom:20px;
                       font-family: inherit;
+                      font-weight: bold;
                   }
-                  slot {
+                  /*slot {
                       color: purple;
                       font-weight: bold;
                       font-style: italic;
                       font-size: 34px;
-                  }
+                  }*/
               </style>
               <div>A styled DIV element</div>
               <slot>DEFAULT SLOT TEXT</slot>

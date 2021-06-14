@@ -11,6 +11,7 @@
     <style>
       my-card {
         /* color: orange; */
+        /* EX1 - Uncomment above to see effect. */
       }
     </style>
   </head>
@@ -27,7 +28,7 @@
 
         <!-- $COMPONENT -->
         <my-card>none</my-card>
-        <my-card id="showHost">id=showHost</my-card>
+        <my-card id="showHost"><span>id=showHost</span></my-card>
         <my-card id="showHost2">id=showHost2</my-card>
         <my-card class="important">class=important</my-card>
         <my-card class="cool">class=cool</my-card>
@@ -50,6 +51,7 @@
         <p>If you uncomment the color:orange in page, then all the text will be orange.</p>
         <p>Remember we can add CSS custom properties to pass in CSS from outside. However, we are focussing on each type
           of styling.</p>
+
       </div>
     </main>
     <footer>
@@ -69,15 +71,15 @@
                   padding: 20px;     
                   }
                 /*on the host component tag, if #showHost exists then*/
-                :host(#showHost) {
+                :host(#showHost)  {
                   color: red;
                  
                 }
-                :host(#showHost2) {
+                :host(#showHost2)  {
                   color: blue;
                  
                 }
-                :host(.important) div{
+                :host(.important) {
                   color: orange;
                   font-weight: bold;
                 
