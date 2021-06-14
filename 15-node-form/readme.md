@@ -4,8 +4,9 @@ JavaScript in the browser has evolved. Developers who want to take advantage of 
 
 This repo contains code for a demo app (an author data list) which showcases many of these techniques.
 
-Project by: Camilo Reyes
-https://www.sitepoint.com/build-frameworkless-web-app-modern-javascript-web-components/
+## Project by: Camilo Reyes
+
+### https://www.sitepoint.com/build-frameworkless-web-app-modern-javascript-web-components/
 
 ## Requirements
 
