@@ -58,7 +58,7 @@ button {
 	cursor:pointer;
 }
 button:hover {
-	color: red;
+	color: yellow;
 	outline: var(--primary, black);
 }
 li {
