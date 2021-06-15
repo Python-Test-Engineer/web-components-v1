@@ -84,9 +84,9 @@ customElements.define(
          
             <a href="index.html">HOME</a>
             <a href="cat.html">CAT</a>
-            <a href="dynamic.html">DYNAMIC</a>
             <a href="blog.html">BLOG</a>
             <a href="login.html">LOGIN</a>
+            <a href="dynamic.html">DYNAMIC</a>
             <a href="lazy.html">LAZY</a>
             <a href="read.html">OFFLINE</a>
           
