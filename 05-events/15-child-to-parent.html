@@ -87,8 +87,8 @@
       const childOne = document.querySelector('child-one')
       childOne.addEventListener('childOneClick', e => {
 
-        console.log('%cEventName: ', 'color: green; font - size: 18px; ', e.type)
-        console.log('%cPayload: ', 'color: blue; font - size: 18px; ', e.detail,);
+        console.log(`%cEventName: ${e.type}`, 'color:green;font-size:18px;')
+        console.log(`%cPayload: ${e.detail}`, 'color:blue;font-size:18px; ');
         const output = document.getElementById('output');
         output.innerHTML = '<b>' + e.detail + '</b>';
 

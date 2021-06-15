@@ -29,6 +29,11 @@
           attributeChangedCallback(attributeName, oldValue, newValue)
         </p>
         <p>We can also set attributes from within the component. Demo has test="YES" added in connectCallback.</p>
+        <p>This is not something one usually does but it can be a way to hold state so that other components can acces
+          the state of the component.
+        </p>
+        <p><b>The principle of the components attributes being the source of all truth. Watch
+            out for infinite loop if you also use attributeChangedCallback on that attribute.</b></p>
         <p>NB We could also set attribute of another component from this component by getting
           document.querySelector('another-component')...see JS code.</p>
 

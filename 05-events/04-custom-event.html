@@ -35,8 +35,8 @@
 
         container.addEventListener('childClick', function (e) {
           console.log(e)
-          console.log('%cEventName', 'color:blue;font-size;18px', e.type);
-          console.log('%cPayload', 'color:green;font-size;18px', e.detail);
+          console.log(`%cEventName: ${e.type}`, 'color:blue;font-size:18px');
+          console.log(`%cPayload: ${e.detail}`, 'color:green;font-size:18px',);
 
         });
       </script>

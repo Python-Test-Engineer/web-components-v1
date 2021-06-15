@@ -94,7 +94,7 @@
           this.shadowRoot.appendChild(template.content.cloneNode(true));
           // declare a variable - JS has no private variables.
           this.pubVal = 'initial value set in constructor';
-          console.log('CONSTRUCTOR pubVal: ', this.pubVal);
+          console.log(`%cCONSTRUCTOR pubVal: ${this.pubVal}`, 'color:blue;font-size:18px;');
         }
         connectedCallback() {
           // this as an event when the component is attached to the DOM
@@ -106,7 +106,7 @@
         }
         // create a method - JS has no private methods.
         publicMethod(val) {
-          console.log(`Public Method in Web Component called...[VALUE] ${val} passed in`);
+          console.log(`%cPublic Method in Web Component called...[VALUE] ${val} passed in`, 'color:green;font-size:18px;');
         }
       }
       // We connect the custom HTML element ‘my-component’ with the class MyComponent
