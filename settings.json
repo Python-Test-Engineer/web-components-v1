@@ -1,0 +1,61 @@
+{
+	"files.associations": {
+		"*.js": "javascriptreact"
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"prettier.singleQuote": true,
+	"prettier.jsxSingleQuote": true,
+	"prettier.trailingComma": "all",
+	"prettier.arrowParens": "avoid",
+	"prettier.printWidth": 160,
+	"prettier.tabWidth": 3,
+	"prettier.semi": true,
+	"breadcrumbs.enabled": false,
+	"workbench.sideBar.location": "right",
+	"explorer.openEditors.visible": 0,
+	"editor.tabSize": 2,
+	"editor.minimap.scale": 3,
+	"editor.minimap.enabled": false,
+	"editor.wordWrap": "on",
+	"editor.wordWrapColumn": 120,
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"liveServer.settings.donotShowInfoMsg": true,
+
+	"workbench.colorCustomizations": {
+		"tree.indentGuidesStroke": "#2196f3",
+		"tab.activeBackground": "#2196f3",
+		"statusBar.background": "#ffa500",
+		"tab.inactiveBackground": "#000",
+		"tab.border": "#fff"
+	},
+
+	"javascript.preferences.quoteStyle": "single",
+	"emmet.includeLanguages": {
+		"javascript": "javascriptreact"
+	},
+
+	"git.suggestSmartCommit": true,
+	"editor.hover.enabled": true,
+	"editor.parameterHints": true,
+	"editor.quickSuggestions": true,
+	"editor.autoClosingQuotes": "always",
+	"autoimport.filesToScan": "**/*.{ts,tsx, js, jsx}",
+	"explorer.compactFolders": true,
+	"editor.acceptSuggestionOnEnter": "on",
+	"editor.suggest.filterGraceful": true,
+	"editor.quickSuggestionsDelay": 5000,
+	"explorer.confirmDragAndDrop": false,
+	"editor.acceptSuggestionOnCommitCharacter": true,
+	"javascript.format.semicolons": "insert",
+	"html.format.indentInnerHtml": false,
+	"[html]": {
+		"editor.suggest.insertMode": "replace",
+		"editor.defaultFormatter": "vscode.html-language-features"
+	},
+	"workbench.iconTheme": "vscode-great-icons",
+	"diffEditor.ignoreTrimWhitespace": false,
+	"window.zoomLevel": 3,
+	"workbench.colorTheme": "Monokai Crete",
+	"editor.formatOnPaste": true
+}

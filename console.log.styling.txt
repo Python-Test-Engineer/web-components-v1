@@ -1,0 +1,26 @@
+ uses back ticks near 1 key for template literal which will preserve new lines and spacing
+
+ console.log(`%cMessage ${ 2 + 2}`,'color:green; font-size:20px',);
+
+ console.log(`
+          -----
+          %cMessage ${ 2 + 2}
+          -----
+          `,'color:green; font-size:20px',);
+
+regular quotes
+console.log('%cBasic message here','color:orange;font-size:22px; font-weight:bold;')
+
+one can use all the CSS properties...
+
+Styling console output
+You can use the %c directive to apply a CSS style to console output:
+
+console.log("This is %cMy stylish message", "color: yellow; font-style: italic; background-color: blue;padding: 2px");
+The text before the directive will not be affected, but the text after the directive will be styled using the CSS declarations in the parameter.
+
+
+
+You may use %c multiple times:
+
+console.log("Multiple styles: %cred %corange", "color: red", "color: orange", "Additional unformatted message");
