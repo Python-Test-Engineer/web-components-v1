@@ -16,20 +16,27 @@
     <style>
       /* Custom CSS Variables */
       :root {
-        --primary-color: red;
+
         /* EX1 - change this primary colour */
+        /* --primary-color: red;
         --primary-border-color: orange;
         --primary-size: 36px;
+        */
       }
 
       my-component {
-        color: green;
+        /* color: green; */
         /* font-weight: bold; */
         /* EX2: This style passes into component unless component has its own overriding style Uncomment bold to see slot text change */
       }
 
+      body {
+        color: purple;
+        background: linen;
+      }
+
       div {
-        background: #eee;
+        /* background: rgb(228, 139, 139); */
       }
     </style>
 
@@ -37,6 +44,7 @@
 
       <div class="explanation">
         <h1>css-02-custom-properties-shadow</h1>
+        <h2>We will add CSS step by step to see effect.</h2>
       </div>
       <!-- Regular DIV not affected by background of Shado DOM background css -->
       <div>
@@ -44,6 +52,7 @@
         <hr>
         <p>This regular DIV element not affected by Shadow DOM CSS for div.</p>
         <p>Page CSS for div does not affect Component.</p>
+
         <hr>
       </div>
       </div>
@@ -85,8 +94,7 @@
 
           // Attach a shadow root to <my-component>.
           const shadowRoot = this.attachShadow({ mode: 'open' });
-          shadowRoot.innerHTML =
-            `
+          shadowRoot.innerHTML = `
               <style>
                /*   div {
                       background: linen;
