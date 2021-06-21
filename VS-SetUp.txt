@@ -6,7 +6,14 @@ Monokai Crete theme
 Bracket Pair Colorizer
 indent-rainbow oderwat.indent-rainbow
 View > Appearance > Move panel right - less movement when toggling explorer.
+Extensions:
 
+Live Server
+VS Code Great Icons
+Monokai Crete theme
+Bracket Pair Colorizer
+indent-rainbow oderwat.indent-rainbow
+View > Appearance > Move panel right - less movement when toggling explorer.
 
 In CTL SHIFT P > Preferences: Open Settings (JSON)
 

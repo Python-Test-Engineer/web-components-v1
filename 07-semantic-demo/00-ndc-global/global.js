@@ -11,6 +11,7 @@ export class Utility {
 		return 'https://49plus.co.uk/';
 	}
 }
+// NO NEED TO REVIEW THIS
 export class UI {
 	// ======= HELPER FUNCTIONS =======
 	static formatSuccess(el) {
