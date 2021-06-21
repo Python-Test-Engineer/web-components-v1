@@ -58,7 +58,6 @@
       </div>
       <div style="border:2px solid red; padding:20px;">
         <h3>Parent in red box: <span id="output"></span></h3>
-
       </div>
 
       <div class="notes">
@@ -94,21 +93,8 @@
 
       });
     </script>
-    <!-- Listen for Custom Event in container div tag -->
-    <!-- <script>
-    const container = document.getElementById('container');
-    container.addEventListener('childOneClick', e => {
-      console.log("PAGE <child-one> event HEARD on page in container");
-      console.log(e);
-      const pOutput = document.getElementById('pOutput');
-      pOutput.innerHTML = '<b>' + e.detail + '</b>';
-      const divOutput = document.getElementById('divOutput');
-      divOutput.innerHTML = '<b>' + e.detail + '</b>';
-    });
-  </script> -->
-    <script type='module'>
-      import './05-showPost.js';
-    </script>
+
+
   </body>
 
 </html>
