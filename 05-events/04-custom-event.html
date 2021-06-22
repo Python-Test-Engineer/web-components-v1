@@ -16,6 +16,7 @@
     <main>
       <div class="explanation">
         <h1>04-custom-event</h1>
+        <p></p>
       </div>
       <div id="component">
 
@@ -28,9 +29,9 @@
       <!-- Listen for Custom Event in container div tag -->
       <!-- Demonstrates event bubbling as event works its way up the nested DOM tree child-two>div>body -->
       <script>
-        const container = document.querySelector('body'); // needs bubbles: true, composed: true
+        const container = document.querySelector('div#component'); // needs bubbles: true, composed: true
         // const container =  document.querySelector('child-component'); // needs just bubbles: true
-        // either work as event bubbles up from child-component -> div#container -> body
+        // either work as event bubbles up from child-component -> div#component -> body
         // console.log(container)
 
         container.addEventListener('childClick', function (e) {
@@ -50,6 +51,10 @@
             event and then pass props down to other components. We can assign state to an attribute that other
             components could read too.</p>
         <p>15-child-parent is another example of this with output in page.</p>
+        <p><em>When bubbles is false, no event bubbling occurs.Composed set to true is needed to leave the component. In
+            this case, we also set the attibute on the component in the Light DOM which the component uses to add to the
+            button. This could be read by another component but the practice is for events to be the method of
+            communication. </em></p>
       </div>
     </main>
 

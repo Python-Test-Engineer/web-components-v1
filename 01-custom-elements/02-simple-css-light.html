@@ -32,8 +32,11 @@
         constructor() {
           super(); // this is needed to inherit HTMLElement properties and is standard JavaScript
           console.log('Component created…');
+          // We can set up Class level properties etc.
         }
         connectedCallback() {
+          // If we move this to constructor it will not show as the component is not yet part of the DOM.
+          // We need to do this in this connectedCallback lifecycle.
           this.innerHTML =
             '<h1 style="color:orange;">This is my web component</h1>'; // this refers to the class component.
           console.log('Component now part of DOM…');

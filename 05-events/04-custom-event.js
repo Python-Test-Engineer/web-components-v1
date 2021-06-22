@@ -21,9 +21,9 @@ class Child extends HTMLElement {
 		});
 		// true means deep clone
 		this.shadowRoot.appendChild(templateItem.content.cloneNode(true));
-		//this.postListElement = this.shadowRoot.querySelector('section');
 	}
 	connectedCallback() {
+		// To access elements in the component we need to use this.shadowRoot.<selector>
 		const btn = this.shadowRoot.getElementById('btn');
 		// We can access Light DOM from within component
 		const comp = document.querySelector('child-component');
@@ -33,14 +33,12 @@ class Child extends HTMLElement {
 		let val = parseInt(comp.getAttribute('count'));
 		console.log(val);
 		// regular button click event listener
-		btn.addEventListener('click', e => {
+		btn.addEventListener('click', (e) => {
 			this._currentCount += 1;
-			// We csan change the attrribute value from within the component
+			// We can change the attrribute value from within the component
 			// Remember the web component is now part of the DOM as a regular HMTL element.
 			comp.setAttribute('count', this._currentCount);
 			console.log('_currentCount = ' + comp.getAttribute('count'));
-
-
 
 			this.dispatchEvent(
 				new CustomEvent('childClick', {
@@ -49,9 +47,6 @@ class Child extends HTMLElement {
 					composed: true, // allows it to penetrate Shadow DOM and be heard in in tags outside of component
 				}),
 			);
-
-			
-
 		});
 	}
 	static get observedAttributes() {

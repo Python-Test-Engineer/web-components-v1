@@ -36,6 +36,11 @@
                     super();
                     const shadowRoot = this.attachShadow({ mode: 'open' });
                     this.shadowRoot.appendChild(template.content.cloneNode(true)); // true means deep clone
+                    // We can add:
+                    //
+                    // ---- this.shadowRoot.innerHTML = `Text content and tags`
+                    //
+                    // here because it is just setting properties and not adding to Light DOM.
                 }
             }
 
