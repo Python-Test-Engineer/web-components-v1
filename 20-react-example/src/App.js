@@ -23,6 +23,7 @@ class App extends Component {
 					<div className='web-component'>
 						<show-post postid='647'></show-post>
 					</div>
+					<div className='line'></div>
 				</header>
 			</div>
 		);
