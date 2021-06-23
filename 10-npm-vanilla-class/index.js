@@ -19,11 +19,11 @@ class ShowPost extends HTMLElement {
               color: var(--main-font-color, black);
             }  
 						.edit {
-							font-size:24px;
+							font-size:26px;
 							color:red;
 						}
         </style>
-				<div class="edit">An edit on 09JUN2021 to 1.0.3</div>
+				<div class="edit">An edit on 23JUN2021 to 1.1.0</div>
         <!-- COMPONENT OUTPUT HERE -->
         <div id="info"></div>
     `;
