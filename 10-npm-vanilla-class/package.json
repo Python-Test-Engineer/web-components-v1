@@ -1,6 +1,6 @@
 {
 	"name": "test-webcomponent-js",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "1.0 practice test 23JUN2021 for upcoming workshop",
 	"main": "index.js",
 	"scripts": {

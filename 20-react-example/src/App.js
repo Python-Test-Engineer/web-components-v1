@@ -21,7 +21,7 @@ class App extends Component {
 					<hr />
 					<div className='line'></div>
 					<div className='web-component'>
-						<show-post postid='647'></show-post>
+						<show-post postid='1220'></show-post>
 					</div>
 					<div className='line'></div>
 				</header>

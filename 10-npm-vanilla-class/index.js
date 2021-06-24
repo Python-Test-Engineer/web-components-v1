@@ -23,7 +23,7 @@ class ShowPost extends HTMLElement {
 							color:red;
 						}
         </style>
-				<div class="edit">An edit on 23JUN2021 to 1.1.0</div>
+				<div class="edit">An edit on 243JUN2021 to 1.21.0</div>
         <!-- COMPONENT OUTPUT HERE -->
         <div id="info"></div>
     `;
