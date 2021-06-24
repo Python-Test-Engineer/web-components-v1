@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <main>
+    <main>`
 
       <div class="explanation">
         <h1>css-05-host</h1>
@@ -72,13 +72,14 @@
                   }
                 /*on the host component tag, if #showHost exists then*/
                 :host {
-                  color:green;
+                 /* color:green;
                   font-weight:bold;
-                  /*font-style: italic;*/
+                  font-style: italic;*/
                  
                 }
-                :host(#showHost)  {
-                  color: red;
+                /*We can use as the sort of 'WHERE CONDITION' and then only selectors after can be styled */
+                :host(#showHost) div#test {
+                  color: green;
                  
                 }
                 :host(#showHost2)  {
@@ -101,7 +102,7 @@
             <div class="card">
               <slot>Some default slot text</slot>
               <br>
-              <div>Hosted CSS - REMEMBER! Light DOM will always override Shadow CSS.</div>
+              <div id="test">Hosted CSS - REMEMBER! Light DOM will always override Shadow CSS.</div>
             </div>
             `;
 
